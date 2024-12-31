@@ -12,7 +12,9 @@ import uuid
 
 from app.routes.constants import PLANETARY_ORDER, DAY_RULERS, ZODIAC_SIGNS, PLANETARY_COLORS, ORDINAL_NAMES, SKYFIELD_IDS, ESSENTIAL_DIGNITIES, EXTENDED_PLANETARY_ORDER, EXTENDED_SKYFIELD_IDS
 from app.routes.constants import ephemeris, ts
-from app.routes.constants import NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD, neo4j_driver
+from app.routes.constants import neo4j_driver
+
+driver = neo4j_driver
 
 
 # Utility Functions for Calculating Moon's illumination's percentage
@@ -552,7 +554,7 @@ class EphemerisCalculator:
         """
         Fetch and process Neo4j data.
         """
-        with neo4j_driver.session() as session:
+        with .session() as session:
             query = f"""
             MATCH (hour {{uri: "monsieur:MagicHourEntity/{hour_name}"}})
             OPTIONAL MATCH (hour)-[r]-(connectedNode)

@@ -1,11 +1,19 @@
 from neo4j import GraphDatabase
 from skyfield.api import load
+from dotenv import load_dotenv
+import os
 
 # Neo4j configuration
-NEO4J_URI = "neo4j+s://eb32f100.databases.neo4j.io"
-NEO4J_USER = "neo4j"
-NEO4J_PASSWORD = "DGXWFgCX7QiAMLk-6ZSJs7ZZwGN7PM1Ps7F6Jh6-eGw"
+load_dotenv()
+NEO4J_URI = os.getenv("NEO4J_URI")
+NEO4J_USER = os.getenv("NEO4J_USER")
+NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD")
+
+if not NEO4J_URI or not NEO4J_USER or not NEO4J_PASSWORD:
+    raise ValueError("Neo4j connection details are missing in the environment variables.")
+
 neo4j_driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
+
 
 # Load ephemerides once
 ephemeris = load('de440s.bsp')
@@ -14,7 +22,6 @@ ts = load.timescale()
 # Planetary Order
 PLANETARY_ORDER = ['Sun', 'Venus', 'Mercury', 'Moon', 'Saturn', 'Jupiter', 'Mars']
 EXTENDED_PLANETARY_ORDER = PLANETARY_ORDER + ['Uranus', 'Neptune', 'Pluto']
-
 
 DAY_RULERS = ['Moon', 'Mars', 'Mercury', 'Jupiter', 'Venus', 'Saturn', 'Sun']
 
@@ -39,6 +46,13 @@ EXTENDED_SKYFIELD_IDS = {
     'Pluto': 'pluto barycenter'
 }
 
+DEFAULT_ASPECT_CONFIG = {
+    "Conjunction": {"angle": 0, "orb": 8},
+    "Opposition": {"angle": 180, "orb": 8},
+    "Square": {"angle": 90, "orb": 7},
+    "Trine": {"angle": 120, "orb": 7},
+    "Sextile": {"angle": 60, "orb": 6},
+}
 
 # Essential dignities
 ESSENTIAL_DIGNITIES = {

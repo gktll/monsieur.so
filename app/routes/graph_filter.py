@@ -1,14 +1,10 @@
 from flask import  Blueprint, jsonify, request
-from neo4j import GraphDatabase
+from app.routes.constants import neo4j_driver
 
 # Define the blueprint
 filter_viz_bp = Blueprint('filter_viz', __name__)
 
-# Initialize Neo4j driver (ensure this is configured globally in your app)
-driver = GraphDatabase.driver(
-    "neo4j+s://eb32f100.databases.neo4j.io", 
-    auth=("neo4j", "DGXWFgCX7QiAMLk-6ZSJs7ZZwGN7PM1Ps7F6Jh6-eGw")  # Replace with actual credentials
-)
+driver = neo4j_driver
 
 @filter_viz_bp.route('/api/filter_by_hour', methods=['POST'])
 def filter_by_hour():
