@@ -1,0 +1,520 @@
+#--------------------------------------------
+# COLOR ENTITY
+#--------------------------------------------  
+classes: 
+  ColorEntity:
+    type: owl:Class
+    uri: monsieur:ColorEntity
+    label: ColorEntity
+    description: "A class representing colors"
+    subClassOf: Entity
+    classProperties:
+      hasHex:
+        type: xsd:string
+        default: "Unknown"
+        description: "The color hex code"
+      hasGradient:
+        type: xsd:boolean
+        default: false 
+        description: "Whether the color requires a gradient effect"
+      gradientColors:
+        type: xsd:string[]
+        default: []
+        description: "Array of hex codes for gradient colors"
+
+instances:
+  Blue:
+    uri: monsieur:ColorEntity/Blue
+    label: Blue
+    description: "Blue is one of the three primary colours."
+    relationships:
+      - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: "Blue"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+    classProperties:
+      hasHex: "#0000FF"
+      hasGradient: false
+      gradientColors: []
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Jupiter
+            label: Jupiter
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Sachiel
+            label: Sachiel
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Tin_0
+            label: Tin_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Thursday
+            label: Thursday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+  White:
+    uri: monsieur:ColorEntity/White
+    label: White
+    description: White is the lightest color and is achromatic (having no hue)
+    relationships:
+      - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: White
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+    classProperties:
+      hasHex: "#FFFFFF"
+      hasGradient: false
+      gradientColors: []
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Moon
+            label: Moon
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Gabriel
+            label: Gabriel
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Silver_0
+            label: Silver_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Monday
+            label: Monday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+
+  Yellow:
+    uri: monsieur:ColorEntity/Yellow
+    label: Yellow
+    description: "Yellow is the color between green and orange on the spectrum of light."
+    relationships:
+      - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: "Yellow"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: "#FFFF00"
+      hasGradient: false
+      gradientColors: []
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Sun
+            label: Sun
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Michael
+            label: Michael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Gold_0
+            label: Gold_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Sunday
+            label: Sunday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"  
+
+  Purple:
+    uri: monsieur:ColorEntity/Purple
+    label: Purple
+    description: "Purple is a color similar in appearance to violet light."
+    relationships:
+      - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: "Purple"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Grape"
+    classProperties:
+      hasHex: "#673ab7"
+      hasGradient: false
+      gradientColors: []
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Mercury
+            label: Mercury
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Raphael
+            label: Raphael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Mercury_0
+            label: Mercury_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Wednesday
+            label: Wednesday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+  Red:
+    uri: monsieur:ColorEntity/Red
+    label: Red
+    description: "Color red"
+    relationships:
+      - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: "Red"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+    classProperties:
+      hasHex: "#FF0000"
+      hasGradient: false
+      gradientColors: []
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Mars
+            label: Mars
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Samael
+            label: Samael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Iron_0
+            label: Iron_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Tuesday
+            label: Tuesday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+  Black:
+    uri: monsieur:ColorEntity/Black
+    label: Black
+    description: "Color Black"
+    relationships:
+      - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: "Black"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+    classProperties:
+      hasHex: "#000000"
+      hasGradient: false
+      gradientColors: []
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Saturn
+            label: Saturn
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Cassiel
+            label: Cassiel
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Lead_0
+            label: Lead_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Saturday
+            label: Saturday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+  Green:
+    uri: monsieur:ColorEntity/Green
+    label: Green
+    description: "Color green"
+    relationships:
+      - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: "Green"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+    classProperties:
+      hasHex: "#00ff00"
+      hasGradient: false
+      gradientColors: []
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Venus
+            label: Venus
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Anael
+            label: Anael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Copper_0
+            label: Copper_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Friday
+            label: Friday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+
+  Multicolor:
+    uri: monsieur:ColorEntity/Multicolor
+    label: Multicolor
+    description: "Multicolor"
+    relationships:
+      - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: "Multicolor"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+    classProperties:
+      hasHex: ""
+      hasGradient: false
+      gradientColors: []
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Mercury
+            label: Mercury
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Raphael
+            label: Raphael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Mercury_0
+            label: Mercury_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Wednesday
+            label: Wednesday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+
+
+
+
+

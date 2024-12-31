@@ -1,0 +1,315 @@
+classes:
+  VirtueEntity:
+    type: owl:Class
+    uri: monsieur:AstroReadEntity
+    label: VirtueEntity
+    description: "A class representing virtues"
+    subClassOf: Entity
+    analogyProperties:
+      analogyWeight:
+        type: xsd:float
+        default: 0.87  # Override the Entity-level weight for weekdays
+        description: Default weight for analogies specific to Planet entities
+
+instances:
+
+# --------------------------
+  # POSITIVE
+# --------------------------
+
+# A
+
+# B
+
+# C
+
+# D
+
+# E
+
+# F
+  Faith:
+      uri: monsieur:AstroReadEntity/Faith
+      label: Faith
+      description: "Fidelity to one's promises, sincerity of intentions, belief and trust in and loyalty to God, belief in the traditional doctrines of a religion, firm belief in something for which there is no proof, complete trust."
+      relationships:
+        - HAS_MEMBER: AstroReadEntity 
+      defaultProperties:  
+        hasName: "Faith"
+        hasImage: "Image_URL_or_Description"
+        hasSynonyms: ""
+
+# G
+
+# H
+  Hope:
+    uri: monsieur:AstroReadEntity/Hope
+    label: Hope
+    description: "To cherish a desire with anticipation : to want something to happen or be true; to expect with confidence."
+    relationships:
+      - HAS_MEMBER: AstroReadEntity 
+    defaultProperties:  
+      hasName: "Hope"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+
+# I
+Immobility:
+    uri: monsieur:AstroReadEntity/Immobility
+    label: Immobility
+    description: ""
+    relationships:
+      - HAS_MEMBER: AstroReadEntity 
+    defaultProperties:  
+      hasName: "Justice"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+
+# J
+  Justice:
+    uri: monsieur:AstroReadEntity/Justice
+    label: Justice
+    description: "Justice is the maintenance or administration of what is just especially by the impartial adjustment of conflicting claims or the assignment of merited rewards or punishments; the quality of being just, impartial, or fair; the principle or ideal of just dealing or right action."
+    relationships:
+      - HAS_MEMBER: AstroReadEntity 
+    defaultProperties:  
+      hasName: "Justice"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+
+# K
+
+# L
+  Love:
+    uri: monsieur:AstroReadEntity/Love
+    label: Love
+    description: "Unselfish loyal and benevolent concern for the good of another: such as the fatherly concern of God for humankind, brotherly concern for others, a person's adoration of God."
+    relationships:
+      - HAS_MEMBER: AstroReadEntity 
+    defaultProperties:  
+      hasName: "Love"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+
+# M
+
+# N
+
+# O
+
+# P
+Prudence:
+    uri: monsieur:AstroReadEntity/Prudence
+    label: Prudence
+    description: "It is the ability to govern and discipline oneself by the use of reason; sagacity or shrewdness in the management of affairs; skill and good judgment in the use of resources; caution or circumspection as to danger or risk."
+    relationships:
+      - HAS_MEMBER: AstroReadEntity 
+    defaultProperties:  
+      hasName: "Prudence"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+
+# Q
+
+# R
+
+
+# S
+  Strength:
+    uri: monsieur:AstroReadEntity/Strength
+    label: Strength
+    description: "It is the quality or state of being strong; capacity for exertion or endurance; intensity, vigor."
+    relationships:
+      - HAS_MEMBER: AstroReadEntity 
+    defaultProperties:  
+      hasName: "Strength"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+
+
+# T
+  Temperance:
+    uri: monsieur:AstroReadEntity/Temperance
+    label: Temperance
+    description: "Moderation in action, thought, or feeling."
+    relationships:
+      - HAS_MEMBER: AstroReadEntity 
+    defaultProperties:  
+      hasName: "Temperance"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+
+
+# U
+
+
+
+# V
+
+
+# W
+
+
+# X
+
+
+# Y
+
+
+
+# Z
+
+
+
+
+
+
+  
+  
+
+
+
+       
+  
+
+
+      
+
+    
+
+
+
+  
+
+  
+  
+
+  
+# --------------------------
+  # NEGATIVE
+# --------------------------
+
+# A
+
+# B
+
+# C
+
+# D
+
+# E
+  Envy:
+    uri: monsieur:ViceEntity/Envy
+    label: Envy
+    description: ""
+    relationships:
+      - HAS_MEMBER: ViceEntity  
+    defaultProperties:  
+      hasName: "Envy"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+
+# F
+  Fornication:
+    uri: monsieur:ViceEntity/Fornication
+    label: Fornication
+    description: "Usually intense or unbridled sexual desire."
+    relationships:
+      - HAS_MEMBER: ViceEntity  
+    defaultProperties:  
+      hasName: "Fornication"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+
+# G
+  Gluttony:
+    uri: monsieur:ViceEntity/Gluttony
+    label: Gluttony
+    description: "Gluttony is the overindulgence and overconsumption of anything to the point of waste."
+    relationships:
+      - HAS_MEMBER: ViceEntity  
+    defaultProperties:  
+      hasName: "Gluttony"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+
+  Greed:
+    uri: monsieur:ViceEntity/Greed
+    label: Greed
+    description: "Greed is an inordinate desire to acquire or possess more than one needs, especially with respect to material wealth."
+    relationships:
+      - HAS_MEMBER: ViceEntity  
+    defaultProperties:  
+      hasName: "Greed"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+
+# H
+
+# I 
+
+# J
+
+# K
+
+# L
+
+# M
+
+# N
+
+# O
+
+
+# P
+
+
+# Q
+
+
+# R
+
+
+# S
+  Sloth:
+    uri: monsieur:ViceEntity/Sloth
+    label: Sloth
+    description: "Disinclination to action or labor, or indolence; spiritual apathy and inactivity."
+    relationships:
+      - HAS_MEMBER: ViceEntity  
+    defaultProperties:  
+      hasName: "Sloth"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+
+# T
+
+# U
+
+# V
+
+# W
+
+  Wrath:
+    uri: monsieur:ViceEntity/Wrath
+    label: Wrath
+    description: "Wrath can be defined as uncontrolled feelings of anger, rage, and even hatred. Wrath often reveals itself in the wish to seek vengeance."
+    relationships:
+      - HAS_MEMBER: ViceEntity  
+    defaultProperties:  
+      hasName: "Wrath"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+
+
+# X      
+
+
+# Y
+
+
+# Z
+
+
+
+ 

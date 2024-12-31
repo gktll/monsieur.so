@@ -1,0 +1,53 @@
+
+classes:
+  PersonalityEntity:
+    type: owl:Class
+    uri: monsieur:PersonalityEntity
+    label: PersonalityEntity
+    description: "A class representing esoteric societies, key figures and authors"
+    subClassOf: Entity
+    classProperties: 
+      isAuthor:
+        type: xsd:boolean
+        default: false
+        description: "Indicates whether the individual is a writer" 
+
+  Individual:
+    type: owl:Class
+    uri: monsieur:PerosnalityEntity/Individual
+    label: Individual
+    description: "A subclass representing key figures and authors."
+    subClassOf: PersonalityEntity
+    classProperties: 
+      isAuthor:
+        type: xsd:boolean
+        default: false
+        description: "Indicates whether the individual is a writer" 
+  
+  Group:
+    type: owl:Class
+    uri: monsieur:PerosnalityEntity/Group
+    label: Group
+    description: "A subclass representing esoteric societies, religious sects, organizations."
+    subClassOf: PersonalityEntity
+    classProperties: 
+      isAuthor:
+        type: xsd:boolean
+        default: false
+        description: "Indicates whether the group pubslished books under the group name" 
+
+instances:
+  FuscoSebastiano:
+    type: owl:Instance
+    uri: monsieur:PersonalityEntity/Individual/FuscoSebastiano
+    label: FuscoSebastiano
+    description: "Sebastiano Fusco is an internationally renowned journalist and essayist. His extensive book production (often under the pseudonym of Jorg Sabellicus) ranges from scientific dissemination, magical traditions, alchemy, esotericism and fantastic fiction."
+    relationships:
+      - HAS_MEMBER: Individual
+    defaultProperties:
+      hasName: "Fusco Sebastiano"
+      hasImage: ""
+      hasSynonyms: "Jorg Sabellicus"
+    classProperties:
+      isAuthor:: True
+

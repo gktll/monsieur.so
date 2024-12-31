@@ -1,0 +1,459 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
+  font-family: "Space Grotesk", serif;
+}
+  
+  h1 {
+    text-align: left;
+}
+  
+  /* 1. Use a more-intuitive box-sizing model */
+  *, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+  * {
+    margin: 0;
+}
+  
+  header {
+  flex: 0 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+  
+/* Main container for network and terminal */
+#main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Network container */
+#networkContainer {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background-size: 100% 100%;
+  background-position: center;
+  background-color: transparent;
+  min-height: 300px;
+}
+
+/* #gradientContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background-size: 100% 100%;
+  background-position: center;
+  background-color: transparent;
+} */
+
+/* Vis.js visualization */
+#network {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Vis.js visualization  Commands*/
+.resize-network {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99; /* Ensure it's above the network */
+  pointer-events: none; /* Prevent it from interfering with interactions */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .5rem;
+ 
+}
+
+.zoom-commands {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.zoom-commands button {
+  border: 0px;
+  border-radius: .3rem;
+  padding: .8rem;
+  font-size: 1rem;
+}
+
+
+.center-commands {
+  align-self: end;
+}
+.center-commands button {
+  border: 0px;
+  border-radius: .3rem;
+  padding: .8rem;
+  font-size: 1rem;
+}
+
+
+
+
+
+
+/* Terminal */
+#terminal {
+  height: 150px; /* Default height */
+  background-color: #222; /* Example terminal background */
+  color: #fff;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  resize: vertical; /* Optional manual resize */
+  z-index: 2; /* Above the network container */
+  transition: height 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+#terminal.closed {
+  height: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  overflow: hidden; /* Prevent content overflow when closed */
+}
+
+
+
+/* Drag handle */
+.drag-handle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #444;
+  cursor: row-resize;
+  padding: 0 10px; /* Add padding for spacing */
+  color: white;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.drag-handle:hover {
+  background-color: #555;
+  transform: translateY(0px);
+}
+
+ /* X icon */
+.close-terminal {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+
+}
+
+.close-terminal:hover {
+  color: red;
+  transform: scale(1.2);
+
+}
+
+.terminal-output {
+  padding: 10px;
+  white-space: pre-wrap;
+  flex: 1;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: #ffffff;
+  background-color: #2d2d2d;
+  overflow-y: auto;
+}
+
+.terminal-input {
+  background-color: #1e1e1e;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  outline: none;
+  font-size: 0.9rem;
+  color: greenyellow;
+  border-top: 1px solid #f5f5f55c;
+}
+
+
+
+/* Navbar Customization */
+.navbar-custom {
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Adds a blurred effect */
+}
+
+.navbar-expand-lg .navbar-nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.nav-option {
+    list-style: none;
+    color: #222;
+    font-size: 14px;
+}
+
+.nav-option:hover {
+  color: #1928c8;
+  font-weight: 600;
+}
+
+.navbar-toggler {
+    padding: var(--bs-navbar-toggler-padding-y) var(--bs-navbar-toggler-padding-x);
+    font-size: var(--bs-navbar-toggler-font-size);
+    line-height: 1;
+    color: #000;
+    background-color: transparent;
+    border: 0px;
+    border-radius: 0px;
+    transition: var(--bs-navbar-toggler-transition);
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+
+/* Search Bar Customization */
+.search-bar {
+  position: relative;
+}
+
+.search-bar input {
+  width: 350px; /* Fixed width for larger screens */
+  font-size: 1rem;
+}
+
+.search-bar button {
+  border: 0px;
+  padding: 6px 6px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-right: 1em;
+}
+
+/* Responsive Search Bar */
+@media (max-width: 768px) {
+  .search-bar input {
+    width: 100%; /* Full width on smaller screens */
+  }
+}
+
+
+/* BUTTONS */
+/* Floating "Open" Terminal button */
+.open-terminal {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 15px;
+  z-index: 1050;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: ease-in-out;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+}
+
+.open-terminal:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+}
+
+
+.btn {
+  background-color: transparent;
+  color: #2c2c2c;
+  border: 1px solid #2c2c2c;
+}
+
+
+.btn-primary {
+  background-color: #2c2c2c;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+#network {
+  flex: 1 1 auto;
+  overflow: hidden;
+  width: 100%; /* Full width of parent 
+  transition: height 0.2s ease; 
+  position: relative;
+}
+
+#terminal {
+  height: 200px;
+  resize: vertical;
+  overflow-y: auto;
+  background-color: #2d2d2d;
+  color: #ffffff;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-top: 1px solid #444;
+}
+
+#terminal .drag-handle {
+  height: 10px;
+  cursor: ns-resize;
+  background-color: #444;
+}
+
+.terminal-input {
+  background-color: #1e1e1e;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  outline: none;
+  font-size: 12px;
+  color: greenyellow;
+}
+
+
+
+
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1050;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  width: 60px;
+  height: 60px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  background-color: transparent;
+  color: #2c2c2c;
+  border: 1px solid #2c2c2c;
+}
+
+
+.btn-primary {
+  background-color: #2c2c2c;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}  
+
+
+ */
+
+
+
+
+
+
+
+
+  /* ol.breadcrumb {
+    background-color: transparent;
+  }
+
+  .wrapper {
+    padding: 1rem 0;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .admin-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 1rem;
+  }
+
+  
+  .image-container {
+    background-color: #f0f0f0; /* optional: just to visualize the container */
+  /* }
+  
+  .image-container.topic-detail {
+    height: 150px;
+    width: 150px;
+  }
+  
+  .image-container.topic-all {
+    height: 40px;
+    width: 40px;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  
+   */
+   

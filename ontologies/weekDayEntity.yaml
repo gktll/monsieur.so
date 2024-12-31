@@ -1,0 +1,179 @@
+# 3. DAYS OF THE WEEK
+classes:
+  WeekDayEntity:
+    type: owl:Class
+    uri: monsieur:WeekDayEntity
+    label: WeekDayEntity
+    description: "A class representing weekdays"
+    subClassOf: Entity
+    analogyProperties:
+      analogyWeight:
+        type: xsd:float
+        default: 0.87  # Override the Entity-level weight for weekdays
+        description: Default weight for analogies specific to Planet entities
+
+instances:
+  Sunday:
+    uri: monsieur:WeekDayEntity/Sunday
+    label: Sunday
+    description: "The day ruled by the Sun"
+    relationships:
+      - HAS_MEMBER: WeekDayEntity  
+    defaultProperties:  
+      hasName: "Sunday"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+    discoveredRelationships:
+      hasRelationshipWith:
+      - relationshipType: "day_ruled_by"
+        relatedEntity:
+          uri: monsieur:PlanetEntity/Sun
+          label: Sun
+        source:
+          source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+    
+
+  Monday:
+    uri: monsieur:WeekDayEntity/Monday
+    label: Monday
+    description: "The Day ruled by the Moon"
+    relationships:
+        - HAS_MEMBER: WeekDayEntity
+    defaultProperties:  
+      hasName: "Monday"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+    discoveredRelationships:
+      hasRelationshipWith:
+      - relationshipType: "day_ruled_by"
+        relatedEntity:
+          uri: monsieur:PlanetEntity/Moon
+          label: Moon
+        source:
+          source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+
+
+  Tuesday:
+    uri: monsieur:WeekDayEntity/Tuesday
+    label: Tuesday
+    description: "The day ruled by Mars"
+    relationships:
+      - HAS_MEMBER: WeekDayEntity
+    defaultProperties:  
+      hasName: "Tuesday"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+    discoveredRelationships:
+      hasRelationshipWith:
+      - relationshipType: "day_ruled_by"
+        relatedEntity:
+          uri: monsieur:PlanetEntity/Mars
+          label: Mars
+        source:
+          source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+     
+
+  Wednesday:
+    uri: monsieur:WeekDayEntity/Wednesday
+    label: Wednesday
+    description: "The day ruled by Mercury"
+    relationships:
+      - HAS_MEMBER: WeekDayEntity
+    defaultProperties:  
+      hasName: "Wednesday"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+    discoveredRelationships:
+      hasRelationshipWith:
+      - relationshipType: "day_ruled_by"
+        relatedEntity:
+          uri: monsieur:PlanetEntity/Mercury
+          label: Mercury
+        source:
+          source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+
+
+
+  Thursday:
+    uri: monsieur:WeekDayEntity/Thursday
+    label: Thursday
+    description: "The day ruled by Jupiter"
+    relationships:
+      - HAS_MEMBER: WeekDayEntity
+    defaultProperties:  
+      hasName: "Thursday"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+    discoveredRelationships:
+      hasRelationshipWith:
+      - relationshipType: "day_ruled_by"
+        relatedEntity:
+          uri: monsieur:PlanetEntity/Jupiter
+          label: Jupiter
+        source:
+          source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+   
+
+
+
+  Friday:
+    uri: monsieur:WeekDayEntity/Friday
+    label: Friday
+    description: "The day ruled by Venus."
+    relationships:
+      - HAS_MEMBER: WeekDayEntity
+    defaultProperties:  
+      hasName: "Friday"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+    discoveredRelationships:
+      hasRelationshipWith:
+      - relationshipType: "day_ruled_by"
+        relatedEntity:
+          uri: monsieur:PlanetEntity/Venus
+          label: Venus
+        source:
+          source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+  
+
+
+  Saturday:
+    uri: monsieur:WeekDayEntity/Saturday
+    label: Saturday
+    description: "The day ruled by Saturn."
+    relationships:
+      - HAS_MEMBER: WeekDayEntity
+    defaultProperties:  
+      hasName: "Saturday"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: ""
+    discoveredRelationships:
+      hasRelationshipWith:
+      - relationshipType: "day_ruled_by"
+        relatedEntity:
+          uri: monsieur:PlanetEntity/Saturn
+          label: Saturn
+        source:
+          source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+    

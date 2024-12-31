@@ -1,0 +1,32 @@
+# 1. ANALOGY SYSTEMS
+classes:
+  AnalogySystemEntity:
+    type: owl:Class
+    uri: monsieur:AnalogySystemEntity  
+    label: AnalogySystemEntity
+    description: "A system used to categorize and relate analogies."
+    subClassOf: Entity
+
+instances:    
+  KeyOfSolomon:
+    type: owl:Class
+    uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+    label: KeyOfSolomon
+    description: "An analogy system related to the magical practices outlined in the Key of Solomon."
+    relationships:
+      - HAS_MEMBER: AnalogySystemEntity
+    defaultProperties:
+      hasName: "The Key Of Solomon"
+      hasImage: null
+      hasSynonyms: null
+    discoveredRelationships: 
+      hasRelationshipWith:
+        - relationshipType: "HAS_REFERENCES"
+          relatedEntity:
+            uri: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            label: ChiavediSalomone
+          source:
+            source_id: null
+            passage_id: null
+            confidence_score: 0.99
+            feed: "manual"

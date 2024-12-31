@@ -1,0 +1,576 @@
+#-------------------------
+# SPIRITUAL ENTITY
+#-------------------------
+classes:
+  SpiritualEntity:
+    type: owl:Class
+    uri: monsieur:SpiritualEntity
+    label: SpiritualEntity
+    description: "A class representing spiritual beings, including angels, demons, etc."
+    subClassOf: Entity
+
+  Angel:
+    type: owl:Class
+    uri: monsieur:SpiritualEntity/Angel
+    label: Angel
+    description: "A subclass representing celestial beings."
+    subClassOf: SpiritualEntity
+    subclassProperties:
+      hasFunction:
+        type: xsd:string[]
+        default: []
+        description: "The specific functions of the angel."
+      hasRank:
+        type: xsd:string
+        default: "Unknown"
+        description: "The rank of the angel in celestial hierarchy."
+
+  Demon:
+    type: owl:Class
+    uri: monsieur:SpiritualEntity/Demon
+    label: Demon
+    description: "A subclass representing infernal beings."
+    subClassOf: SpiritualEntity
+    subclassProperties:
+      hasFunction:
+        type: xsd:string[]
+        default: []
+        description: The specific function of the demon.
+      hasRank:
+        type: xsd:string
+        default: "Unknown"
+        description: "The rank of the demon in infernal hierarchy."
+
+  Elemental:
+    type: owl:Class
+    uri: monsieur:SpiritualEntity/Elemental
+    label: Elemental
+    description: "A subclass representing elemental beings."
+    subClassOf: SpiritualEntity
+
+  Intelligence:
+    type: owl:Class
+    uri: monsieur:SpiritualEntity/Intelligence
+    label: Intelligence
+    description: "A subclass representing intelligences."
+    subClassOf: SpiritualEntity
+
+instances:
+  Gabriel:
+    type: owl:Instance
+    uri: monsieur:SpiritualEntity/Angel/Gabriel
+    label: Gabriel
+    description: "Angel"
+    relationships:
+      - HAS_MEMBER: Angel
+    defaultProperties:
+      hasName: "Gabriel"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms:
+    subclassProperties:
+      hasFunction: []
+      hasRank: Archangel
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Moon
+            label: Moon
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Monday
+            label: Monday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Silver_0
+            label: Silver_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ColorEntity/White
+            label: White
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+
+
+  Khamael:
+    type: owl:Instance
+    uri: monsieur:SpiritualEntity/Angel/Khamael
+    label: Khamael
+    description: "Angel"
+    relationships:
+      - HAS_MEMBER: Angel
+    defaultProperties:
+      hasName: Khamael
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+    subclassProperties:
+      hasFunction: []
+      hasRank: Archangel
+
+  Michael:
+    type: owl:Instance
+    uri: monsieur:SpiritualEntity/Angel/Michael
+    label: Michael
+    description: "Angel"
+    relationships:
+      - HAS_MEMBER: Angel
+    defaultProperties:
+      hasName: Michael
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms:
+    subclassProperties:
+      hasFunction: []
+      hasRank: Archangel
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Sun
+            label: Sun
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Sunday
+            label: Sunday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Gold_0
+            label: Gold_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ColorEntity/Yellow
+            label: Yellow
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+
+     
+
+  Sadiqel:
+    type: owl:Instance
+    uri: monsieur:SpiritualEntity/Angel/Sadiqel
+    label: Sadiqel
+    description: "Angel"
+    relationships:
+      - HAS_MEMBER: Angel
+    defaultProperties:
+      hasName: "Sadiqel"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+    subclassProperties:
+      hasFunction: []
+      hasRank: Archangel
+
+  Haniel:
+    type: owl:Instance
+    uri: monsieur:SpiritualEntity/Angel/Haniel
+    label: Haniel
+    description: "Angel"
+    relationships:
+      - HAS_MEMBER: Angel
+    defaultProperties:
+      hasName: "Haniel"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+    subclassProperties:
+      hasFunction: []
+      hasRank: Archangel
+
+  Saphqiel:
+    type: owl:Instance
+    uri: monsieur:SpiritualEntity/Angel/Saphqiel
+    label: Saphquiel
+    description: "Angel."
+    relationships:
+      - HAS_MEMBER: Angel
+    defaultProperties:
+      hasName: Saphqiel
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+    subclassProperties:
+      hasFunction: []
+      hasRank: Archangel
+
+  Raphael:
+    type: owl:Instance
+    uri: monsieur:SpiritualEntity/Angel/Raphael
+    label: Raphael
+    description: "Angel"
+    relationships:
+      - HAS_MEMBER: Angel
+    defaultProperties:
+      hasName: Raphael
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+    subclassProperties:
+      hasFunction: []
+      hasRank: Archangel
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Mercury
+            label: Mercury
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Wednesday
+            label: Wednesday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Mercury_0
+            label: Mercury_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ColorEntity/Purple
+            label: Purple
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ColorEntity/Multicolor
+            label: Multicolor
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+   
+
+  Samael:
+    type: owl:Instance
+    uri: monsieur:SpiritualEntity/Angel/Samael
+    label: Samael
+    description: "Angel"
+    relationships:
+      - HAS_MEMBER: Angel
+    defaultProperties:
+      hasName: Samael
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+    subclassProperties:
+      hasFunction: []
+      hasRank: Angel
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Mars
+            label: Mars
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Tuesday
+            label: Tuesday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Iron_0
+            label: Iron_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+
+        - targetEntity:
+            uri: monsieur:ColorEntity/Red
+            label: Red
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+       
+
+  Sachiel:
+    type: owl:Instance
+    uri: monsieur:SpiritualEntity/Angel/Sachiel
+    label: Sachiel
+    description: "Angel"
+    relationships:
+      - HAS_MEMBER: Angel
+    defaultProperties:
+      hasName: Sachiel
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+    subclassProperties:
+      hasFunction: []
+      hasRank: Angel
+    analogyProperties:
+      hasAnalogyWith:
+
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Jupiter
+            label: Jupiter
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Thursday
+            label: Thursday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Tin_0
+            label: Tin_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+
+        - targetEntity:
+            uri: monsieur:ColorEntity/Blue
+            label: Blue
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+    
+
+  Anael:
+    type: owl:Instance
+    uri: monsieur:SpiritualEntity/Angel/Anael
+    label: Anael
+    description: "The angel ruler of Venus."
+    relationships:
+      - HAS_MEMBER: Angel
+    defaultProperties:
+      hasName: Anael
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "ⲁⲛⲁⲛⲓⲏⲗ, Hananel, Aniel, Hanael, חַנִּיאֵל, أنانيال"
+    subclassProperties:
+      hasFunction: []
+      hasRank: Angel
+    analogyProperties:
+      hasAnalogyWith:
+
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Venus
+            label: Venus
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Friday
+            label: Friday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Copper_0
+            label: Copper_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+
+        - targetEntity:
+            uri: monsieur:ColorEntity/Green
+            label: Green
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+   
+
+  Cassiel:
+    type: owl:Instance
+    uri: monsieur:SpiritualEntity/Angel/Cassiel
+    label: Cassiel
+    description: "The angel ruler of Saturn."
+    relationships:
+      - HAS_MEMBER: Angel
+    defaultProperties:
+      hasName: "Cassiel"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Qafsiel, קַצְפִּיאֵל"
+    subclassProperties:
+      hasFunction: []
+      hasRank: Angel
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Saturn
+            label: Saturn
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Saturday
+            label: Saturday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Lead_0
+            label: Lead_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+
+        - targetEntity:
+            uri: monsieur:ColorEntity/Black
+            label: Black
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: 
+            feed: "manual"
+      

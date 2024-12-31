@@ -1,0 +1,173 @@
+# -----------------
+# ZODIACAL SIGNS
+# -----------------
+classes: 
+  ZodiacalSignEntity:
+    type: owl:Class
+    uri: "monsieur:ZodiacalSignEntity"
+    label: "Zodiacal Signs"
+    description: "A class representing zodiacal signs"
+    subClassOf: Entity
+    classProperties:
+      hasSymbol:
+        type: xsd:string
+        default: "Unknown"
+        description: "The symbol of the zodiacal sign"
+
+instances:
+  Aries:
+    uri: "monsieur:ZodiacalSignEntity/Aries"
+    label: "Aries"
+    description: "Aries is the first astrological sign in the zodiac, spanning the first 30 degrees of celestial longitude (0°≤ λ <30°), and originates from the Aries constellation."
+    relationships:
+      - HAS_MEMBER: ZodiacalSignEntity
+    defaultProperties:  
+      hasName: "Aries"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Κριός, Kriós, Ariēs"
+    classProperties:  
+      hasSymbol: "♈︎"
+  
+  Taurus:
+    uri: "monsieur:ZodiacalSignEntity/Taurus"
+    label: "Taurus"
+    description: "Taurus is the second astrological sign in the modern zodiac. It spans from 30° to 60° of the zodiac."
+    relationships:
+      - HAS_MEMBER: ZodiacalSignEntity
+    defaultProperties:  
+      hasName: "Taurus"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Ταῦρος, Taûros, Bull"
+    classProperties:  
+      hasSymbol: "♉"
+
+  Gemini:
+    uri: "monsieur:ZodiacalSignEntity/Gemini"
+    label: "Gemini"
+    description: "Gemini is the third astrological sign in the zodiac. Under the tropical zodiac, the sun transits this sign between about May 21 to June 21."
+    relationships:
+      - HAS_MEMBER: ZodiacalSignEntity
+    defaultProperties:  
+      hasName: "Gemini"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Δίδυμοι, Dídymoi, Twins"
+    classProperties:  
+      hasSymbol: "♊︎"
+  
+  Cancer:
+    uri: "monsieur:ZodiacalSignEntity/Cancer"
+    label: "Cancer"
+    description: "Cancer is the fourth astrological sign in the zodiac, originating from the constellation of Cancer. It spans from 90° to 120° celestial longitude."
+    relationships:
+      - HAS_MEMBER: ZodiacalSignEntity
+    defaultProperties:  
+      hasName: "Cancer"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Καρκίνος, Karkínos, Crab"
+    classProperties:  
+      hasSymbol: "♋︎"
+   
+  Leo:
+    uri: "monsieur:ZodiacalSignEntity/Leo"
+    label: "Leo"
+    description: "Leo is the fifth sign of the zodiac. It corresponds to the constellation Leo and spans spans the 120th to 150th degree of celestial longitude."
+    relationships:
+      - HAS_MEMBER: ZodiacalSignEntity
+    defaultProperties:  
+      hasName: "Leo"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Λέων, Léōn, Lion"
+    classProperties:  
+      hasSymbol: "♌︎"
+
+  Virgo:
+    uri: "monsieur:ZodiacalSignEntity/Virgo"
+    label: "Virgo"
+    description: "Virgo is the sixth astrological sign in the zodiac. It spans the 150–180th degree of the zodiac."
+    relationships:
+      - HAS_MEMBER: ZodiacalSignEntity
+    defaultProperties:  
+      hasName: "Virgo"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Παρθένος, Parthénos, Virgin"
+    classProperties:  
+      hasSymbol: "♍︎"
+
+  Libra:
+    uri: "monsieur:ZodiacalSignEntity/Libra"
+    label: "Libra"
+    description: "Libra is the seventh astrological sign in the zodiac. It spans 180°–210° celestial longitude."
+    relationships:
+      - HAS_MEMBER: ZodiacalSignEntity
+    defaultProperties:  
+      hasName: "Libra"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Ζυγός, Zygós"
+    classProperties:  
+      hasSymbol: "♎︎"
+  
+  Scorpio:
+    uri: "monsieur:ZodiacalSignEntity/Scorpio"
+    label: "Scorpio"
+    description: "Scorpio is the eighth astrological sign in the zodiac, originating from the constellation of Scorpius. It spans 210–240° ecliptic longitude."
+    relationships:
+      - HAS_MEMBER: ZodiacalSignEntity
+    defaultProperties:  
+      hasName: "Scorpio"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Σκορπιός, Skorpiós, Scorpion"
+    classProperties:  
+      hasSymbol: "♏︎"
+  
+  Sagittarius:
+    uri: "monsieur:ZodiacalSignEntity/Sagittarius"
+    label: "Sagittarius"
+    description: "Sagittarius is the ninth astrological sign, which is associated with the constellation Sagittarius and spans 240–270th degrees of the zodiac. "
+    relationships:
+      - HAS_MEMBER: ZodiacalSignEntity
+    defaultProperties:  
+      hasName: "Sagittarius"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Τοξότης, Toxótēs, Archer"
+    classProperties:  
+      hasSymbol: "♐︎"
+   
+  Capricornus:
+    uri: "monsieur:ZodiacalSignEntity/Capricorn"
+    label: "Capricorn"
+    description: "Capricorn is the tenth astrological sign in the zodiac out of twelve total zodiac signs, originating from the constellation of Capricornus, the goat. It spans the 270–300th degree of the zodiac, corresponding to celestial longitude."
+    relationships:
+      - HAS_MEMBER: ZodiacalSignEntity
+    defaultProperties:  
+      hasName: "Capricorn"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Αιγόκερως, Aigókerōs"
+    classProperties:  
+      hasSymbol: "♑︎"
+   
+  Aquarius:
+    uri: "monsieur:ZodiacalSignEntity/Aquarius"
+    label: "Aquarius"
+    description: "Aquarius is the eleventh astrological sign in the zodiac, originating from the constellation Aquarius. Under the tropical zodiac, the Sun is in the Aquarius sign between about January 20 and February 18."
+    relationships:
+      - HAS_MEMBER: ZodiacalSignEntity
+    defaultProperties:  
+      hasName: "Aquarius"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Ὑδροχόος, Hydrokhóos"
+    classProperties:  
+      hasSymbol: "♒︎"
+    
+  Pisces:
+    uri: "monsieur:ZodiacalSignEntity/Pisces"
+    label: "Pisces"
+    description: "Pisces is the twelfth and final astrological sign in the zodiac. It is a mutable sign. It spans 330° to 360° of celestial longitude."
+    relationships:
+      - HAS_MEMBER: ZodiacalSignEntity
+    defaultProperties:  
+      hasName: "Pisces"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Ἰχθύες, Ikhthyes, Fishes"
+    classProperties:  
+      hasSymbol: "♓︎"
+  

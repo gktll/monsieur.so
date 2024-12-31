@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Topic</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+
+    <script src="{{ url_for('static', filename='js/load_form_analogies.js') }}"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Add Topic</h2>
+
+        <!-- Basic Information Form Section -->
+        <form id="basicInfoForm" action="/admin/create_topic" method="POST">
+            <div class="form-group">
+                <label for="type">Topic Type:</label>
+                <input type="text" class="form-control" id="type" name="type" required>
+            </div>
+            <div class="form-group">
+                <label for="subtype">Subtype:</label>
+                <input type="text" class="form-control" id="subtype" name="subtype">
+            </div>
+            <div class="form-group">
+                <label for="name">Topic Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Image URL:</label>
+                <input type="text" class="form-control" id="image" name="image">
+            </div>
+            <div class="form-group">
+                <label for="notes">Notes:</label>
+                <textarea class="form-control" id="notes" name="notes"></textarea>
+            </div>
+
+
+            <div class="analogy-section" style="border: 1px solid #ccc; border-radius: 12px; padding: 2rem;">
+                <!-- Dropdown to select analogy system -->
+                <div class="mb-3">
+                    <label for="analogySystem" class="form-label">Select Analogy System</label>
+                    <select id="analogySystemDropdown" class="form-select">
+                        <option value="" disabled selected>Select an analogy system</option>
+                        {% for system in analogy_systems %}
+                            <option value="{{ system.id }}">{{ system.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            
+                <!-- Search field for topics -->
+                <div class="mb-3">
+                    <label for="analogySearch" class="form-label">Search for Analogies</label>
+                    <input type="text" id="analogySearch" class="form-control" placeholder="Search for topics to add as analogies...">
+                    <ul id="analogySearchResults" class="list-group mt-2"></ul>
+                </div>
+            
+                <!-- Container to hold selected analogies by system -->
+                <div id="analogySystemsContainer">
+                    <!-- Individual system containers will be added dynamically here -->
+                </div>
+                <input type="" id="selectedAnalogies" name="selected_analogies" style="width: 100%;">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+
+        <!-- Button to Open Offcanvas for Dynamic Relationships -->
+        <button class="btn btn-secondary mt-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#dynamicRelationshipsOffcanvas" aria-controls="dynamicRelationshipsOffcanvas">
+            Manage Dynamics
+        </button>
+
+      
+<!-- Offcanvas for Dynamic Relationships -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="dynamicRelationshipsOffcanvas" aria-labelledby="dynamicRelationshipsOffcanvasLabel">
+    <div class="offcanvas-header">
+        <h5 id="dynamicRelationshipsOffcanvasLabel">Dynamic Relationships</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <!-- Display Existing Dynamic Relationships -->
+        <h6>Existing Relationships</h6>
+        <div id="existingRelationshipsContainer">
+            <!-- Placeholder for relationships that will be populated by JavaScript -->
+        </div>
+
+        <!-- Add New Dynamic Relationships Form
+        <form id="dynamicRelationshipsForm" action="/crud/add_dynamic_relationship" method="POST">
+            <input type="hidden" id="topic_id" name="topic_id" required>
+
+            <div class="form-group">
+                <label for="precedes">Precedes:</label>
+                <input type="text" class="form-control" id="precedes" name="precedes">
+            </div>
+            <div class="form-group">
+                <label for="follows">Follows:</label>
+                <input type="text" class="form-control" id="follows" name="follows">
+            </div>
+            <div class="form-group">
+                <label for="catalyst_for">Catalyst For:</label>
+                <input type="text" class="form-control" id="catalyst_for" name="catalyst_for">
+            </div>
+            <div class="form-group">
+                <label for="antagonist_of">Antagonist Of:</label>
+                <input type="text" class="form-control" id="antagonist_of" name="antagonist_of">
+            </div>
+            <div class="form-group">
+                <label for="derives_from">Derives From:</label>
+                <input type="text" class="form-control" id="derives_from" name="derives_from">
+            </div>
+            <div class="form-group">
+                <label for="has_property">Has Property:</label>
+                <input type="text" class="form-control" id="has_property" name="has_property">
+            </div>
+            <div class="form-group">
+                <label for="binds_to">Binds To:</label>
+                <input type="text" class="form-control" id="binds_to" name="binds_to">
+            </div>
+            <div class="form-group">
+                <label for="enhances">Enhances:</label>
+                <input type="text" class="form-control" id="enhances" name="enhances">
+            </div>
+            <div class="form-group">
+                <label for="decreases">Decreases:</label>
+                <input type="text" class="form-control" id="decreases" name="decreases">
+            </div>
+            <div class="form-group">
+                <label for="equivalent_to">Equivalent To:</label>
+                <input type="text" class="form-control" id="equivalent_to" name="equivalent_to">
+            </div>
+            <div class="form-group">
+                <label for="synonym_of">Synonym Of:</label>
+                <input type="text" class="form-control" id="synonym_of" name="synonym_of">
+            </div>
+            <div class="form-group">
+                <label for="similar_to">Similar To:</label>
+                <input type="text" class="form-control" id="similar_to" name="similar_to">
+            </div>
+            <div class="form-group">
+                <label for="influences">Influences:</label>
+                <input type="text" class="form-control" id="influences" name="influences">
+            </div>
+            <div class="form-group">
+                <label for="affiliated_to">Affiliated To:</label>
+                <input type="text" class="form-control" id="affiliated_to" name="affiliated_to">
+            </div>
+            <div class="form-group">
+                <label for="is_author">Is Author:</label>
+                <input type="text" class="form-control" id="is_author" name="is_author">
+            </div>
+            <div class="form-group">
+                <label for="is_publisher">Is Publisher:</label>
+                <input type="text" class="form-control" id="is_publisher" name="is_publisher">
+            </div>
+            <div class="form-group">
+                <label for="is_bibliographic_source">Is Bibliographic Source:</label>
+                <input type="text" class="form-control" id="is_bibliographic_source" name="is_bibliographic_source">
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Add Dynamic Relationships</button>
+        </form>
+    </div>
+</div> -->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

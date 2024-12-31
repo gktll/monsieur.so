@@ -1,0 +1,163 @@
+
+#--------------------------------------------
+# THE FOUR WORLDS IN KABBALAH
+#--------------------------------------------   
+classes:
+  KabbalahWorldsEntity:
+    type: owl:Class
+    uri: "monsieur:KabbalahWorldsEntity"
+    label: "Jewish Worlds Entity"
+    description: "A class representing the four worlds in Semitic Traditions"
+    subClassOf: Entity  
+instances:
+  Yetzirah:
+    uri: "monsieur:KabbalahWorldsEntity/Yetzirah"
+    label: "Yetzirah"
+    description: ""
+    relationships:
+        - HAS_MEMBER: KabbalahWorldsEntity
+  Briah:
+    uri: "monsieur:KabbalahWorldsEntity/Briah"
+    label: "Briah"
+    description: ""
+    relationships:
+        - HAS_MEMBER: KabbalahWorldsEntity
+  Atziluth:
+    uri: "monsieur:KabbalahWorldsEntity/Atziluth"
+    label: "Atziluth"
+    description: ""
+    relationships:
+        - HAS_MEMBER: KabbalahWorldsEntity
+  Assiah:
+    uri: "monsieur:KabbalahWorldsEntity/Assiah"
+    label: "Assiah"
+    description: ""
+    relationships:
+        - HAS_MEMBER: KabbalahWorldsEntity
+
+
+
+#--------------------------------------------
+# THE FIVE LEVELS OF THE SOUL IN KABBALAH
+#--------------------------------------------  
+classes:
+  JewishSoulLevelsEntity:
+    type: owl:Class
+    uri: "monsieur:JewishSoulLevelsEntity"
+    label: "Jewish Soul Levels Entity"
+    description: "A class representing the four levels of the soul in the Semitic tradition"
+    subClassOf: Entity  
+instances:
+  Ruach:
+    uri: "monsieur:JewishSoulLevelsEntity/Ruach"
+    label: "Ruach"
+    description: ""
+    relationships:
+        - HAS_MEMBER: JewishSoulLevelsEntity
+  Neschamah:
+    uri: "monsieur:JewishSoulLevelsEntity/Neschamah"
+    label: "Neschamah"
+    description: ""
+    relationships:
+        - HAS_MEMBER: JewishSoulLevelsEntity
+  Chiah:
+    uri: "monsieur:JewishSoulLevelsEntity/Chiah"
+    label: "Chiah"
+    description: ""
+    relationships:
+        - HAS_MEMBER: JewishSoulLevelsEntity
+  Nephesh:
+    uri: "monsieur:JewishSoulLevelsEntity/Nephesh"
+    label: "Nephesh"
+    description: ""
+    relationships:
+        - HAS_MEMBER: JewishSoulLevelsEntity
+  Jechidah:
+    uri: "monsieur:JewishSoulLevelsEntity/Jechidah"
+    label: "Jechidah"
+    description: ""
+    relationships:
+        - HAS_MEMBER: JewishSoulLevelsEntity
+
+
+
+#--------------------------------------------
+# THE SEPHIROT
+#--------------------------------------------  
+classes:
+  TreeOfLifeEntity:
+    type: owl:Class
+    uri: "monsieur:TreeOfLifeEntity"
+    label: "Sephirot"
+    description: "A class representing the ten Sephirot in the kabbalistic tree of life"
+    subClassOf: Entity  
+instances:
+  Kether:
+    uri: "monsieur:TreeOfLifeEntity/Kether"
+    label: "Kether"
+    description: ""
+    relationships:
+        - HAS_MEMBER: TreeOfLifeEntity
+  Chokmah:
+    uri: "monsieur:TreeOfLifeEntity/Chokmah"
+    label: "Chokmah"
+    description: ""
+    relationships:
+        - HAS_MEMBER: TreeOfLifeEntity
+  Binah:
+    uri: "monsieur:TreeOfLifeEntity/Binah"
+    label: "Binah"
+    description: ""
+    relationships:
+        - HAS_MEMBER: TreeOfLifeEntity
+  Chesed:
+    uri: "monsieur:TreeOfLifeEntity/Chesed"
+    label: "Chesed"
+    description: ""
+    relationships:
+        - HAS_MEMBER: TreeOfLifeEntity
+  Geburah:
+    uri: "monsieur:TreeOfLifeEntity/Geburah"
+    label: "Geburah"
+    description: ""
+    relationships:
+        - HAS_MEMBER: TreeOfLifeEntity
+  Tipheret:
+    uri: "monsieur:TreeOfLifeEntity/Tipheret"
+    label: "Tipheret"
+    description: ""
+    relationships:
+        - HAS_MEMBER: TreeOfLifeEntity
+  Netzach:
+    uri: "monsieur:TreeOfLifeEntity/Netzach"
+    label: "Netzach"
+    description: ""
+    relationships:
+        - HAS_MEMBER: TreeOfLifeEntity
+  Hod:
+    uri: "monsieur:TreeOfLifeEntity/Hod"
+    label: "Hod"
+    description: ""
+    relationships:
+        - HAS_MEMBER: TreeOfLifeEntity
+  Yesod:
+    uri: "monsieur:TreeOfLifeEntity/Yesod"
+    label: "Yesod"
+    description: ""
+    relationships:
+        - HAS_MEMBER: TreeOfLifeEntity
+  Malkuth:
+    uri: "monsieur:TreeOfLifeEntity/Yesod"
+    label: "Yesod"
+    description: ""
+    relationships:
+        - HAS_MEMBER: TreeOfLifeEntity
+
+  
+
+
+  
+  Qliphot:
+    type: owl:Class
+    uri: "spir:Qliphot"
+    label: "Qliphot"

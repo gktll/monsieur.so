@@ -1,0 +1,542 @@
+# 2. PLANETS 
+classes:
+  PlanetEntity:
+    type: owl:Class
+    uri: monsieur:PlanetEntity
+    label: PlanetEntity
+    description: "A class representing planets in the solar system."
+    subClassOf: Entity
+    analogyProperties:
+      analogyWeight:
+        type: xsd:float
+        default: 0.85
+        description: "Default weight for analogies specific to Planet entities."
+
+instances:
+  Sun:
+    uri: monsieur:PlanetEntity/Sun
+    label: Sun
+    description: "The star at the center of the Solar System."
+    relationships:
+      - HAS_MEMBER: PlanetEntity
+    defaultProperties:
+      hasName: "Sun"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Michael
+            label: Michael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Gold_0
+            label: Gold_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ColorEntity/Yellow
+            label: Yellow
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        
+        # ELEMENTS
+        - targetEntity:
+            uri: monsieur:ElementEntity/Fire_0
+            label: Fire_0
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+
+
+  Moon:
+    uri: monsieur:PlanetEntity/Moon
+    label: Moon
+    description: "The Earth's only natural satellite."
+    relationships:
+      - HAS_MEMBER: PlanetEntity
+    defaultProperties:
+      hasName: "Moon"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Gabriel
+            label: Gabriel
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Silver_0
+            label: Silver_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ColorEntity/White
+            label: White
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+
+        # ELEMENTS
+        - targetEntity:
+            uri: monsieur:ElementEntity/Water_0
+            label: Water_0
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+
+    
+
+  Mercury:
+    uri: monsieur:PlanetEntity/Mercury
+    label: Mercury
+    description: "Mercury is the first planet from the Sun and the smallest in the
+      Solar System."
+    relationships:
+      - HAS_MEMBER: PlanetEntity
+    defaultProperties:
+      hasName: "Mercury"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Raphael
+            label: Raphael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Mercury_0
+            label: Mercury_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ColorEntity/Purple
+            label: Purple
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ColorEntity/Multicolor
+            label: Multicolor
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        
+        # ELEMENTS
+        - targetEntity:
+            uri: monsieur:ElementEntity/Air_0
+            label: Air_0
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+    
+
+  Venus:
+    uri: monsieur:PlanetEntity/Venus
+    label: Venus
+    description: "Venus is the second planet from the Sun. It is a terrestrial planet and is the closest in mass and size to its orbital neighbour Earth."
+    relationships:
+      - HAS_MEMBER: PlanetEntity
+    defaultProperties:
+      hasName: "Venus"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Anael
+            label: Anael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Copper_0
+            label: Copper_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ColorEntity/Green
+            label: Green
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        
+        # ELEMENTS
+        - targetEntity:
+            uri: monsieur:ElementEntity/Earth_0
+            label: Earth_0
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+    
+
+  Earth:
+    uri: monsieur:PlanetEntity/Earth
+    label: Earth
+    description: "Earth is the third planet from the Sun and the only astronomical object known to harbor life. This is enabled by Earth being an ocean world, the only one in the Solar System sustaining liquid surface water."
+    relationships:
+      - HAS_MEMBER: PlanetEntity
+    defaultProperties:
+      hasName: "Earth"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+
+  Mars:
+    uri: monsieur:PlanetEntity/Mars
+    label: Mars
+    description: "Mars is the fourth planet from the Sun. The surface of Mars is orange-red because it is covered in iron(III) oxide dust, giving it the nickname the Red Planet."
+    relationships:
+      - HAS_MEMBER: PlanetEntity
+    defaultProperties:
+      hasName: "Mars"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Samael
+            label: Samael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Iron_0
+            label: Iron_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ColorEntity/Red
+            label: Red
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        
+        # ELEMENTS
+        - targetEntity:
+            uri: monsieur:ElementEntity/Fire_0
+            label: Fire_0
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+    
+
+  Jupiter:
+    uri: monsieur:PlanetEntity/Jupiter
+    label: Jupiter
+    description: "Jupiter is the fifth planet from the Sun and the largest in the
+      Solar System. It is a gas giant with a mass more than 2.5 times that of all
+      the other planets in the Solar System combined and slightly less than one-thousandth
+      the mass of the Sun."
+    relationships:
+      - HAS_MEMBER: PlanetEntity
+    defaultProperties:
+      hasName: "Jupiter"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Sachiel
+            label: Sachiel
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Tin_0
+            label: Tin_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ColorEntity/Blue
+            label: Blue
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        
+        # ELEMENTS
+        - targetEntity:
+            uri: monsieur:ElementEntity/Fire_0
+            label: Fire_0
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+    
+
+  Saturn:
+    uri: monsieur:PlanetEntity/Saturn
+    label: Saturn
+    description: "Saturn is the sixth planet from the Sun and the second largest in the Solar System, after Jupiter. It is a gas giant, with an average radius of about nine times that of Earth."
+    relationships:
+      - HAS_MEMBER: PlanetEntity
+    defaultProperties:
+      hasName: "Saturn"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms:
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Cassiel
+            label: Cassiel
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Lead_0
+            label: Lead_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ColorEntity/Black
+            label: Black
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        
+        # ELEMENTS
+        - targetEntity:
+            uri: monsieur:ElementEntity/Earth_0
+            label: Earth_0
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+
+
+    Uranus:
+      uri: monsieur:PlanetEntity/Uranus
+      label: Uranus
+      description: "Uranus is the seventh planet from the Sun. It is a gaseous cyan-coloured
+        ice giant."
+      relationships:
+        - HAS_MEMBER: PlanetEntity
+      defaultProperties:
+        hasName: "Uranus"
+        hasImage: "Image_URL_or_Description"
+        hasSynonyms: []
+      analogyProperties:
+        hasAnalogyWith:
+          # ELEMENTS
+          - targetEntity:
+              uri: monsieur:ElementEntity/Air_0
+              label: Air_0
+            analogySystem:
+              uri: 
+              label: 
+            confidence:
+              score: 0.99
+              source_id: 
+              quote_id: ""
+              feed: manual
+
+
+  Neptune:
+    uri: monsieur:PlanetEntity/Neptune
+    label: Neptune
+    description: "Neptune is the eighth and farthest known planet from the Sun. It
+      is the fourth-largest planet in the Solar System by diameter, the third-most-massive
+      planet, and the densest giant planet."
+    relationships:
+      - HAS_MEMBER: PlanetEntity
+    defaultProperties:
+      hasName: "Neptune"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+    analogyProperties:
+      hasAnalogyWith:
+        # ELEMENTS
+        - targetEntity:
+            uri: monsieur:ElementEntity/Water_0
+            label: Water_0
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+
+
+  Pluto:
+    uri: monsieur:PlanetEntity/Pluto
+    label: Pluto
+    description: "Pluto is a dwarf planet in the Kuiper belt, a ring of bodies beyond
+      the orbit of Neptune."
+    relationships:
+      - HAS_MEMBER: PlanetEntity
+    defaultProperties:
+      hasName: "Pluto"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+    analogyProperties:
+      hasAnalogyWith:
+        # ELEMENTS
+        - targetEntity:
+            uri: monsieur:ElementEntity/Water_0
+            label: Water_0
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual

@@ -1,0 +1,317 @@
+classes:
+  CelestialBodyEntity:
+    type: owl:Class
+    uri: monsieur:CelestialBodyEntity
+    label: CelestialBodyEntity
+    description: "A class representing celestial bodies."
+    subClassOf: Entity
+    classProperties: 
+      isAuthor:
+        type: xsd:boolean
+        default: false
+        description: "Indicates whether the individual is a writer" 
+    
+
+PlanetEntity:
+    type: owl:Class
+    uri: monsieur:CelestialBodyEntity/PlanetEntity
+    label: PlanetEntity
+    description: "A subclass representing the 7 traditional planets"
+    subClassOf: CelestialBodyEntity
+    subClassProperties:
+      symbol:
+        type: xsd:string
+        default: "Unknown"
+        description: "The planet symbol"
+      has_element:
+        type: xsd:string[]
+        default: "unkwnown"
+        description: "The primary element associated with the planet."  
+      rules_sign:
+        type: xsd:string[]
+        default: "Unknown"
+        description: "The signs ruled by the planet."
+      domicile_in:
+        type: xsd:string[]
+        default: "Unknown"
+        description: "The planet is governor, its energy is strong."
+      exile_in:
+        type: xsd:string[]
+        default: "Unknown"
+        description: "The planet energy is weak."
+      dignity_in:
+        type: xsd:string[]
+        default: "Unknown"
+        description: "The planet energy is exhalted."
+      fall_in:
+        type: xsd:string[]
+        default: "0.0"
+        description: "The planet is neutralized."
+   
+instances
+  instances:
+  Sun:
+    uri: monsieur:CelestialBodyEntity/PlanetEntity/Sun
+    label: Sun
+    description: "The star at the center of the Solar System."
+    relationships:
+      - HAS_MEMBER: monsieur:CelestialBodyEntity/PlanetEntity
+    defaultProperties:
+      hasName: "Sun"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+    subclassProperties:
+      symbol:
+      has_element: "fire"
+      rules_sign: 
+        - "Leo"
+        - "Aries"
+        - "Sagittarius"
+      domicile_in: "Leo"
+      exile_in: "Aquarius"
+      dignity_in: "Aries"
+      fall_in: "Libra"
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Michael
+            label: Michael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Gold_0
+            label: Gold_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ColorEntity/Yellow
+            label: Yellow
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: manual
+        
+        # ELEMENTS
+        - targetEntity:
+            uri: monsieur:ElementEntity/Fire_0
+            label: Fire_0
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+
+
+
+planet: "Jupiter"
+qualities:
+  positive: ["growth", "expansion", "wealth"]
+  negative: ["overindulgence", "waste"]
+element: "Fire"
+
+throne: "Sagittarius"
+exalted: "Cancer"
+detriment: "Gemini"
+fall: "Capricorn"
+housing: 
+  - first_house: 
+    meaning: 
+aspects:
+  - planet: "Moon"
+    aspect: "trine"
+    strength: 2
+  - planet: "Saturn"
+    aspect: "square"
+    strength: -2
+
+
+# for Planet Venus
+Entity:
+  uri: "monsieur:PlanetEntity/Venus"
+  label: "Venus"
+  description: "Venus, the planet of love, harmony, beauty."
+  astroProperties:
+    hasAstroRelationship:
+      - astroType: "has_primary_element"
+        astroValence: "neutral"
+        astroScore: null
+        relatedEntity:
+          uri: "monsieur:ElementEntity/Earth"
+          label: "Earth"
+        astroRead:
+          uri: "monsieur:QualityEntity/Stability"
+          label: "Stability"
+        source:
+          source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+
+      - astroType: "has_primary_quality"
+        astroValence: "neutral"
+        astroScore: null
+        relatedEntity:
+          uri: "monsieur:ElementQualities/Earth"
+          label: "Earth"
+        astroRead:
+          uri: "monsieur:QualityEntity/Stability"
+          label: "Stability"
+        source:
+          source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+
+      - astroType: "has_throne"
+        astroValence: "+2"
+        astroScore: 2
+        relatedEntity:
+          uri: "monsieur:ZodiacEntity/Taurus"
+          label: "Taurus"
+        astroRead:
+          uri: "monsieur:QualityEntity/Dominance"
+          label: "Dominance"
+        source:
+          source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+
+      - astroType: "is_exalted"
+        astroValence: "+1"
+        astroScore: 1
+        relatedEntity:
+          uri: "monsieur:ZodiacEntity/Pisces"
+          label: "Pisces"
+        astroRead:
+          uri: "monsieur:QualityEntity/Exaltation"
+          label: "Exaltation"
+        source:
+          source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+
+      - astroType: "in_exile"
+        astroValence: "0"
+        astroScore: 0
+        relatedEntity:
+          uri: "monsieur:ZodiacEntity/Scorpio"
+          label: "Scorpio"
+        astroRead:
+          uri: "monsieur:QualityEntity/Weakness"
+          label: "Weakness"
+        source:
+          source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+
+      - astroType: "in_fall"
+        astroValence: "-1"
+        astroScore: -1
+        relatedEntity:
+          uri: "monsieur:ZodiacEntity/Virgo"
+          label: "Virgo"
+        astroRead:
+          uri: "monsieur:QualityEntity/Fall"
+          label: "Fall"
+        source:
+          source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+
+      - astroType: "planet_in_sign"
+        astroValence: "neutral"
+        astroScore: null
+        relatedEntity:
+          uri: "monsieur:ZodiacEntity/Gemini"
+          label: "Gemini"
+        astroRead:
+          uri: "monsieur:QualityEntity/Adaptability"
+          label: "Adaptability"
+        source:
+          source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+
+      - astroType: "planet_in_house"
+        astroValence: "neutral"
+        astroScore: null
+        relatedEntity:
+          uri: "monsieur:HouseEntity/SecondHouse"
+          label: "Second House"
+        astroRead:
+          uri: "monsieur:QualityEntity/Wealth"
+          label: "Wealth"
+        source:
+          source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+
+      - astroType: "aspect_trine"
+        astroValence: "positive"
+        astroScore: +1
+        relatedEntity:
+          uri: "monsieur:PlanetEntity/Mercury"
+          label: "Mercury"
+        astroRead:
+          uri: "monsieur:QualityEntity/Harmony"
+          label: "Harmony"
+        source:
+          source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+
+      - astroType: "aspect_sextile"
+        astroValence: "positive"
+        astroScore: +1
+        relatedEntity:
+          uri: "monsieur:PlanetEntity/Mercury"
+          label: "Mercury"
+        astroRead:
+          uri: "monsieur:QualityEntity/Harmony"
+          label: "Harmony"
+        source:
+          source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"
+
+      - astroType: "aspect_square"
+        astroValence: "negative"
+        astroScore: -1
+        relatedEntity:
+          uri: "monsieur:PlanetEntity/Mercury"
+          label: "Mercury"
+        astroRead:
+          uri: "monsieur:QualityEntity/Harmony"
+          label: "Harmony"
+        source:
+          source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+          quote_id: ""
+          confidence_score: 0.99
+          feed: "manual"

@@ -1,0 +1,567 @@
+# 4. CHEMICAL SUBSTANCES
+classes:
+  ChemicalSubstanceEntity:
+    type: owl:Class
+    uri: monsieur:ChemicalSubstanceEntity
+    label: ChemicalSubstanceEntity
+    description: "Ontology linked to CHEBI of chemical substances"
+    subClassOf: Entity
+
+  MetalEntity:
+    type: owl:Class
+    uri: monsieur:ChemicalSubstanceEntity/MetalEntity
+    label: MetalEntity
+    description: "A subclass for metallic elements, linked to CHEBI where possible."
+    subClassOf: ChemicalSubstanceEntity
+    subClassProperties:
+      symbol:
+        type: xsd:string
+        default: "Unknown"
+        description: "Chemical symbol for the metal (e.g., Au for gold)."
+      charge:
+        type: xsd:string
+        default: "0"
+        description: "The charge of the metal in its elemental state."
+      formula:
+        type: xsd:string
+        default: "Unknown"
+        description: "The chemical formula for the metal."
+      inchi:
+        type: xsd:string
+        default: "Unknown"
+        description: "The IUPAC International Chemical Identifier for the metal."
+      inchiKey:
+        type: xsd:string
+        default: "Unknown"
+        description: "The InChIKey for the metal, providing a unique identifier."
+      mass:
+        type: xsd:float
+        default: 0.0
+        description: "The standard atomic mass of the metal."
+      monoisotopicMass:
+        type: xsd:float
+        default: 0.0
+        description: "The monoisotopic mass of the metal."
+      dbXrefs:
+        type: xsd:string[]
+        default: []  # Allow an empty list as default
+        description: "Database cross-references for the metal (e.g., CAS number)."
+      source:
+        type: xsd:string
+        default: "Unknown"  
+        description: "Link to ontology reference"
+    analogyProperties:
+      analogyWeight:
+        type: xsd:float
+        default: 0.87  # Override the Entity-level weight for weekdays
+        description: "Default weight for analogies specific to Planet entities."
+
+instances:
+  Gold_0:
+    type: owl:Instance
+    uri: monsieur:ChemicalSubstanceEntity/Metal/Gold_0
+    description: "A metallic element"
+    label: Gold_0
+    relationships:
+        - HAS_MEMBER: ChemicalSubstanceEntity
+    defaultProperties:
+      hasName: "Gold_0"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "gold, gold(0), Au(0), Aun, colloidal gold, gold flake, gold leaf"
+    subclassProperties:
+      symbol: "Au"
+      charge: "0"
+      formula: "Au"
+      inchi: "InChI=1S/Au"
+      inchiKey: "PCHJSUWPFVWCPO-UHFFFAOYSA-N"
+      mass: 196.96655
+      monoisotopicMass: 196.96657
+      dbXrefs:
+        - "CAS:7440-57-5"
+        - "WebElements:Au"
+      source: "http://purl.obolibrary.org/obo/CHEBI_30050"
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Sunday
+            label: Sunday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Michael
+            label: Michael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Sun
+            label: Sun
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ColorEntity/Yellow
+            label: "Yellow"
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+  Copper_0:
+    type: owl:Instance
+    uri: monsieur:ChemicalSubstanceEntity/Metal/Copper_0
+    description: "A metallic element"
+    label: Copper_0
+    relationships:
+      - HAS_MEMBER: ChemicalSubstanceEntity
+    defaultProperties:
+      hasName: "Copper_0"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "copper, copper(0), Cu(0), Cun"
+    subclassProperties:
+      symbol: "Cu"
+      charge: "0"
+      formula: "Cu"
+      inchi: "InChI=1S/Cu"
+      inchiKey: "RYGMFSIKBFXOCR-UHFFFAOYSA-N"
+      mass: 63.54600
+      monoisotopicMass: 62.92960
+      dbXrefs:
+        - "CAS:7440-50-8"
+        - "WebElements:Cu"
+      source: "http://purl.obolibrary.org/obo/CHEBI_30052"
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Friday
+            label: Friday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Anael
+            label: Anael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Venus
+            label: Venus
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ColorEntity/Green
+            label: Green
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+  Silver_0:
+    type: owl:Instance
+    uri: monsieur:ChemicalSubstanceEntity/Metal/Silver_0
+    description: "A metallic element"
+    label: Silver_0
+    relationships:
+      - HAS_MEMBER: ChemicalSubstanceEntity
+    defaultProperties:
+      hasName: "Silver_0"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "silver(0), Ag, Ag(0), Agn, Argentum, silver, silver metal"
+    subclassProperties:
+      symbol: "Ag"
+      charge: "0"
+      formula: "Ag"
+      inchi: "InChI=1S/Ag"
+      inchiKey: "BQCADISMDOOEFD-UHFFFAOYSA-N"
+      mass: 107.86820
+      monoisotopicMass: 106.90509
+      dbXrefs:
+        - "CAS:7440-22-4"
+        - "KEGG:C06710"
+        - "PDBeChem:AG"
+      source: "http://purl.obolibrary.org/obo/CHEBI_9141"
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Monday
+            label: Monday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Gabriel
+            label: Gabriel
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Moon
+            label: Moon
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ColorEntity/White
+            label: White
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+  Lead_0:
+    type: owl:Instance
+    uri: monsieur:ChemicalSubstanceEntity/Metal/Lead_0
+    description: "A metallic element"
+    label: Lead_0
+    relationships:
+      - HAS_MEMBER: ChemicalSubstanceEntity
+    defaultProperties:
+      hasName: "Lead_0"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "lead, lead(0), Pb, Pb(0), lead metal, Pbn"
+    subclassProperties:
+      symbol: "Pb"
+      charge: "0"
+      formula: "Pb"
+      inchi: "InChI=1S/Pb"
+      inchiKey: "WABPQHHGFIMREM-UHFFFAOYSA-N"
+      mass: 207.20000
+      monoisotopicMass: 207.97665
+      dbXrefs:
+        - "CAS:7439-92-1"
+        - "KEGG:C06696"
+        - "Wikipedia:Lead"
+      source: "http://purl.obolibrary.org/obo/CHEBI_27889"
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Saturday
+            label: Saturday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Cassiel
+            label: Cassiel
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Saturn
+            label: Saturn
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ColorEntity/Black
+            label: Black
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+  Iron_0:
+    type: owl:Instance
+    uri: monsieur:ChemicalSubstanceEntity/Metal/Iron_0
+    description: "A metallic element"
+    label: Iron_0
+    relationships:
+      - HAS_MEMBER: ChemicalSubstanceEntity
+    defaultProperties:
+      hasName: "Iron_0"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Fen, iron(0), Fe(0), iron dust, iron metal, iron powder"
+    subclassProperties:
+      symbol: "Fe"
+      charge: "0"
+      formula: "Fe"
+      inchi: "InChI=1S/Fe"
+      inchiKey: "XEEYBQQBJWHFJM-UHFFFAOYSA-N"
+      mass: 55.84500
+      monoisotopicMass: 55.93494
+      dbXrefs:
+        - "CAS:7439-89-6"
+        - "Drug_Central:4277"
+        - "Reaxys:4122945"
+        - "Wikipedia:Iron"
+      source: "http://purl.obolibrary.org/obo/CHEBI_82664"
+    analogyProperties:
+      hasAnalogyWith:        
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Tuesday
+            label: Tuesday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"       
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Samael
+            label: Samael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"  
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Mars
+            label: Mars
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ColorEntity/Red
+            label: Red
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+  Mercury_0:
+    type: owl:Instance
+    uri: monsieur:ChemicalSubstanceEntity/Metal/Mercury_0
+    description: "A metallic element"
+    label: Mercury_0
+    relationships:
+      - HAS_MEMBER: ChemicalSubstanceEntity
+    defaultProperties:
+      hasName: "Mercury_0"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "mercury, mercury(0), Hg, Elemental mercury, metallic mercury"
+    subclassProperties:
+      symbol: "Hg"
+      charge: "0"
+      formula: "Hg"
+      inchi: "InChI=1S/Hg"
+      inchiKey: "QSHDDOUJBYECFT-UHFFFAOYSA-N"
+      mass: 200.59000
+      monoisotopicMass: 201.97064
+      dbXrefs:
+        - "CAS:7439-97-6"
+        - "KEGG:C01319"
+        - "UM-BBD_compID:c0387"
+        - "Wikipedia:Mercury_(element)"
+      source: "http://purl.obolibrary.org/obo/CHEBI_16170"
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:WeekDayEntity/Wednesday
+            label: Wednesday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Raphael
+            label: Raphael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual" 
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Mercury
+            label: Mercury
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ColorEntity/Purple
+            label: Purple
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - targetEntity:
+            uri: monsieur:ColorEntity/Multicolor
+            label: Multicolor
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        
+  Tin_0:
+    type: owl:Instance
+    uri: monsieur:ChemicalSubstanceEntity/Metal/Tin_0
+    description: "A metallic element"
+    label: Tin_0
+    relationships:
+      - HAS_MEMBER: ChemicalSubstanceEntity
+    defaultProperties:
+      hasName: "Tin_0"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "tin, tin(0), Sn(0), Snn, metallic tin"
+    subclassProperties:
+      symbol: "Sn"
+      charge: "0"
+      formula: "Sn"
+      inchi: "InChI=1S/Sn"
+      inchiKey: "ATJFFYVFTNAWJD-UHFFFAOYSA-N"
+      mass: 118.71000
+      monoisotopicMass: 119.90220
+      dbXrefs:
+        - "CAS:7440-31-5"
+        - "ChemIDplus"
+        - "NIST Chemistry WebBook"
+      source: "http://purl.obolibrary.org/obo/CHEBI_32990"
+    analogyProperties:
+      hasAnalogyWith:
+          targetEntity:
+            uri: monsieur:WeekDayEntity/Thursday
+            label: Thursday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+          targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Sachiel
+            label: Sachiel
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+          targetEntity:
+            uri: monsieur:PlanetEntity/Jupiter
+            label: Jupiter
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+          targetEntity:
+            uri: monsieur:ColorEntity/Blue
+            label: Blue
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+

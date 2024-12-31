@@ -1,0 +1,66 @@
+
+ontology:
+  uri: "http://monsieur/"
+  name: "Analogies Entity Ontology"
+  description: "An ontology for categorizing spiritual entities, including angels, demons, and other supernatural beings."
+  version: "1.0"
+  prefixes:
+    rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+    owl: "http://www.w3.org/2002/07/owl#"
+    xsd: "http://www.w3.org/2001/XMLSchema#"
+    spir: "http://monsieur.io"
+
+classes:
+  Entity:
+    type: owl:Class
+    uri: "monsieur:Entity"
+    label: "Entity"
+    description: "A general template for all entities, including spiritual entities, elements, planets, etc."
+    defaultProperties:
+      hasName:
+        type: xsd:string
+        default: "Unknown"
+        description: "The entity's primary name."
+      hasImage:
+        type: xsd:string
+        default: "Unknown"
+        description: "Main image representing the entity."
+      hasSynonyms:
+        type: xsd:string[]
+        default: "Unknown"
+        description: "Other known names or aliases for the entity."
+    analogyProperties:
+      hasAnalogyWith:
+        type: owl:ObjectProperty
+        description: "An analogy relationship with a specific topic in a designated analogy system."
+        structure:
+          targetEntity:
+            uri: ""  # URI for the target entity (e.g., a specific Planet)
+            label: ""  # Label for the target entity (e.g., "Mars")
+          analogySystem:
+            uri: ""  # URI for the analogy system (e.g., Agrippa's system)
+            label: ""  # Label for the analogy system (e.g., "Agrippa")
+          confidence:
+            score: null  # Confidence level, e.g., 0.96
+            source_id: ""  # Source reference ID
+            quote_id: ""  # Specific quote or passage ID
+            feed: ""  # Source type, e.g., "manual", "propagation", "text_analysis"
+    discoveredRelationships:
+      hasRelationshipWith:
+        type: owl:ObjectProperty
+        description: "A dynamic relationship with another entity, based on discovered connections."
+        structure:
+          relationshipType:
+            type: xsd:string
+            description: "The type of relationship discovered (e.g., 'is catalyst for', 'precedes', etc.)."
+          relatedEntity:
+            uri: ""  # URI for the related entity
+            label: ""  # Label for the related entity
+          source:
+            type: owl:ObjectProperty
+            values:
+              source_id: ""  # Reference to text/source ID
+              quote_id: ""  # Specific quote or passage ID
+              confidence_score: null  # Confidence score for this relationship
+              feed: ""  # Source type, e.g., "manual", "propagation", "text_analysis"

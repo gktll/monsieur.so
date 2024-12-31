@@ -1,0 +1,30 @@
+classes:
+  FluidEntity:
+    type: owl:Class
+    uri: monsieur:FluidEntity
+    label: FluidEntity
+    description: ""
+    subClassOf: Entity
+
+instances:
+  Electric:
+    uri: monsieur:ElementEntity/Electric
+    label: Electric
+    description: ""
+    relationships:
+        - HAS_MEMBER: FluidEntity
+    defaultProperties:  
+      hasName: "Electric"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+
+  Magnetic:
+    uri: monsieur:ElementEntity/Magnetic
+    label: Magnetic
+    description: ""
+    relationships:
+        - HAS_MEMBER: FluidEntity
+    defaultProperties:  
+      hasName: "Magnetic"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []

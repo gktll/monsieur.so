@@ -1,0 +1,52 @@
+classes:
+  TemperamentEntity:
+    type: owl:Class
+    uri: monsieur:TemperamentEntity
+    label: TemperamentEntity
+    description: "The five elements in western esotericism"
+    subClassOf: Entity
+
+instances:
+  Colleric:
+    uri: monsieur:TemperamentEntity/Colleric
+    label: Colleric
+    description: "Dynamic principle and source of energy that gives movement to the matter."
+    relationships:
+        - HAS_MEMBER: TemperamentEntity
+    defaultProperties:  
+      hasName: "Colleric"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+
+  Lymphatic:
+    uri: monsieur:TemperamentEntity/Lymphatic
+    label: Lymphatic
+    description: "Static principle tending towards immobility, contraction, retraction, reserve, paralysis of substances and organisms."
+    relationships:
+        - HAS_MEMBER: TemperamentEntity
+    defaultProperties:  
+      hasName: "Lymphatic"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+
+  Dry:
+    uri: monsieur:TemperamentEntity/Dry
+    label: Dry
+    description: ""
+    relationships:
+        - HAS_MEMBER: TemperamentEntity
+    defaultProperties:  
+      hasName: "Dry"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+
+  Humid:
+    uri: monsieur:TemperamentEntity/Humid
+    label: Humid
+    description: "Principle of extension, elongation, receptivity, diffusion, distension, ductility, dilution, and internal relaxation."
+    relationships:
+        - HAS_MEMBER: TemperamentEntity
+    defaultProperties:  
+      hasName: "Humid"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []

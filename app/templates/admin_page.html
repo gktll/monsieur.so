@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" style="font-size: 14px; font-weight: 800;" href="/">Monsieur.io</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="btn btn-primary" href="/admin">Admin</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container mt-5">
+            <h2>Admin Page</h2>
+            <div class="wrapper grid">
+                <div class="admin-card">
+                    <div class="card-header">
+                        <h4>Topics</h4>
+                        <p>Here you can manage all the topics in the database</p>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-secondary" href="{{ url_for('crud_bp.show_add_topic_form') }}">Add Topic</a>
+                        <a class="btn btn-secondary" href="/topics">All Topics</a>
+                    </div>
+                </div>
+                <div class="admin-card">
+                    <div class="card-header">
+                        <h4>Publishers</h4>
+                        <p>Here you can manage all the publishers in the database</p>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-secondary" href="">Add Publisher</a>
+                        <a class="btn btn-secondary" href="">All Publishers</a>
+                    </div>
+                </div>
+                <div class="admin-card">
+                    <div class="card-header">
+                        <h4>Authors</h4>
+                        <p>Here you can manage all the Authors in the Database</p>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-secondary" href="#">Add Author</a>
+                        <a class="btn btn-secondary" href="#">All Authors</a>
+                    </div>
+                </div>
+                <div class="admin-card">
+                    <div class="card-header">
+                        <h4>Sources</h4>
+                        <p>Here you can manage all the Sources in the Database</p>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-secondary" href="#">Add Source</a>
+                        <a class="btn btn-secondary" href="#">All Sources</a>
+                    </div>
+                </div>
+            </div>
+            <h5>Additional Links</h5>
+            <ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="/analogy_systems">Analogy Systems</a>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+     
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

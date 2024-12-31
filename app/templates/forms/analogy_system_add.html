@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add New Analogy System</title>
+    <!-- Include Bootstrap CSS and other required resources -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" style="font-size: 14px; font-weight: 800;" href="/">Monsieur.io</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="btn btn-primary" href="/admin">Admin</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div aria-label="breadcrumb" style="padding: 1rem;">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+            <li class="breadcrumb-item"><a href="/admin/systems">All Systems</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Add New System</li>
+        </ol>
+    </div>
+    <div class="container mt-5">
+        <h2>Add a New Analogy System</h2>
+        <form action="/admin/create_analogy_system" method="POST">
+            <div class="mb-3">
+                <label for="systemName" class="form-label">System Name</label>
+                <input type="text" class="form-control" id="systemName" name="system_name" required placeholder="Enter system name">
+            </div>
+            <div class="mb-3">
+                <label for="systemDescription" class="form-label">Description</label>
+                <textarea class="form-control" id="systemDescription" name="description" rows="3" placeholder="Enter system description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add System</button>
+        </form>
+    </div>
+</body>
+</html>

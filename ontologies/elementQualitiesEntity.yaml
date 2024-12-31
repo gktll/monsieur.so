@@ -1,0 +1,52 @@
+classes:
+  ElementQualitiesEntity:
+    type: owl:Class
+    uri: monsieur:ElementQualitiesEntity
+    label: ElementQualitiesEntity
+    description: "The five elements in western esotericism"
+    subClassOf: Entity
+
+instances:
+  Hot:
+    uri: monsieur:ElementQualityEntity/Hot
+    label: Hot
+    description: "Dynamic principle and source of energy that gives movement to the matter."
+    relationships:
+        - HAS_MEMBER: ElementQualitiesEntity
+    defaultProperties:  
+      hasName: "Hot"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+
+  Cold:
+    uri: monsieur:ElementQualityEntity/Cold
+    label: Cold
+    description: "Static principle tending towards immobility, contraction, retraction, reserve, paralysis of substances and organisms."
+    relationships:
+        - HAS_MEMBER: ElementQualitiesEntity
+    defaultProperties:  
+      hasName: "Cold"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+
+  Dry:
+    uri: monsieur:ElementQualityEntity/Dry
+    label: Dry
+    description: ""
+    relationships:
+        - HAS_MEMBER: ElementQualitiesEntity
+    defaultProperties:  
+      hasName: "Dry"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+
+  Humid:
+    uri: monsieur:ElementQualityEntity/Humid
+    label: Humid
+    description: "Principle of extension, elongation, receptivity, diffusion, distension, ductility, dilution, and internal relaxation."
+    relationships:
+        - HAS_MEMBER: ElementQualitiesEntity
+    defaultProperties:  
+      hasName: "Humid"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []

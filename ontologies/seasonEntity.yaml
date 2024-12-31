@@ -1,0 +1,52 @@
+classes:
+  SeasonEntity:
+    type: owl:Class
+    uri: monsieur:SeasonEntity
+    label: SeasonEntity
+    description: ""
+    subClassOf: Entity
+
+instances:
+  Summer:
+    uri: monsieur:SeasonEntity/Summer
+    label: Summer
+    description: ""
+    relationships:
+        - HAS_MEMBER: SeasonEntity
+    defaultProperties:  
+      hasName: "Summer"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+
+  Spring:
+    uri: monsieur:SeasonEntity/Spring
+    label: Spring
+    description: ""
+    relationships:
+        - HAS_MEMBER: SeasonEntity
+    defaultProperties:  
+      hasName: "Spring"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+
+  Autumn:
+    uri: monsieur:SeasonEntity/Autumn
+    label: Autumn
+    description: ""
+    relationships:
+        - HAS_MEMBER: SeasonEntity
+    defaultProperties:  
+      hasName: "Autumn"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []
+
+  Winter:
+    uri: monsieur:SeasonEntity/Winter
+    label: Winter
+    description: ""
+    relationships:
+        - HAS_MEMBER: SeasonEntity
+    defaultProperties:  
+      hasName: "Winter"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: []

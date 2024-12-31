@@ -1,0 +1,158 @@
+classes:
+  WorkEntity:
+    type: owl:Class
+    uri: monsieur:WorkEntity
+    label: WorkEntity
+    description: "A class representing bibliographical sources"
+    subClassOf: Entity
+
+  Print:
+    type: owl:Class
+    uri: monsieur:WorkEntity/Print
+    label: Print
+    description: "A subclass of Work representing printed books."
+    subClassOf: WorkEntity
+    subclassProperties:
+      hasAuthor:
+        type: xsd:string
+        default: "Unknown"
+        description: "The author of the text."  
+      hasEditor:
+        type: xsd:string
+        default: "Unknown"
+        description: "The editor of the text."    
+      hasPublisher:
+        type: xsd:string
+        default: "Unknown"
+        description: "The publisher of the text."   
+      hasPublicationDate:
+        type: xsd:string
+        default: "Unknown"
+        description: "The publication date of the text."  
+      hasIsbn:
+        type: xsd:string
+        default: "Unknown"
+        description: "The ISBN of the printed book."  
+      hasLanguage:
+        type: xsd:string
+        default: "Unknown"
+        description: "The language of the text."  
+      hasFile:
+        type: xsd:boolean
+        default: false
+        description: "Indicates whether a file is associated with the printed work." 
+      filePath:
+        type: xsd:string
+        default: ""
+        description: "The path or URI to the associated file, if available."  
+      hasExtractedText:
+        type: xsd:string
+        default: "Not available"
+        description: "The text extracted from the PDF file, if applicable."
+
+  Manuscript:
+    type: owl:Class
+    uri: monsieur:WorkEntity/Manuscript
+    label: Manuscript
+    description: "A subclass of Work representing manuscripts"
+    subClassOf: WorkEntity
+    subclassProperties:
+      hasAuthor:
+        type: xsd:string
+        default: "Unknown"
+        description: ""
+      hasInventoryNumber:
+        type: xsd:string
+        default: "Unknown"
+        description: ""
+      hasLibrary:
+        type: xsd:string
+        default: "Unknown"
+        description: ""
+      hasLink:
+        type: xsd:string
+        default: "Unknown"
+        description: ""
+
+  Paper:
+    type: owl:Class
+    uri: monsieur:WorkEntity/Paper
+    label: Paper
+    description: "A subclass of Work representing academi publication in paper format"
+    subClassOf: WorkEntity
+    subclassProperties:
+      hasAuthor:
+        type: xsd:string
+        default: "Unknown"
+        description: ""
+      hasAffiliation:
+        type: xsd:string
+        default: "Unknown"
+        description: ""
+      hasDoi:
+        type: xsd:string
+        default: "Unknown"
+        description: ""
+      hasPublicationDate:
+        type: xsd:string
+        default: "Unknown"
+        description: ""
+      hasJournal:
+        type: xsd:string
+        default: "Unknown"
+        description: ""
+
+  WebSource:
+    type: owl:Class
+    uri: monsieur:WorkEntity/WebSourceText
+    label: WebSourceText
+    description: "A subclass of work representing digital textual sources from the web"
+    subClassOf: WorkEntity
+    subclassProperties:
+      hasAuthor:
+        type: xsd:string
+        default: "Unknown"
+        description: ""
+      hasLink:
+        type: xsd:string
+        default: "Unknown"
+        description: ""
+     
+  Video:
+    type: owl:Class
+    uri: monsieur:WorkEntity/Video
+    label: Video
+    description: "A subclass representing video transcriptions"
+    subClassOf: WorkEntity
+    subclassProperties:
+      hasAuthor:
+        type: xsd:string
+        default: "Unknown"
+        description: ""
+      hasLink:
+        type: xsd:string
+        default: "Unknown"
+        description: ""
+      
+instances:
+  ChiaveDiSalomone:
+    type: owl:Instance
+    uri: monsieur:WorkEntity/Print/ChiaveDiSalomone
+    label: ChiaveDiSalomone
+    description: "The volume brings together and comments for the first time on the three fundamental texts of the ceremonial magical tradition: the Key of Solomon, the Lemegeton and the Testament, whose task was to evoke the discarnate infernal and celestial entities. To this end, the ancient original iconography was recovered to reconstruct the seals and talismans and restore from the Hebrew the correct version of the supernatural names, upset over the centuries by the ignorance of the copyists. This second critical edition of the Solomonic texts contains copious explanatory material on the meaning of rituals and the related indispensable practices of meditation and contemplation."
+    relationships:
+      - HAS_MEMBER: Print
+    defaultProperties:
+      hasName: "La Chiave di Salomone"
+      hasImage: "https://img.ubiklibri.it/images/9788899863760_0_900_0_0.jpg"
+      hasSynonyms: null
+    subclassProperties:
+      hasAuthor: "Unknown"
+      hasEditor: "Fusco Sebastiano"
+      hasPublisher: "Venexia"
+      hasPublicationDate: "2005"
+      hasIsbn: "8887944342"
+      hasLanguage: "Ita"
+      hasFile: false
+      filePath: Null
+      hasExtractedText: Null

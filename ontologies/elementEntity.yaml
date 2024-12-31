@@ -1,0 +1,470 @@
+# ELEMENTS
+classes:
+  ElementEntity:
+    type: owl:Class
+    uri: "monsieur:ElementEntity"
+    label: ElementEntity
+    description: "The five elements in western esotericism"
+    subClassOf: Entity
+
+instances:
+  Aether_0:
+    uri: monsieur:ElementEntity/Aether_0
+    label: Aether_0
+    description: "According to ancient and medieval science, aether, also known as the fifth element or quintessence, is the material that fills the region of the universe beyond the terrestrial sphere"
+    relationships:
+        - HAS_MEMBER: ElementEntity
+    defaultProperties:  
+      hasName: "Aether_0
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Ether, Aythir, Aither, Akasha"
+
+  Fire_0:
+    uri: "monsieur:ElementEntity/Fire_0"
+    label: "Fire_0"
+    description: "Fire is one of the five classical elements"
+    relationships:
+      - HAS_MEMBER: ElementEntity
+    defaultProperties:  
+      hasName: "Fire_0"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Tejas"
+    analogyProperties:
+      hasAnalogyWith:
+        #QUALITIES
+        - targetEntity:
+            uri: monsieur:ElementEntity/Hot
+            label: Hot
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ElementEntity/Dry
+            label: Dry
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        #SEASON
+        - targetEntity:
+            uri: monsieur:SeasonEntity/Summer
+            label: Summer
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        
+        # PLANETS
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Sun
+            label: Sun
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Mars
+            label: Mars
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Jupiter
+            label: Jupiter
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        # SIGNS
+        - targetEntity:
+            uri: monsieur:ZodiacalSignEntity/Aries
+            label: Aries
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ZodiacalSignEntity/Leo
+            label: Leo
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ZodiacalSignEntity/Sagittarius
+            label: Sagittarius
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+
+
+
+  Air_0:
+    uri: "monsieur:ElementEntity/Air_0"
+    label: "Air_0"
+    description: "Air is one of the five classical elements"
+    relationships:
+      - HAS_MEMBER: ElementEntity
+    defaultProperties:  
+      hasName: "Air_0"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Waju"
+    analogyProperties:
+      hasAnalogyWith:
+        #QUALITIES
+        - targetEntity:
+            uri: monsieur:ElementEntity/Hot
+            label: Hot
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ElementEntity/Humid
+            label: Humid
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        #SEASON
+        - targetEntity:
+            uri: monsieur:SeasonEntity/Spring
+            label: Spring
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        # PLANETS
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Mercury
+            label: Mercury
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Uranus
+            label: Uranus
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        # SIGNS
+        - targetEntity:
+            uri: monsieur:ZodiacalSignEntity/Gemini
+            label: Gemini
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ZodiacalSignEntity/Libra
+            label: Libra
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ZodiacalSignEntity/Aquarius
+            label: Aquarius
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+
+
+  Water_0:
+    uri: "monsieur:ElementEntity/Water_0"
+    label: "Water_0"
+    description: "Water is one of the five classical elements"
+    relationships:
+      - HAS_MEMBER: ElementEntity
+    defaultProperties:  
+      hasName: "Water_0"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Apas"
+    analogyProperties:
+      hasAnalogyWith:
+        #QUALITIES
+        - targetEntity:
+            uri: monsieur:ElementEntity/Humid
+            label: Humid
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ElementEntity/Cold
+            label: Cold
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        #SEASONS
+        - targetEntity:
+            uri: monsieur:SeasonEntity/Winter
+            label: Winter
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        # PLANETS
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Moon
+            label: Moon
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Neptune
+            label: Neptune
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Pluto
+            label: Pluto
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        # SIGNS
+        - targetEntity:
+            uri: monsieur:ZodiacalSignEntity/Cancer
+            label: Cancer
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ZodiacalSignEntity/Scorpio
+            label: Scorpio
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ZodiacalSignEntity/Pisces
+            label: Pisces
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+
+
+
+
+  Earth_0:
+    uri: "monsieur:ElementEntity/Earth_0"
+    label: "Earth_0"
+    description: "Earth is one of the five classical elements"
+    relationships:
+      - HAS_MEMBER: ElementEntity
+    defaultProperties:  
+      hasName: "Earth_0"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Prithivi"
+    analogyProperties:
+      hasAnalogyWith:
+        #QUALITIES
+        - targetEntity:
+            uri: monsieur:ElementEntity/Cold
+            label: Cold
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ElementEntity/Dry
+            label: Dry
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        #SEASON
+        - targetEntity:
+            uri: monsieur:SeasonEntity/Autumn
+            label: Autumn
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        # PLANETS
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Saturn
+            label: Saturn
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:PlanetEntity/Venus
+            label: Venus
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        # SIGNS
+        - targetEntity:
+            uri: monsieur:ZodiacalSignEntity/Taurus
+            label: Taurus
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ZodiacalSignEntity/Virgo
+            label: Virgo
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+        - targetEntity:
+            uri: monsieur:ZodiacalSignEntity/Capricorn
+            label: Capricorn
+          analogySystem:
+            uri: 
+            label: 
+          confidence:
+            score: 0.99
+            source_id: 
+            quote_id: ""
+            feed: manual
+

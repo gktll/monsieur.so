@@ -1,0 +1,171 @@
+instances:
+  Venus:
+    uri: "monsieur:CelestialBodyEntity/PlanetEntity/Venus"
+    label: "Venus"
+    description: "Venus, the planet of love, harmony, beauty."
+    astroProperties:
+      hasAstroRelationship:
+        - astroType: "has_primary_element"
+          astroValence: "neutral"
+          astroScore: null
+          relatedEntity:
+            uri: "monsieur:ElementEntity/Earth"
+            label: "Earth"
+          astroRead:
+            uri: "monsieur:QualityEntity/Stability"
+            label: "Stability"
+          source:
+            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+            quote_id: ""
+            confidence_score: 0.99
+            feed: "manual"
+
+        - astroType: "has_primary_quality"
+          astroValence: "neutral"
+          astroScore: null
+          relatedEntity:
+            uri: "monsieur:ElementQualities/Earth"
+            label: "Earth"
+          astroRead:
+            uri: "monsieur:QualityEntity/Stability"
+            label: "Stability"
+          source:
+            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+            quote_id: ""
+            confidence_score: 0.99
+            feed: "manual"
+
+        - astroType: "has_throne"
+          astroValence: "+2"
+          astroScore: 2
+          relatedEntity:
+            uri: "monsieur:ZodiacEntity/Taurus"
+            label: "Taurus"
+          astroRead:
+            uri: "monsieur:QualityEntity/Dominance"
+            label: "Dominance"
+          source:
+            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+            quote_id: ""
+            confidence_score: 0.99
+            feed: "manual"
+
+        - astroType: "is_exalted"
+          astroValence: "+1"
+          astroScore: 1
+          relatedEntity:
+            uri: "monsieur:ZodiacEntity/Pisces"
+            label: "Pisces"
+          astroRead:
+            uri: "monsieur:QualityEntity/Exaltation"
+            label: "Exaltation"
+          source:
+            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+            quote_id: ""
+            confidence_score: 0.99
+            feed: "manual"
+
+        - astroType: "in_exile"
+          astroValence: "0"
+          astroScore: 0
+          relatedEntity:
+            uri: "monsieur:ZodiacEntity/Scorpio"
+            label: "Scorpio"
+          astroRead:
+            uri: "monsieur:QualityEntity/Weakness"
+            label: "Weakness"
+          source:
+            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+            quote_id: ""
+            confidence_score: 0.99
+            feed: "manual"
+
+        - astroType: "in_fall"
+          astroValence: "-1"
+          astroScore: -1
+          relatedEntity:
+            uri: "monsieur:ZodiacEntity/Virgo"
+            label: "Virgo"
+          astroRead:
+            uri: "monsieur:QualityEntity/Fall"
+            label: "Fall"
+          source:
+            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+            quote_id: ""
+            confidence_score: 0.99
+            feed: "manual"
+
+        - astroType: "planet_in_sign"
+          astroValence: "neutral"
+          astroScore: null
+          relatedEntity:
+            uri: "monsieur:ZodiacEntity/Gemini"
+            label: "Gemini"
+          astroRead:
+            uri: "monsieur:QualityEntity/Adaptability"
+            label: "Adaptability"
+          source:
+            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+            quote_id: ""
+            confidence_score: 0.99
+            feed: "manual"
+
+        - astroType: "planet_in_house"
+          astroValence: "neutral"
+          astroScore: null
+          relatedEntity:
+            uri: "monsieur:HouseEntity/SecondHouse"
+            label: "Second House"
+          astroRead:
+            uri: "monsieur:QualityEntity/Wealth"
+            label: "Wealth"
+          source:
+            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+            quote_id: ""
+            confidence_score: 0.99
+            feed: "manual"
+
+        - astroType: "aspect_trine"
+          astroValence: "positive"
+          astroScore: +1
+          relatedEntity:
+            uri: "monsieur:PlanetEntity/Mercury"
+            label: "Mercury"
+          astroRead:
+            uri: "monsieur:QualityEntity/Harmony"
+            label: "Harmony"
+          source:
+            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+            quote_id: ""
+            confidence_score: 0.99
+            feed: "manual"
+
+        - astroType: "aspect_sextile"
+          astroValence: "positive"
+          astroScore: +1
+          relatedEntity:
+            uri: "monsieur:PlanetEntity/Mercury"
+            label: "Mercury"
+          astroRead:
+            uri: "monsieur:QualityEntity/Harmony"
+            label: "Harmony"
+          source:
+            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+            quote_id: ""
+            confidence_score: 0.99
+            feed: "manual"
+
+        - astroType: "aspect_square"
+          astroValence: "negative"
+          astroScore: -1
+          relatedEntity:
+            uri: "monsieur:PlanetEntity/Mercury"
+            label: "Mercury"
+          astroRead:
+            uri: "monsieur:QualityEntity/Harmony"
+            label: "Harmony"
+          source:
+            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+            quote_id: ""
+            confidence_score: 0.99
+            feed: "manual"

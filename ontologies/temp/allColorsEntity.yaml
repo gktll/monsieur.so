@@ -1,0 +1,1085 @@
+#--------------------------------------------
+# COLOR ENTITY
+#--------------------------------------------  
+classes: 
+  ColorEntity:
+    type: owl:Class
+    uri: monsieur:ColorEntity
+    label: ColorEntity
+    description: "A class representing colors"
+    subClassOf: Entity
+    classProperties:
+      hasHex:
+        type: xsd:string
+        default: "Unknown"
+        description: "The color hex code"
+      hasGradient:
+        type: xsd:boolean
+        default: false 
+        description: "Whether the color requires a gradient effect"
+      gradientColors:
+        type: xsd:array
+        description: "Array of hex codes for gradient colors"
+
+instances:
+  Blue:
+    uri: monsieur:ColorEntity/Blue
+    label: Blue
+    description: "Blue is one of the three primary colours."
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: "Blue"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: "#0000FF"
+      hasGradient: false
+      gradientColors: null
+    analogyProperties:
+      hasAnalogyWith:
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:PlanetEntity/Jupiter
+            label: Jupiter
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Sachiel
+            label: Sachiel
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Tin_0
+            label: Tin_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:WeekDayEntity/Thursday
+            label: Thursday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+ 
+  Ultramarine:
+    uri: monsieur:ColorEntity/Ultramarine
+    label: Ultramarine
+    description: "Ultramarine is a deep blue color pigment which was originally made by grinding lapis lazuli into a powder."
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: "Ultramarine"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: "#120A8F"
+      hasGradient: false
+      gradientColors: null
+
+  DarkBlue:
+    uri: monsieur:ColorEntity/DarkBlue
+    label: DarkBlue
+    description: "Dark blue is a darker shade of blue"
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: "Dark Blue"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Space Cadet"
+    classProperties:
+      hasHex: "#00008B"
+      hasGradient: false
+      gradientColors: null
+
+  LightBlue:
+    uri: monsieur:ColorEntity/LightBlue
+    label: LightBlue
+    description: "Light blue is a lighter shade of blue."
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: "Light Blue"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: "#00BFFF"
+      hasGradient: false
+      gradientColors: null
+
+  SilverBlue:
+    uri: monsieur:ColorEntity/SilverBlue
+    label: SilverBlue
+    description: "Silver blue is a shade of blue blended with silver."
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: "Silver Blue"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: "#D5DED6"
+      hasGradient: false
+      gradientColors: null
+
+  White:
+    uri: monsieur:ColorEntity/White
+    label: White
+    description: White is the lightest color and is achromatic (having no hue)
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: White
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #FFFFFF
+      hasGradient: false
+      gradientColors: null
+    analogyProperties:
+      hasAnalogyWith:
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:PlanetEntity/Moon
+            label: Moon
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Gabriel
+            label: Gabriel
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Silver_0
+            label: Silver_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:WeekDayEntity/Monday
+            label: Monday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+  Silver:
+    uri: monsieur:ColorEntity/Silver
+    label: Silver
+    description: Silver or metallic gray is a color tone resembling gray that is a representation of the color of polished silver
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Silver
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #C0C0C0
+      hasGradient: false
+      gradientColors: null
+
+  Gray:
+    uri: monsieur:ColorEntity/Gray
+    label: Grey
+    description: Grey is a neutral or achromatic color, meaning that it has no chroma and therefore no hue
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Gray
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #808080
+      hasGradient: false
+      gradientColors: null
+
+  LightGray:
+    uri: monsieur:ColorEntity/LightGray
+    label: LightGray
+    description: Light gray is a lighter shade of gray
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Light Gray
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #D3D3D3
+      hasGradient: false
+      gradientColors: null
+
+  Onyx:
+    uri: monsieur:ColorEntity/Onyx
+    label: Onyx
+    description: The color onyx is a representation of the color of onyx
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Onyx
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: Dark Grey
+    classProperties:
+      hasHex: #404040
+      hasGradient: false
+      gradientColors: null
+
+  Yellow:
+    uri: monsieur:ColorEntity/Yellow
+    label: Yellow
+    description: "Yellow is the color between green and orange on the spectrum of light."
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: "Yellow"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: "#FFFF00"
+      hasGradient: false
+      gradientColors: null
+    analogyProperties:
+      hasAnalogyWith:
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:PlanetEntity/Sun
+            label: Sun
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Michael
+            label: Michael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Gold_0
+            label: Gold_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:WeekDayEntity/Sunday
+            label: Sunday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"  
+
+
+  LightLemonYellow:
+    uri: monsieur:ColorEntity/LightLemonYellow
+    label: LightLemonYellow
+    description: "Light Lemon Yellow is a lighter shade of yellow."
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: "Light Lemon Yellow"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Lemon Chiffon"
+    classProperties:
+      hasHex: "#FFFACD"
+      hasGradient: false
+      gradientColors: null
+
+  BrightGold:
+    uri: monsieur:ColorEntity/BrightGold
+    label: BrightGold
+    description: "Gold, also called golden, is a color tone resembling the gold chemical element."
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: "Bright Gold"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: "#FFFACD"
+      hasGradient: false
+      gradientColors: null
+
+  Purple:
+    uri: monsieur:ColorEntity/Purple
+    label: Purple
+    description: "Purple is a color similar in appearance to violet light."
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: "Purple"
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: "Grape"
+    classProperties:
+      hasHex: "#673ab7"
+      hasGradient: false
+      gradientColors: null
+    analogyProperties:
+      hasAnalogyWith:
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:PlanetEntity/Mercury
+            label: Mercury
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Raphael
+            label: Raphael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Mercury_0
+            label: Mercury_0
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:WeekDayEntity/Wednesday
+            label: Wednesday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+  DarkPurple:
+    uri: monsieur:ColorEntity/DarkPurple
+    label: DarkPurple
+    description: Dark purple is a darker shade of purple
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Dark Purple
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: Russian Violet
+    classProperties:
+      hasHex: #321F53
+      hasGradient: false
+      gradientColors: null
+
+  LightPurple:
+    uri: monsieur:ColorEntity/LightPurple
+    label: LightPurple
+    description: Dark purple is a lighter shade of purple
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Light Purple
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: Wisteria
+    classProperties:
+      hasHex: #B19CD9
+      hasGradient: false
+      gradientColors: null
+
+  Lilac:
+    uri: monsieur:ColorEntity/Lilac
+    label: Lilac
+    description: #C8A2C8
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Lilac
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #C8A2C8
+      hasGradient: false
+      gradientColors: null
+
+  SilverStreakedViolet:
+    uri: monsieur:ColorEntity/SilverStreakedViolet
+    label: SilverStreakedViolet
+    description: #C8A2C8
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Silver-Streaked Violet
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: Chinese Violet
+    classProperties:
+      hasHex: #856C84
+      hasGradient: false
+      gradientColors: null
+
+  Red:
+    uri: monsieur:ColorEntity/Red
+    label: Red
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Red
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #FF0000
+      hasGradient: false
+      gradientColors: null
+    analogyProperties:
+      hasAnalogyWith:
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:PlanetEntity/Mars
+            label: Mars
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Samael
+            label: Samael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Iron(0)
+            label: Iron(0)
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:WeekDayEntity/Tuesday
+            label: Tuesday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+  BrightRed:
+    uri: monsieur:ColorEntity/BrightRed
+    label: BrightRed
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Bright Red
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: Red (CMYK)
+    classProperties:
+      hasHex: #FC1E29
+      hasGradient: false
+      gradientColors: null
+
+  DarkRed:
+    uri: monsieur:ColorEntity/DarkRed
+    label: DarkRed
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Dark Red
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #8B0000
+      hasGradient: false
+      gradientColors: null
+
+  Cinnabar:
+    uri: monsieur:ColorEntity/Cinnabar
+    label: Cinnabar
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Cinnabar
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: Vermillon
+    classProperties:
+      hasHex: #E34234
+      hasGradient: false
+      gradientColors: null
+
+  PurpureusRed:
+    uri: monsieur:ColorEntity/PurpureusRed
+    label: PurpureusRed
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Purple Red
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: Quinacridone magenta
+    classProperties:
+      hasHex: #953553
+      hasGradient: false
+      gradientColors: null
+
+  Purpureus:
+    uri: monsieur:ColorEntity/Purpureus
+    label: Purpureus
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Purple Red
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #9A4EAE
+      hasGradient: false
+      gradientColors: null
+
+  Black:
+    uri: monsieur:ColorEntity/Black
+    label: Black
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Black
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #000000
+      hasGradient: false
+      gradientColors: null
+    analogyProperties:
+      hasAnalogyWith:
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:PlanetEntity/Saturn
+            label: Saturn
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Cassiel
+            label: Cassiel
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Lead(0)
+            label: Lead(0)
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:WeekDayEntity/Saturday
+            label: Saturday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+  EbonyBlack:
+    uri: monsieur:ColorEntity/EbonyBlack
+    label: EbonyBlack
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Ebony Black
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex:  #282C35
+      hasGradient: false
+      gradientColors: null
+
+  BlackBrown:
+    uri: monsieur:ColorEntity/BlackBrown
+    label: BlackBrown
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Black Brown
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #1A1719
+      hasGradient: false
+      gradientColors: null
+
+  Pink:
+    uri: monsieur:ColorEntity/Pink
+    label: Pink
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Pink
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #FFBDC7
+      hasGradient: false
+      gradientColors: null
+
+  Brown:
+    uri: monsieur:ColorEntity/Brown
+    label: Brown
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Brown
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #964B00
+      hasGradient: false
+      gradientColors: null
+
+  LightBrown:
+    uri: monsieur:ColorEntity/LightBrown
+    label: LightBrown
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Light Brown
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: 
+      hasGradient: false
+      gradientColors: null
+
+  DarkBrown:
+    uri: monsieur:ColorEntity/DarkBrown
+    label: DarkBrown
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Dark Brown
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: 
+      hasGradient: false
+      gradientColors: null
+
+  Clay:
+    uri: monsieur:ColorEntity/Clay
+    label: Clay
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Clay
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: Sage
+    classProperties:
+      hasHex: #BDBAA2
+      hasGradient: false
+      gradientColors: null
+
+  Green:
+    uri: monsieur:ColorEntity/Green
+    label: Green
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Green
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #00ff00
+      hasGradient: false
+      gradientColors: null
+    analogyProperties:
+      hasAnalogyWith:
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:PlanetEntity/Venus
+            label: Venus
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Anael
+            label: Anael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Copper(0)
+            label: Copper(0)
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:WeekDayEntity/Friday
+            label: Friday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+  LightGreen:
+    uri: monsieur:ColorEntity/LightGreen
+    label: LightGreen
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Light Green
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #90EE90
+      hasGradient: false
+      gradientColors: null
+      
+  Celadon:
+    uri: monsieur:ColorEntity/Celadon
+    label: Celadon
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Celadon
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #ACEEAC
+      hasGradient: false
+      gradientColors: null
+
+  ForestGreen:
+    uri: monsieur:ColorEntity/ForestGreen
+    label: ForestGreen
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Forest Green
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: Grass green
+    classProperties:
+      hasHex: #3F9B0B
+      hasGradient: false
+      gradientColors: null
+
+  OliveGreen:
+    uri: monsieur:ColorEntity/OliveGreen
+    label: OliveGreen
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Olive Green
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #3F9B0B
+      hasGradient: false
+      gradientColors: null
+
+  DarkGreen:
+    uri: monsieur:ColorEntity/DarkGreen
+    label: DarkGreen
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Dark Green
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: Grass green
+    classProperties:
+      hasHex: #0F362C
+      hasGradient: false
+      gradientColors: null
+
+  Verdigris:
+    uri: monsieur:ColorEntity/Verdigris
+    label: Verdigris
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Verdigris
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #43B3AE
+      hasGradient: false
+      gradientColors: null
+
+  Multicolor:
+    uri: monsieur:ColorEntity/Multicolor
+    label: Multicolor
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Multicolor
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: 
+      hasGradient: false
+      gradientColors: null
+    analogyProperties:
+      hasAnalogyWith:
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:PlanetEntity/Mercury
+            label: Mercury
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Raphael
+            label: Raphael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:ChemicalSubstanceEntity/Metal/Mercury(0)
+            label: Mercury(0)
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+        - analogyWeight: 
+          targetEntity:
+            uri: monsieur:WeekDayEntity/Wednesday
+            label: Wednesday
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print/ChiaveDiSalomone
+            quote_id: ""
+            feed: "manual"
+
+  Orange:
+    uri: monsieur:ColorEntity/Orange
+    label: Orange
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Orange
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #FFA500
+      hasGradient: false
+      gradientColors: null
+
+  Opal:
+    uri: monsieur:ColorEntity/Opal
+    label: Opal
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Opal
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: 
+    classProperties:
+      hasHex: #a8c3bc
+      hasGradient: false
+      gradientColors: null
+
+  DarkOpal:
+    uri: monsieur:ColorEntity/DarkOpal
+    label: DarkOpal
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Dark Opal
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: Viridian
+    classProperties:
+      hasHex: #649085
+      hasGradient: false
+      gradientColors: null
+
+  Platinum:
+    uri: monsieur:ColorEntity/Platinum
+    label: Platinum
+    description: 
+    relationships:
+        - HAS_MEMBER: ColorEntity
+    defaultProperties:  
+      hasName: Platinum
+      hasImage: "Image_URL_or_Description"
+      hasSynonyms: Light Opal
+    classProperties:
+      hasHex: #D6DFDC
+      hasGradient: false
+      gradientColors: null
+

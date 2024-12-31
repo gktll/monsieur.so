@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis-network.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+
+    <style>
+
+        /* Transparent Navbar */
+.navbar-custom {
+  background-color: transparent !important; /* Ensure it's fully transparent */
+  background: none !important; /* Remove any background */
+  border-bottom: none !important; /* Remove border if any */
+  box-shadow: none !important; /* Remove shadow */
+  z-index: 10;
+}
+
+/* Navbar links and brand color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-nav .nav-link {
+  color: #333; /* Dark text for better contrast on light background */
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for links */
+.navbar-custom .navbar-nav .nav-link:hover {
+  color: #007bff; /* Bootstrap primary color for hover */
+}
+
+/* Transparent Navbar in Mobile */
+@media (max-width: 768px) {
+  .navbar-custom {
+    background: rgba(255, 255, 255, 0.9); /* Slightly more opaque for readability */
+  }
+}
+
+/* Optional transition for navbar background on scroll */
+.navbar-custom.scrolled {
+  background: rgba(255, 255, 255, 1); /* Solid background after scrolling */
+  transition: background-color 0.3s ease;
+}
+
+
+    </style>
+   
+</head>
+<body>
+    <!-- <header>
+        <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/" style="font-size: 14px; font-weight: 800;">Monsieur.so</a>
+            <div class="d-flex align-items-center search-bar">
+              <input
+                type="text"
+                class="form-control me-2"
+                id="searchInput"
+                placeholder="Search..."
+                aria-label="Search"
+              />
+              <button class="btn ph ph-magnifying-glass" id="searchButton" type="button"></button>
+            </div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-menu">
+                <i class="ph ph-list"></i>
+              </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-option" href="/admin">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-option" href="/admin">How to Use</a>
+                </li>
+                <li class="nav-item">
+                  <a class="btn btn-primary" href="/admin">Get Started</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header> -->
+
+    <div id="main-container">
+        <div id="networkContainer">
+            <div id="network"></div>
+            <div class="resize-network">
+                <div class="center-commands">
+                    <span></span>
+                    <button id="centerNetwork" class="network-commands ph ph-crosshair"></button>
+                </div>
+
+                <div class="zoom-commands">
+                    <button id="zommIn" class="network-commands ph ph-magnifying-glass-plus"></button>
+                    <button id="zoomOut" class="network-commands  ph ph-magnifying-glass-minus"></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="terminal">
+          <div id="dragHandle" class="drag-handle">
+            <span></span>
+            <button id="closeTerminalButton" class="close-terminal ph ph-x"></button>
+          </div>
+          <div id="terminalOutput" class="terminal-output"></div>
+          <input
+            type="text"
+            id="terminalInput"
+            class="terminal-input"
+            placeholder="Type a command and press Enter"
+        />
+        </div>
+        <!-- Floating button for reopening the terminal -->
+        <button id="openTerminalButton" class="open-terminal ph ph-terminal" style="display: none;"></button>
+      </div>
+
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+
+    
+   
+   
+    <script type="module" src="/static/js/geolocationService.js"></script>
+    <script type="module" src="/static/js/terminalOutput.js"></script>
+    
+    <script type="module" src="static/js/terminalInput.js"></script>
+    <script src="static/js/terminalCommands.js" type="module"></script>
+
+    <script src="static/js/ui.js"></script>
+    <script type="module" src="/static/js/graphFiltering.js"></script>
+
+    <script type="module" src="/static/js/heatmap.js"></script>
+
+    <script type="module" src="/static/js/main.js"></script>
+
+
+
+
+    </body>
+</html>
+
+
