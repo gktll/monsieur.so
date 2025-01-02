@@ -32,8 +32,6 @@ function triggerCombustWarnings(heatmapData) {
 }
 
 
-
-
 export function applyPlanetEnergiesBackground(heatmapData) {
     const container = document.getElementById('networkContainer');
 
@@ -124,7 +122,7 @@ export function applyPlanetEnergiesBackground(heatmapData) {
         // Normalize physical size
         const maxDiameter = Math.max(...Object.values(PLANET_DIAMETERS));
         const minDiameter = Math.min(...Object.values(PLANET_DIAMETERS));
-        const maxDiameterSize = 20; // Maximum size contribution from diameter
+        const maxDiameterSize = 50; // Maximum size contribution from diameter
         const minDiameterSize = 5;  // Minimum size contribution from diameter
         const diameterSize = (
             ((diameter - minDiameter) / (maxDiameter - minDiameter)) *

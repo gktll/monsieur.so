@@ -153,40 +153,6 @@ class HeatmapCalculator:
         intensity = max(round(intensity, 2), 0)  # Ensure non-negative
 
         return intensity, combustion_status
-
-    
-
-    @staticmethod
-    def generate_gradient(heatmap_data):
-        """
-        Generate a CSS linear gradient from heatmap data.
-
-        Args:
-            heatmap_data (list): List of heatmap entries containing planet properties.
-
-        Returns:
-            str: A CSS linear gradient string.
-        """
-        gradient_stops = []
-
-        for entry in heatmap_data:
-            planet_color = entry.get("color", "#FFFFFF")
-            intensity = entry.get("intensity", 0)  # Normalized intensity (0 to 1)
-            azimuth = entry.get("azimuth", 0)  # Angle for the gradient
-
-            # Normalize intensity to a percentage for gradient opacity
-            opacity = min(max(intensity / 2, 0.1), 1.0)  # Scale intensity to 10% - 100%
-
-            # Add a gradient stop
-            gradient_stops.append(f"rgba({int(planet_color[1:3], 16)},"
-                                f"{int(planet_color[3:5], 16)},"
-                                f"{int(planet_color[5:7], 16)},"
-                                f"{opacity}) {azimuth}deg")
-
-        # Combine stops into a CSS linear gradient
-        gradient_css = f"linear-gradient({', '.join(gradient_stops)})"
-        return gradient_css
-
     
 
     @staticmethod
@@ -282,3 +248,35 @@ class HeatmapCalculator:
                 print(f"Error processing {planet_name}: {e}")
 
         return heatmap_data
+    
+    
+    @staticmethod
+    def generate_gradient(heatmap_data):
+        """
+        Generate a CSS linear gradient from heatmap data.
+
+        Args:
+            heatmap_data (list): List of heatmap entries containing planet properties.
+
+        Returns:
+            str: A CSS linear gradient string.
+        """
+        gradient_stops = []
+
+        for entry in heatmap_data:
+            planet_color = entry.get("color", "#FFFFFF")
+            intensity = entry.get("intensity", 0)  # Normalized intensity (0 to 1)
+            azimuth = entry.get("azimuth", 0)  # Angle for the gradient
+
+            # Normalize intensity to a percentage for gradient opacity
+            opacity = min(max(intensity / 2, 0.1), 1.0)  # Scale intensity to 10% - 100%
+
+            # Add a gradient stop
+            gradient_stops.append(f"rgba({int(planet_color[1:3], 16)},"
+                                f"{int(planet_color[3:5], 16)},"
+                                f"{int(planet_color[5:7], 16)},"
+                                f"{opacity}) {azimuth}deg")
+
+        # Combine stops into a CSS linear gradient
+        gradient_css = f"linear-gradient({', '.join(gradient_stops)})"
+        return gradient_css

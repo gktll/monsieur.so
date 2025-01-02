@@ -94,7 +94,6 @@ class Neo4jQueries:
             return simplified
     
 
-
     def fetch_hour_graph(self, hour_name):
         """
         Fetch hour-related network graph data for visualization.

@@ -44,56 +44,6 @@ def get_graph_data():
     return jsonify({"nodes": list(nodes.values()), "edges": edges})
 
 
-
-@main_bp.route('/api/heatmap', methods=['POST'])
-def get_heatmap_data():
-    """
-    Generate heatmap data based on planetary positions.
-    """
-    try:
-        # Parse request data
-        data = request.json
-        latitude = data.get("latitude")
-        longitude = data.get("longitude")
-
-        if latitude is None or longitude is None:
-            return jsonify({"error": "Missing latitude or longitude"}), 400
-
-        # Import utilities
-        from app.routes.utils.ephemeris_calculator import EphemerisCalculator
-        from app.routes.utils.heatmap_calculator import HeatmapCalculator
-
-        # Calculate ephemeris data
-        ephemeris_data = EphemerisCalculator.calculate(latitude, longitude)
-
-        # Extract hour ruler and day ruler from additional_info
-        additional_info = ephemeris_data.get("additional_info", {})
-        hour_ruler = additional_info.get("hour_ruler")
-        day_ruling_planet = additional_info.get("day_ruling_planet")
-
-        if not ephemeris_data or not ephemeris_data.get("planets"):
-            return jsonify({"error": "Failed to calculate ephemeris data"}), 500
-
-        # Log extracted rulers for debugging
-        current_app.logger.debug(f"Hour Ruler: {hour_ruler}, Day Ruler: {day_ruling_planet}")
-
-        # Generate heatmap data using HeatmapCalculator
-        heatmap_data = HeatmapCalculator.calculate_heatmap_properties(
-            ephemeris_data, hour_ruler, day_ruling_planet
-        )
-
-        # Return the heatmap data
-        return jsonify({
-            "heatmap": heatmap_data,
-            "message": "Heatmap data generated successfully."
-        })
-
-    except Exception as e:
-        current_app.logger.error(f"Heatmap error: {str(e)}", exc_info=True)
-        return jsonify({"error": str(e)}), 500
-
-
-
 # Landing page
 @main_bp.route('/')
 def landing_page():

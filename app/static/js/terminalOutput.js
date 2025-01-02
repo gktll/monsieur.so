@@ -15,11 +15,11 @@ export function updateTerminalWithData(data) {
     };
 
     // Magic Hour and Time Info
-    appendLine('\n=== MAGICAL HOUR INFORMATION ===');
+    appendLine('\n=== MAGIC HOUR INFORMATION ===');
     const additionalInfo = data?.ephemeris?.additional_info || {};
     appendLine(`> Current Planetary Hour: ${additionalInfo.current_planetary_hour || 'Unknown'}`);
-    appendLine(`> Hour Name: ${data?.neo4j_data?.hour?.label || 'N/A'}`);
-    appendLine(`> Hour Ruler: ${additionalInfo.hour_ruler || 'Unknown'}`);
+    appendLine(`> Magic Hour Name: ${data?.neo4j_data?.hour?.label || 'N/A'}`);
+    appendLine(`> Magic Hour Ruler: ${additionalInfo.hour_ruler || 'Unknown'}`);
 
     if (data.neo4j_data && data.neo4j_data.connections) {
         appendLine('> Magical Correspondences:');

@@ -3,6 +3,8 @@ from neo4j import GraphDatabase
 from dotenv import load_dotenv
 import os
 
+from app.routes import graph
+
 
 # Load environment variables from .env
 load_dotenv()
@@ -37,10 +39,13 @@ def create_app():
 
     with app.app_context():
         from app import models
-        from app.routes import main, geolocate, graph_filter
+        from app.routes import main, geolocate, ephemeris, graph
         from app.routes.test_ephemeris import test_bp
 
         print("Registering blueprints...")
+        
+        app.register_blueprint(ephemeris.ephemeris_bp, url_prefix='/')
+        print("Test Ephemeris routes registered.")
         
         app.register_blueprint(main.main_bp, url_prefix='/')
         print("Main routes registered.")
@@ -48,9 +53,10 @@ def create_app():
         app.register_blueprint(geolocate.geolocate_bp, url_prefix='/')
         print("Geolocate routes registered.")
         
-        app.register_blueprint(graph_filter.filter_viz_bp, url_prefix='/')
+        app.register_blueprint(graph.filter_viz_bp, url_prefix='/')
         print("Graph filter routes registered.")
         
+        #testing ephemeris data structure endopint
         app.register_blueprint(test_bp, url_prefix='/')
         print("Test Ephemeris routes registered.")
 
