@@ -18,6 +18,8 @@
 //     Moon: 3475
 // };
 
+
+
 function triggerCombustWarnings(heatmapData) {
     heatmapData.forEach((entry) => {
         if (entry.is_combust) {

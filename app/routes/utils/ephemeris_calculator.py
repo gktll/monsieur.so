@@ -1,5 +1,3 @@
-# ephemeris_calculator.py
-
 from flask import Blueprint, request, jsonify
 from datetime import datetime, timedelta, timezone as dt_timezone
 from pytz import timezone as pytz_timezone
@@ -11,10 +9,8 @@ from timezonefinder import TimezoneFinder
 import math
 import uuid
 
-from app.routes.constants import PLANETARY_ORDER, DAY_RULERS, ZODIAC_SIGNS, PLANETARY_COLORS, ORDINAL_NAMES, SKYFIELD_IDS, ESSENTIAL_DIGNITIES, EXTENDED_PLANETARY_ORDER, EXTENDED_SKYFIELD_IDS, DEFAULT_ASPECT_CONFIG
+from app.routes.constants import DAY_RULERS, ZODIAC_SIGNS, EXTENDED_PLANETARY_ORDER, EXTENDED_SKYFIELD_IDS, DEFAULT_ASPECT_CONFIG
 from app.routes.constants import ephemeris, ts
-from app.routes.constants import NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD, neo4j_driver
-
 
 
 class EphemerisCalculator:
@@ -97,11 +93,15 @@ class EphemerisCalculator:
             positions=planetary_positions, precomputed_results=combustion_cazimi
         )
         planetary_positions["Moon"].update(moon_data)
+        print(f"DEBUG: Updated Moon Data: {planetary_positions['Moon']}")
 
         # Step 5: Calculate aspects between planets
         aspects = self.calculate_aspects()
+        
+        # Step 6: Calculate complete chart
+        chart_data = self.calculate_complete_chart()
 
-        # Step 6: Add additional information
+        # Step 7: Add additional information
         current_date = self.now_local.strftime('%Y-%m-%d')
         current_time = self.now_local.strftime('%H:%M:%S')
         utc_time = self.now_utc.strftime('%H:%M:%S')
@@ -110,10 +110,14 @@ class EphemerisCalculator:
         hour_index = self.calculate_planetary_hour()
         day_ruling_planet = DAY_RULERS[self.now_local.weekday()]
 
-        # Step 7: Combine all data into a unified dataset
+        # Step 8: Combine all data into a unified dataset
         ephemeris_dataset = {
-            "planetary_positions": self._convert_to_serializable(planetary_positions),
-            "aspects": self._convert_to_serializable(aspects),
+            "planets": self._convert_to_serializable(planetary_positions),  # Centralized planetary data
+            "chart": {
+                "houses": self._convert_to_serializable(chart_data["houses"]),  
+                "angles": self._convert_to_serializable(chart_data["angles"]),
+                "aspects": self._convert_to_serializable(aspects),
+            },
             "additional_info": {
                 "current_date": current_date,
                 "current_time": current_time,
@@ -128,7 +132,6 @@ class EphemerisCalculator:
         return ephemeris_dataset
 
 
-    
 
 
     def _calculate_sun_times(self):
@@ -167,28 +170,29 @@ class EphemerisCalculator:
    
     def calculate_planetary_hour(self):
         """
-        Calculate the current planetary hour index (0-11).
-
+        Calculate the current planetary hour index.
+        
         Returns:
-            int: The current planetary hour index (0-11).
+            int: The hour number (1 to 12 for day hours, -1 to -12 for night hours)
         """
         if not hasattr(self, 'sunrise_local') or not hasattr(self, 'sunset_local'):
             raise ValueError("Sunrise and sunset times must be calculated before determining the planetary hour.")
 
-        # Check if it's daytime
-        if self.sunrise_local <= self.now_local <= self.sunset_local:
-            # Daytime: Calculate the hour index since sunrise
+        is_daytime = self.sunrise_local <= self.now_local <= self.sunset_local
+
+        if is_daytime:
+            # Daytime: Calculate positive hour index (1 to 12)
             duration = (self.sunset_local - self.sunrise_local).total_seconds() / 12
             time_since_sunrise = (self.now_local - self.sunrise_local).total_seconds()
-            hour_index = int(time_since_sunrise // duration)
+            hour_index = int(time_since_sunrise // duration) + 1
+            return min(12, max(1, hour_index))  # Ensure between 1 and 12
         else:
-            # Nighttime: Calculate the hour index since sunset
+            # Nighttime: Calculate negative hour index (-1 to -12)
             next_sunrise_local = self.sunrise_local + timedelta(days=1)
             duration = (next_sunrise_local - self.sunset_local).total_seconds() / 12
             time_since_sunset = (self.now_local - self.sunset_local).total_seconds()
-            hour_index = int(time_since_sunset // duration)
-
-        return hour_index
+            hour_index = -(int(time_since_sunset // duration) + 1)
+            return max(-12, min(-1, hour_index))  # Ensure between -12 and -1
     
     
     def get_day_ruler(self):
@@ -200,7 +204,6 @@ class EphemerisCalculator:
         """
         day_index = self.now_local.weekday()
         return DAY_RULERS[day_index]
-
 
 
     def calculate_planetary_positions(self):
@@ -583,6 +586,126 @@ class EphemerisCalculator:
         elif moon_age <= 22.15:
             return 1.2 - ((moon_age - 14.77) / 7.38) * 1.7
         return -0.5 - ((moon_age - 22.15) / 7.38) * 0.2
+    
+    
+    def get_zodiac_sign(self, degree):
+        """
+        Get zodiac sign accounting for boundary conditions.
+        
+        Args:
+            degree (float): Absolute degree position (0-360)
+        Returns:
+            str: Zodiac sign name
+        """
+        # Handle edge case of 360 degrees
+        if degree >= 360:
+            degree -= 360
+            
+        # Add a tiny offset to handle boundary cases
+        epsilon = 0.001
+        adjusted_degree = degree + epsilon
+        
+        # Print debug info
+        sign_index = int(adjusted_degree // 30) % 12
+        print(f"DEBUG: degree={degree}, adjusted={adjusted_degree}, index={sign_index}, sign={ZODIAC_SIGNS[sign_index]}")
+        
+        return ZODIAC_SIGNS[sign_index]
+        
+    
+    def calculate_complete_chart(self):
+        """
+        Calculate the complete astrological chart, including:
+        1. Planetary positions using Skyfield
+        2. House cusps and zodiac signs using Swiss Ephemeris
+        3. Assign planets to their respective houses
+        4. Determine important chart angles (Ascendant, MC, etc.)
+        """
+        try:
+            # 1. Calculate planetary positions
+            planetary_positions = self.calculate_planetary_positions()
+
+            # 2. Calculate house cusps using Swiss Ephemeris
+            jd = swe.julday(
+                self.now_utc.year,
+                self.now_utc.month,
+                self.now_utc.day,
+                self.now_utc.hour + self.now_utc.minute / 60.0 + self.now_utc.second / 3600.0,
+            )
+            cusps, ascmc = swe.houses(jd, self.latitude, self.longitude, b'R')
+            print(f"DEBUG: Raw House cusps: {cusps}")
+            print(f"DEBUG: Raw angles (ascmc): {ascmc}")
+            
+
+            # 3. Define house structure
+            houses = {}
+            for i in range(12):
+                current_cusp = round(cusps[i], 2)
+                
+                houses[i + 1] = {
+                    "absolute_degree": current_cusp,
+                    "degree": round(current_cusp % 30, 2),
+                    "sign": self.get_zodiac_sign(current_cusp),
+                    "planets": []
+                }
+                print(f"DEBUG: House {i+1}: absolute_degree={current_cusp}, "
+                    f"sign={self.get_zodiac_sign(current_cusp)}")
+                
+                
+                
+            # 4. Assign planets to houses
+            for planet_name, planet_data in planetary_positions.items():
+                planet_degree = planet_data["longitude"]
+                for house in range(1, 13):
+                    next_house = 1 if house == 12 else house + 1
+                    start_degree = houses[house]["absolute_degree"]
+                    end_degree = houses[next_house]["absolute_degree"]
+
+                    # Handle wrap-around for houses crossing 0° Aries
+                    if (end_degree < start_degree and 
+                        (planet_degree >= start_degree or planet_degree < end_degree)) or \
+                    (end_degree > start_degree and 
+                        start_degree <= planet_degree < end_degree):
+                        houses[house]["planets"].append({
+                            "name": planet_name,
+                            #**planet_data  # Include all planetary data
+                        })
+                        break
+
+            # 5. Calculate chart angles (ASC, MC, DSC, IC)
+            angles = {
+                "ascendant": {
+                    "absolute_degree": round(ascmc[0], 2),
+                    "degree": round(ascmc[0] % 30, 2),
+                    "sign": ZODIAC_SIGNS[int(ascmc[0] // 30) % 12]
+                },
+                "midheaven": {
+                    "absolute_degree": round(ascmc[1], 2),
+                    "degree": round(ascmc[1] % 30, 2),
+                    "sign": ZODIAC_SIGNS[int(ascmc[1] // 30) % 12]
+                },
+                "descendant": {
+                    "absolute_degree": round((ascmc[0] + 180) % 360, 2),
+                    "degree": round((ascmc[0] + 180) % 30, 2),
+                    "sign": ZODIAC_SIGNS[int((ascmc[0] + 180) // 30) % 12]
+                },
+                "ic": {
+                    "absolute_degree": round((ascmc[1] + 180) % 360, 2),
+                    "degree": round((ascmc[1] + 180) % 30, 2),
+                    "sign": ZODIAC_SIGNS[int((ascmc[1] + 180) // 30) % 12]
+                }
+            }
+
+            # Return the complete chart data
+            return {
+                "houses": houses,
+                "angles": angles,
+                "planets": planetary_positions  # Include full planetary data separately
+            }
+
+        except Exception as e:
+            print(f"Error calculating chart: {str(e)}")
+            return {"error": f"Chart calculation failed: {str(e)}"}
+
 
 
 
