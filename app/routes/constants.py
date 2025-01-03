@@ -32,8 +32,8 @@ ORDINAL_NAMES = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th',
 SKYFIELD_IDS = {
     'Sun': 'sun',
     'Moon': 'moon',
-    'Mercury': 'mercury barycenter',
-    'Venus': 'venus barycenter',
+    'Mercury': 'mercury',
+    'Venus': 'venus',
     'Mars': 'mars barycenter',
     'Jupiter': 'jupiter barycenter',
     'Saturn': 'saturn barycenter'
@@ -74,17 +74,91 @@ ZODIAC_SIGNS = [
     'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'
 ]
 
-# Planetary Colors
+
+# Planetary Colors with gradient definitions
 PLANETARY_COLORS = {
-    "Sun": "#F2FF00",       # Yellow
-    "Moon": "#D7DEDC",      # White + Silver
-    "Mercury": "#7C00FE",   # Purple
-    "Venus": "#51CB20",     # Green
-    "Mars": "#F5004F",      # Red
-    "Jupiter": "#072AC8",   # Blue
-    "Saturn": "#241909",    # Black
-    "Uranus": "#769FB6",    # Pale Blue
-    "Neptune": "#F9C7FA",   # Lilac
-    "Pluto": "#D4B9B0"      # Beige
+    "Sun": {
+        "gradient_stops": {
+            "core": "#F2FF00",   # Full yellow
+            "inner": "#FFF7B0",  # Lighter yellow
+            "outer": "#FFFFD0"   # Very light yellow/white
+        }
+    },
+    "Moon": {
+        "gradient_stops": {
+            "core": "#D7DEDC",   # Silver
+            "inner": "#E8ECEB",  # Lighter silver
+            "outer": "#F9FAFA"   # Almost white
+        }
+    },
+    "Mercury": {
+        "gradient_stops": {
+            "core": "#7C00FE",   # Deep purple
+            "inner": "#9E40FE",  # Medium purple
+            "outer": "#C080FE"   # Light purple
+        }
+    },
+    "Venus": {
+        "gradient_stops": {
+            "core": "#51CB20",   # Bright green
+            "inner": "#7DDB56",  # Lighter green
+            "outer": "#A9EB8C"   # Very light green
+        }
+    },
+    "Mars": {
+        "gradient_stops": {
+            "core": "#F5004F",   # Deep red
+            "inner": "#F74979",  # Medium red
+            "outer": "#F993A3"   # Light red
+        }
+    },
+    "Jupiter": {
+        "gradient_stops": {
+            "core": "#072AC8",   # Deep blue
+            "inner": "#2955D6",  # Medium blue
+            "outer": "#4B80E4"   # Light blue
+        }
+    },
+    "Saturn": {
+        "gradient_stops": {
+            "core": "#241909",   # Near black
+            "inner": "#483225",  # Dark brown
+            "outer": "#6C4B41"   # Medium brown
+        }
+    },
+    "Uranus": {
+        "gradient_stops": {
+            "core": "#769FB6",   # Pale blue
+            "inner": "#97B8CA",  # Lighter pale blue
+            "outer": "#B8D1DE"   # Very light pale blue
+        }
+    },
+    "Neptune": {
+        "gradient_stops": {
+            "core": "#F9C7FA",   # Lilac
+            "inner": "#FBD9FC",  # Light lilac
+            "outer": "#FDEBFE"   # Very light lilac
+        }
+    },
+    "Pluto": {
+        "gradient_stops": {
+            "core": "#D4B9B0",   # Beige
+            "inner": "#E1CCC5",  # Light beige
+            "outer": "#EEE0DA"   # Very light beige
+        }
+    }
 }
 
+PLANET_DIAMETERS = {
+    'Sun': 1392000,
+    'Mercury': 4879,
+    'Venus': 12104,
+    'Earth': 12742,
+    'Mars': 6779,
+    'Jupiter': 139820,
+    'Saturn': 116460,
+    'Uranus': 50724,
+    'Neptune': 49244,
+    'Pluto': 2376,
+    'Moon': 3475
+}

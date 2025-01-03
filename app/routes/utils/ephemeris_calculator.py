@@ -317,29 +317,55 @@ class EphemerisCalculator:
 
     def calculate_planetary_distances(self):
         """
-        Calculate the distance of each planet (including outer planets) from Earth using Skyfield.
+        Calculate the distance of each planet (including outer planets) from Earth using Skyfield,
+        with detailed debugging information.
 
         Returns:
             dict: A dictionary with planet names as keys and their distances (in AU) as values.
-                If a planet's distance cannot be calculated, an error message is included.
         """
-        observer_time = ts.from_datetime(self.now_utc)  # Use the current UTC time
-        distances = {}
+        try:
+            # Convert the current UTC time
+            observer_time = ts.from_datetime(self.now_utc)
+            print(f"DEBUG: Observer Time: {observer_time.utc_iso()}")
 
-        earth = ephemeris['earth']
+            distances = {}
+            earth = ephemeris['earth']
 
-        for planet_name, skyfield_id in EXTENDED_SKYFIELD_IDS.items():  # Use extended IDs from constants
-            try:
-                planet_obj = ephemeris[skyfield_id]
-                # Calculate distance from Earth
-                distance = earth.at(observer_time).observe(planet_obj).distance().au
-                distances[planet_name] = round(distance, 6)  # Round to 6 decimal places for precision
-            except Exception as e:
-                error_message = f"Failed to calculate distance for {planet_name}: {str(e)}"
-                print(error_message)  # Log the error
-                distances[planet_name] = {"error": error_message}
+            for planet_name, skyfield_id in EXTENDED_SKYFIELD_IDS.items():
+                try:
+                    # Log the planet and identifier being processed
+                    print(f"DEBUG: Calculating distance for {planet_name} using ID '{skyfield_id}'")
 
-        return distances
+                    planet_obj = ephemeris[skyfield_id]
+                    # Calculate distance from Earth to the planet
+                    distance = earth.at(observer_time).observe(planet_obj).distance().au
+
+                    # Log the calculated distance
+                    print(f"DEBUG: Distance for {planet_name}: {distance:.6f} AU")
+
+                    # Store the result
+                    distances[planet_name] = round(distance, 6)
+
+                    # Additional debug for barycenter vs direct (if applicable)
+                    if "barycenter" in skyfield_id:
+                        direct_id = skyfield_id.replace(" barycenter", "")
+                        if direct_id in ephemeris:
+                            direct_distance = earth.at(observer_time).observe(ephemeris[direct_id]).distance().au
+                            print(f"DEBUG: Direct ID ({direct_id}) distance for {planet_name}: {direct_distance:.6f} AU")
+                            distances[f"{planet_name} (direct)"] = round(direct_distance, 6)
+
+                except Exception as e:
+                    error_message = f"Failed to calculate distance for {planet_name}: {str(e)}"
+                    print(f"ERROR: {error_message}")
+                    distances[planet_name] = {"error": error_message}
+
+            print("DEBUG: Final distances:", distances)
+            return distances
+
+        except Exception as e:
+            print(f"ERROR: Failed to calculate planetary distances: {str(e)}")
+            return {"error": str(e)}
+
     
     
     

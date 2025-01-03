@@ -81,3 +81,90 @@ def filter_by_hour():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+
+
+
+# THIS IS SUPPOSED TO GENERALIZE FILTERING
+
+# @filter_viz_bp.route('/api/filter_graph', methods=['POST'])
+# def filter_graph():
+#     """
+#     Generic graph filter that can handle multiple filter types.
+    
+#     Expected request format:
+#     {
+#         "filter_type": "planet|sign|element|quality|etc",
+#         "filter_value": "Mars|Aries|Fire|Cardinal|etc",
+#         "include_relationships": ["RULES", "INFLUENCES", "IN_SIGN", etc]  # optional
+#     }
+#     """
+#     try:
+#         data = request.json
+#         filter_type = data.get('filter_type')
+#         filter_value = data.get('filter_value')
+#         relationships = data.get('include_relationships', [])
+
+#         if not filter_type or not filter_value:
+#             return jsonify({"error": "Missing filter parameters"}), 400
+
+#         neo4j = Neo4jQueries()
+#         results = neo4j.fetch_filtered_graph(filter_type, filter_value, relationships)
+
+#         filtered_nodes = []
+#         filtered_edges = []
+#         added_node_uris = set()
+
+#         # Process results and build graph
+#         for record in results:
+#             # Add nodes and edges based on filter type
+#             process_node_and_relationships(
+#                 record, 
+#                 filtered_nodes, 
+#                 filtered_edges, 
+#                 added_node_uris
+#             )
+
+#         return jsonify({
+#             "nodes": filtered_nodes,
+#             "edges": filtered_edges,
+#             "filter_applied": {
+#                 "type": filter_type,
+#                 "value": filter_value
+#             },
+#             "message": "Graph filtered successfully"
+#         })
+
+#     except Exception as e:
+#         return jsonify({"error": str(e)}), 500
+    
+    
+    
+# def process_node_and_relationships(record, nodes, edges, added_uris):
+#     """Process nodes and edges based on record type"""
+#     if record.get("node"):
+#         add_node_if_new(record["node"], nodes, added_uris)
+        
+#         # Add connected nodes and their relationships
+#         for rel in record.get("relationships", []):
+#             target_node = rel.get("node")
+#             if target_node:
+#                 add_node_if_new(target_node, nodes, added_uris)
+#                 edges.append({
+#                     "from": record["node"]["uri"],
+#                     "to": target_node["uri"],
+#                     "label": rel["type"],
+#                     "properties": rel.get("properties", {})
+#                 })
+
+# def add_node_if_new(node, nodes_list, added_uris):
+#     """Add node to list if not already present"""
+#     if node["uri"] not in added_uris:
+#         added_uris.add(node["uri"])
+#         nodes_list.append({
+#             "id": node["uri"],
+#             "label": node.get("hasName") or node.get("label", "Unnamed"),
+#             "description": node.get("description", ""),
+#             "type": node.get("labels", [])
+#         })

@@ -1,4 +1,5 @@
-from app.routes.constants import PLANETARY_COLORS, ESSENTIAL_DIGNITIES
+from app.routes.constants import PLANETARY_COLORS, ESSENTIAL_DIGNITIES, PLANET_DIAMETERS
+import math
 
 
 class HeatmapCalculator:
@@ -19,6 +20,7 @@ class HeatmapCalculator:
             return 0.5
         else:
             return 1.0
+
      
     @staticmethod
     def calculate_moon_phase_modifier(planets_data):
@@ -54,6 +56,7 @@ class HeatmapCalculator:
         }
    
 
+
     @staticmethod
     def calculate_combustion_cazimi_modifier(planet_data):
         """
@@ -86,7 +89,49 @@ class HeatmapCalculator:
             }
 
 
+
+    @staticmethod
+    def normalize_planet_size(planet_name: str, planets_data: dict) -> float:
+        """Calculate normalized size based on distance and physical diameter."""
+        # Get all distances and current distance
+        distances = [position.get("distance_au", 1.0) for position in planets_data.values()]
+        min_distance = min(distances)
+        max_distance = max(distances)
+        current_distance = planets_data[planet_name].get("distance_au", 1.0)
+        
+        # Constants
+        max_distance_size = 25
+        min_distance_size = 5
+        max_diameter_size = 25
+        min_diameter_size = 5
+
+        # Calculate distance size with logarithmic scaling
+        log_distance = math.log10(current_distance + 1)
+        min_log = math.log10(min_distance + 1)
+        max_log = math.log10(max_distance + 1)
+        
+        distance_size = (
+            ((max_log - log_distance) / (max_log - min_log)) *
+            (max_distance_size - min_distance_size) +
+            min_distance_size
+        )
+
+        # Physical size normalization
+        diameter = PLANET_DIAMETERS[planet_name]
+        max_diameter = max(PLANET_DIAMETERS.values())
+        min_diameter = min(PLANET_DIAMETERS.values())
+        
+        diameter_size = (
+            ((diameter - min_diameter) / (max_diameter - min_diameter)) *
+            (max_diameter_size - min_diameter_size) +
+            min_diameter_size
+        )
+
+        # Combined size with weights
+        return 0.6 * distance_size + 0.4 * diameter_size
     
+    
+
     @staticmethod
     def calculate_planet_intensity(
         planet_name,
@@ -95,64 +140,259 @@ class HeatmapCalculator:
         day_ruling_planet
     ):
         """
-        Calculate the intensity of a planet based on various factors.
-
+        Calculate the intensity of a planet based on various factors,
+        with debug logs at each step.
+        
         Args:
             planet_name (str): Name of the planet being evaluated.
             position (dict): Data for the planet, including altitude, sign, distance, etc.
-            ruling_planet (str): Planet ruling the current hour.
+            hour_ruler (str): Planet ruling the current hour.
             day_ruling_planet (str): Planet ruling the current day.
 
         Returns:
             tuple: (intensity, combustion_status)
         """
-        # Proximity Intensity
+        print(f"[LOG] --- Calculating intensity for {planet_name} ---")
+
+        # 1) PROXIMITY INTENSITY
         distance_au = position.get("distance_au", 1.0)
         intensity_proximity = 1 / distance_au
-        intensity_proximity = min(intensity_proximity, 10)  # Cap proximity intensity
+        intensity_proximity = min(intensity_proximity, 10)  # Cap so it's not extreme
+        print(f"[LOG] distance_au: {distance_au:.3f}, intensity_proximity (capped): {intensity_proximity:.3f}")
 
-        # Visibility Factor (Altitude)
+        # 2) VISIBILITY FACTOR (Altitude)
         altitude = position.get("altitude", 0)
-        visibility_factor = (
-            altitude / 90 if altitude >= 0 else max(altitude / 90 * 0.4, 0.1)
-        )
+        if altitude >= 0:
+            visibility_factor = altitude / 90
+        else:
+            # If below horizon, reduce factor significantly but never below 0.1
+            visibility_factor = max((altitude / 90) * 0.4, 0.1)
+        print(f"[LOG] altitude: {altitude:.2f}, visibility_factor: {visibility_factor:.3f}")
 
-        # Ruling Bonuses
+        # 3) RULING BONUSES
         bonus = 0
         if planet_name == hour_ruler and planet_name == day_ruling_planet:
-            bonus += 1.5  # Max bonus for ruling both hour and day
+            bonus += 1.5  # smaller bonus if it rules both simultaneously
+            print(f"[LOG] {planet_name} rules both hour & day -> bonus = {bonus}")
         elif planet_name == hour_ruler:
-            bonus += 1.0  # Hour ruler bonus
+            bonus += 9.0
+            print(f"[LOG] {planet_name} is the hour ruler -> bonus = {bonus}")
         elif planet_name == day_ruling_planet:
-            bonus += 0.5  # Day ruler bonus
+            bonus += 6.5
+            print(f"[LOG] {planet_name} is the day ruler -> bonus = {bonus}")
 
-        # Dignity Modifier
+        # 4) DIGNITY MODIFIER
         sign = position.get("sign", "")
         dignity_modifier = HeatmapCalculator.calculate_dignity_modifier(planet_name, sign)
+        print(f"[LOG] sign: {sign}, dignity_modifier: {dignity_modifier:.2f}")
 
-        # Combustion and Cazimi Effects
+        # 5) COMBUSTION & CAZIMI
         combustion_data = HeatmapCalculator.calculate_combustion_cazimi_modifier(position)
         combustion_modifier = combustion_data["combustion_modifier"]
         combustion_status = combustion_data["combustion_status"]
+        print(f"[LOG] combustion_modifier: {combustion_modifier:.2f}, combustion_status: {combustion_status}")
 
-        # Moon-Specific Phase Modifier
+        # 6) MOON-SPECIFIC PHASE MODIFIER
         phase_modifier = 0
         if planet_name == "Moon":
             phase_modifier_data = HeatmapCalculator.calculate_moon_phase_modifier(position)
             phase_modifier = phase_modifier_data["phase_modifier"]
+            print(f"[LOG] Moon phase_modifier: {phase_modifier:.2f}")
 
-        # Final Intensity Calculation
+        # 7) FINAL INTENSITY CALCULATION
         intensity = (
             0.25 * intensity_proximity +
             0.35 * visibility_factor +
-            0.2 * dignity_modifier +
-            0.1 * bonus +
-            0.1 * phase_modifier +
-            combustion_modifier  # Include combustion/cazimi effects
+            0.2  * dignity_modifier +
+            0.1  * bonus +
+            0.1  * phase_modifier +
+            combustion_modifier
         )
-        intensity = max(round(intensity, 2), 0)  # Ensure non-negative
+        intensity = max(round(intensity, 2), 0)  # Round & ensure non-negative
 
+        print(f"[LOG] >>> Final intensity for {planet_name}: {intensity:.2f}")
+        print("[LOG] ----------------------------------------\n")
+
+        # Return numeric intensity + a label if combust/cazimi
         return intensity, combustion_status
+
+   
+   
+
+
+    # @staticmethod
+    # def calculate_gradient_properties(planet_name: str, intensity: float, normalized_size: float) -> dict:
+    #     """
+    #     Calculate gradient properties based on planet's intensity and size.
+        
+    #     Args:
+    #         planet_name: Name of the planet
+    #         intensity: The calculated intensity value
+    #         normalized_size: The pre-calculated normalized size
+        
+    #     Returns:
+    #         dict: Gradient properties including core, inner, and outer radiuses and their colors
+    #     """
+    #     print(f"DEBUG: Processing planet: {planet_name}")
+        
+    #     # Verify planet exists in PLANETARY_COLORS
+    #     planet_colors = PLANETARY_COLORS.get(planet_name)
+    #     if not planet_colors or not isinstance(planet_colors, dict):
+    #         print(f"ERROR: Invalid or missing color data for planet: {planet_name}")
+    #         return {
+    #             "core": {"radius": normalized_size, "color": "#FFFFFF"},  # Default white
+    #             "inner": {"radius": normalized_size * 1.5, "color": "#DDDDDD"},
+    #             "outer": {"radius": normalized_size * 2.0, "color": "#AAAAAA"}
+    #         }
+
+    #     # Verify gradient_stops exists
+    #     gradient_stops = planet_colors.get("gradient_stops")
+    #     if not gradient_stops or not isinstance(gradient_stops, dict):
+    #         print(f"ERROR: Missing or invalid 'gradient_stops' for planet: {planet_name}")
+    #         return {
+    #             "core": {"radius": normalized_size, "color": planet_colors.get("core", "#FFFFFF")},
+    #             "inner": {"radius": normalized_size * 1.5, "color": "#DDDDDD"},
+    #             "outer": {"radius": normalized_size * 2.0, "color": "#AAAAAA"}
+    #         }
+
+    #     print(f"DEBUG: Gradient stops for {planet_name}: {gradient_stops}")
+
+    #     # Calculate opacities
+    #     core_opacity = "FF"
+    #     inner_opacity = "D4"
+    #     outer_opacity = "1A"
+
+    #     # Core radius is the normalized size
+    #     core_radius = normalized_size
+
+    #     # Scale outer radius based on intensity
+    #     GRADIENT_SPREAD_FACTOR = 10
+    #     outer_radius = core_radius * (1 + (intensity * GRADIENT_SPREAD_FACTOR))
+
+    #     return {
+    #         "core": {
+    #             "radius": core_radius,
+    #             "color": f"{gradient_stops['core']}{core_opacity}"
+    #         },
+    #         "inner": {
+    #             "radius": (core_radius + outer_radius) * 0.5,
+    #             "color": f"{gradient_stops['inner']}{inner_opacity}"
+    #         },
+    #         "outer": {
+    #             "radius": outer_radius,
+    #             "color": f"{gradient_stops['outer']}{outer_opacity}"
+    #         }
+    #     }
+
+    @staticmethod
+    def calculate_gradient_properties(planet_name: str, intensity: float, normalized_size: float) -> dict:
+        """
+        Calculate gradient properties with controlled opacity and intensity-based spread,
+        with debug logs to track each step.
+        
+        Args:
+            planet_name: Name of the planet
+            intensity: The calculated intensity value
+            normalized_size: The pre-calculated normalized size
+
+        Returns:
+            dict: Gradient properties with controlled opacity and spread
+        """
+        print(f"[LOG] --- Calculating gradient for {planet_name} ---")
+        print(f"[LOG] Incoming intensity: {intensity:.2f}, normalized_size: {normalized_size:.2f}")
+
+        # 1) VERIFY PLANET COLORS
+        planet_colors = PLANETARY_COLORS.get(planet_name)
+        if not planet_colors or not isinstance(planet_colors, dict):
+            print(f"[LOG] ERROR: Invalid or missing color data for planet: {planet_name}")
+            default_grad = HeatmapCalculator._default_gradient(planet_name, normalized_size)
+            print(f"[LOG] Returning default gradient for {planet_name}: {default_grad}")
+            print("[LOG] ----------------------------------------\n")
+            return default_grad
+
+        # 2) VERIFY GRADIENT STOPS
+        gradient_stops = planet_colors.get("gradient_stops")
+        if not gradient_stops or not isinstance(gradient_stops, dict):
+            print(f"[LOG] ERROR: Missing or invalid 'gradient_stops' for planet: {planet_name}")
+            default_grad = HeatmapCalculator._default_gradient(planet_name, normalized_size)
+            print(f"[LOG] Returning default gradient for {planet_name}: {default_grad}")
+            print("[LOG] ----------------------------------------\n")
+            return default_grad
+        
+        print(f"[LOG] gradient_stops found for {planet_name}: {gradient_stops}")
+
+        # 3) DEFINE HOW MUCH INTENSITY AFFECTS SPREAD
+        INTENSITY_SPREAD_FACTOR = 8.0
+        base_radius = normalized_size
+
+        # 4) CALCULATE INNER STOP DISTANCE
+        #    Using a logarithmic scale to prevent extremely large spreads.
+        import math
+        inner_stop_distance = 0.5 + (math.log(1 + intensity) * INTENSITY_SPREAD_FACTOR)
+        inner_stop_distance = min(inner_stop_distance, 0.9)
+        print(f"[LOG] inner_stop_distance: {inner_stop_distance:.2f} (capped at 0.9)")
+
+        # 5) BUILD THE GRADIENT
+        #    We append partial transparency in the hex color: E6 ~ 90% alpha, 33 ~ 20% alpha
+        core_color  = f"{gradient_stops['core']}E6"
+        inner_color = gradient_stops['inner']   # fully opaque
+        outer_color = f"{gradient_stops['outer']}33"
+
+        core_radius  = base_radius
+        inner_radius = base_radius * inner_stop_distance
+        outer_radius = base_radius * 10.5
+
+        # Log each layer
+        print(f"[LOG] core:  radius={core_radius:.2f},  color={core_color}")
+        print(f"[LOG] inner: radius={inner_radius:.2f}, color={inner_color}")
+        print(f"[LOG] outer: radius={outer_radius:.2f}, color={outer_color}")
+
+        gradient_data = {
+            "core": {
+                "radius": core_radius,
+                "color": core_color
+            },
+            "inner": {
+                "radius": inner_radius,
+                "color": inner_color
+            },
+            "outer": {
+                "radius": outer_radius,
+                "color": outer_color
+            }
+        }
+
+        print(f"[LOG] >>> Final gradient for {planet_name}: {gradient_data}")
+        print("[LOG] ----------------------------------------\n")
+        return gradient_data
+
+
+
+    @staticmethod
+    def _default_gradient(planet_name: str, normalized_size: float) -> dict:
+        """
+        Provide a fallback gradient if the planet's colors or gradient stops are missing,
+        now with a debug log.
+        """
+        print(f"[LOG] _default_gradient() called for {planet_name}; normalized_size={normalized_size:.2f}")
+        fallback = {
+            "core": {
+                "radius": normalized_size,
+                "color": "#FFFFFF"
+            },
+            "inner": {
+                "radius": normalized_size * 1.5,
+                "color": "#DDDDDD"
+            },
+            "outer": {
+                "radius": normalized_size * 2.0,
+                "color": "#AAAAAA"
+            }
+        }
+        print(f"[LOG] Fallback gradient for {planet_name}: {fallback}")
+        return fallback
+
+   
     
 
     @staticmethod
@@ -169,10 +409,8 @@ class HeatmapCalculator:
             list: A list of dictionaries, each representing a planet's heatmap data.
         """
         heatmap_data = []
-
-        # Access the planetary positions from the "planets" key
         planetary_positions = ephemeris_data.get("planets", {})
-
+        
         for planet_name, position in planetary_positions.items():
             try:
                 # Access fields dynamically from position
@@ -185,7 +423,6 @@ class HeatmapCalculator:
                 longitude = position.get("longitude", 0)
                 sign = position.get("sign", "")
                 phase_angle = position.get("phase_angle", 0)
-
                 is_cazimi = position.get("is_cazimi", False)
                 is_combust = position.get("is_combust", False)
                 is_out_of_bounds = position.get("is_out_of_bounds", False)
@@ -204,7 +441,6 @@ class HeatmapCalculator:
                     # Phase modifier
                     moon_phase_data = HeatmapCalculator.calculate_moon_phase_modifier(position)
                     phase_modifier = moon_phase_data["phase_modifier"]
-
                     # Add Moon-specific warnings
                     moon_warning = []
                     if is_combust:
@@ -216,9 +452,23 @@ class HeatmapCalculator:
                 intensity = HeatmapCalculator.calculate_planet_intensity(
                     planet_name, position, hour_ruler, day_ruling_planet
                 )[0]  # Only take intensity, not status
-
+                
+                # Calculate planet normalized size 
+                normalized_planet_size = HeatmapCalculator.normalize_planet_size(
+                    planet_name,
+                    planetary_positions
+                )
+                
+                gradient_props = HeatmapCalculator.calculate_gradient_properties(
+                    planet_name, 
+                    intensity,
+                    normalized_planet_size
+                )
+                
+                
                 # Create a heatmap entry
                 heatmap_entry = {
+                    # Raw Planets Data
                     "planet": planet_name,
                     "altitude": round(altitude, 2),
                     "azimuth": round(azimuth, 2),
@@ -232,13 +482,18 @@ class HeatmapCalculator:
                     "is_day_ruling_planet": is_day_ruling_planet,
                     "is_cazimi": is_cazimi,
                     "is_combust": is_combust,
+                    
+                    # Heatmap Calculator Data
                     "combustion_modifier": combustion_data["combustion_modifier"],
                     "combustion_status": combustion_data["combustion_status"],
                     "phase_angle": round(phase_angle, 2) if planet_name == "Moon" else None,
                     "is_out_of_bounds": is_out_of_bounds if planet_name == "Moon" else None,
                     "phase_modifier": phase_modifier,
                     "intensity": intensity,
-                    "color": PLANETARY_COLORS.get(planet_name, "#FFFFFF"),
+                    "color": PLANETARY_COLORS[planet_name]["gradient_stops"]["core"],
+                    "normalized_planet_size": normalized_planet_size,
+                    "gradient": gradient_props,
+                    
                     "warnings": moon_warning if planet_name == "Moon" else None,
                 }
 
@@ -249,34 +504,8 @@ class HeatmapCalculator:
 
         return heatmap_data
     
+
+
+
+   
     
-    @staticmethod
-    def generate_gradient(heatmap_data):
-        """
-        Generate a CSS linear gradient from heatmap data.
-
-        Args:
-            heatmap_data (list): List of heatmap entries containing planet properties.
-
-        Returns:
-            str: A CSS linear gradient string.
-        """
-        gradient_stops = []
-
-        for entry in heatmap_data:
-            planet_color = entry.get("color", "#FFFFFF")
-            intensity = entry.get("intensity", 0)  # Normalized intensity (0 to 1)
-            azimuth = entry.get("azimuth", 0)  # Angle for the gradient
-
-            # Normalize intensity to a percentage for gradient opacity
-            opacity = min(max(intensity / 2, 0.1), 1.0)  # Scale intensity to 10% - 100%
-
-            # Add a gradient stop
-            gradient_stops.append(f"rgba({int(planet_color[1:3], 16)},"
-                                f"{int(planet_color[3:5], 16)},"
-                                f"{int(planet_color[5:7], 16)},"
-                                f"{opacity}) {azimuth}deg")
-
-        # Combine stops into a CSS linear gradient
-        gradient_css = f"linear-gradient({', '.join(gradient_stops)})"
-        return gradient_css
