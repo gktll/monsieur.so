@@ -69,3 +69,15 @@ htmlcov/
 *~
 .DS_Store
 Thumbs.db
+
+# General ignore patterns (if any)
+*.csv
+*.owl
+
+# Exceptions: Files to include in Git
+!APAONTO.csv
+!DOID.csv
+!FMA.csv
+!fma.owl
+!HUPSON.csv
+!PO.csv
