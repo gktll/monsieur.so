@@ -48,8 +48,8 @@ PlanetEntity:
         default: "0.0"
         description: "The planet is neutralized."
    
-instances
-  instances:
+instances:
+
   Sun:
     uri: monsieur:CelestialBodyEntity/PlanetEntity/Sun
     label: Sun
@@ -152,14 +152,9 @@ Entity:
   astroProperties:
     hasAstroRelationship:
       - astroType: "has_primary_element"
-        astroValence: "neutral"
-        astroScore: null
         relatedEntity:
           uri: "monsieur:ElementEntity/Earth"
           label: "Earth"
-        astroRead:
-          uri: "monsieur:QualityEntity/Stability"
-          label: "Stability"
         source:
           source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
           quote_id: ""
@@ -211,9 +206,7 @@ Entity:
           confidence_score: 0.99
           feed: "manual"
 
-      - astroType: "in_exile"
-        astroValence: "0"
-        astroScore: 0
+      - astroType: "exile_in"
         relatedEntity:
           uri: "monsieur:ZodiacEntity/Scorpio"
           label: "Scorpio"

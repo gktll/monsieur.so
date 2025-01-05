@@ -33,6 +33,7 @@ def handle_geolocation_and_visualization():
         if neo4j_data.get("hour_ruler"):
             dataset["additional_info"]["hour_ruler"] = neo4j_data["hour_ruler"]
 
+        
         # Calculate visualization data
         heatmap_data = HeatmapCalculator.calculate_heatmap_properties(
             ephemeris_data=dataset,

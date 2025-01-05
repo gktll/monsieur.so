@@ -15,11 +15,26 @@
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 
 
-    <style>
+   
+      <style>
+        .planet-color-filters {
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+        }
+        .color-filter-title {
+          margin-bottom: 8px;
+          font-weight: bold;
+        }
+        .color-filter-controls label {
+          margin-right: 15px;
+          display: inline-block;
+        }
+
+      </style>
 
      
 
-    </style>
    
 </head>
 <body>
@@ -65,12 +80,26 @@
           </div>
         </div>
       </nav>
+      <!-- <div class="planet-color-filters">
+        <div class="color-filter-title">Show/Hide Planets:</div>
+        <div class="color-filter-controls">
+          <label><input type="checkbox" value="Sun" checked> Sun</label>
+          <label><input type="checkbox" value="Moon" checked> Moon</label>
+          <label><input type="checkbox" value="Mercury" checked> Mercury</label>
+          <label><input type="checkbox" value="Venus" checked> Venus</label>
+          <label><input type="checkbox" value="Mars" checked> Mars</label>
+          <label><input type="checkbox" value="Jupiter" checked> Jupiter</label>
+          <label><input type="checkbox" value="Saturn" checked> Saturn</label>
+          <label><input type="checkbox" value="Neptune" checked> Neptune</label>
+          <label><input type="checkbox" value="Pluto" checked> Pluto</label>
+        </div>
+      </div> -->
     </header>
 
     <div id="main-container">
         <div id="networkContainer">
             <div id="network"></div>
-            <div class="resize-network">
+            <!--<div class="resize-network">
                 <div class="center-commands">
                     <span></span>
                     <button id="centerNetwork" class="network-commands ph ph-crosshair"></button>
@@ -80,24 +109,24 @@
                     <button id="zommIn" class="network-commands ph ph-magnifying-glass-plus"></button>
                     <button id="zoomOut" class="network-commands  ph ph-magnifying-glass-minus"></button>
                 </div>
-            </div>
+            </div>-->
         </div>
 
         <div id="terminal">
           <div id="dragHandle" class="drag-handle">
-            <span></span>
-            <button id="closeTerminalButton" class="close-terminal ph ph-x"></button>
+            <i class="ph ph-dots-six"></i>
+          </svg>
           </div>
           <div id="terminalOutput" class="terminal-output"></div>
-          <input
-            type="text"
-            id="terminalInput"
-            class="terminal-input"
-            placeholder="Type a command and press Enter"
-        />
+          <div class="terminal-input-container">
+            <input
+              type="text"
+              id="terminalInput"
+              class="terminal-input"
+              placeholder="Type a command and press Enter"
+            />
+          <div>
         </div>
-        <!-- Floating button for reopening the terminal -->
-        <button id="openTerminalButton" class="open-terminal ph ph-terminal" style="display: none;"></button>
       </div>
 
 

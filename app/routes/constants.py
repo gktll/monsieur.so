@@ -121,9 +121,9 @@ PLANETARY_COLORS = {
     },
     "Saturn": {
         "gradient_stops": {
-            "core": "#241909",   # Near black
-            "inner": "#483225",  # Dark brown
-            "outer": "#6C4B41"   # Medium brown
+            "core": "#0A0A0A",   # Night black
+            "inner": "#1F1F1F",  # Eeerie Black 
+            "outer": "#333333"   # Jet
         }
     },
     "Uranus": {

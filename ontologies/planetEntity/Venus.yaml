@@ -2,170 +2,141 @@ instances:
   Venus:
     uri: "monsieur:CelestialBodyEntity/PlanetEntity/Venus"
     label: "Venus"
-    description: "Venus, the planet of love, harmony, beauty."
-    astroProperties:
-      hasAstroRelationship:
-        - astroType: "has_primary_element"
-          astroValence: "neutral"
-          astroScore: null
-          relatedEntity:
-            uri: "monsieur:ElementEntity/Earth"
-            label: "Earth"
-          astroRead:
-            uri: "monsieur:QualityEntity/Stability"
-            label: "Stability"
-          source:
-            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
-            quote_id: ""
-            confidence_score: 0.99
-            feed: "manual"
+    description: "Venus is the planet of love, harmony and beauty."
+    defaultProperties:  
+    
 
-        - astroType: "has_primary_quality"
-          astroValence: "neutral"
-          astroScore: null
-          relatedEntity:
-            uri: "monsieur:ElementQualities/Earth"
-            label: "Earth"
-          astroRead:
-            uri: "monsieur:QualityEntity/Stability"
-            label: "Stability"
-          source:
-            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Anael
+            label: Anael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print///
             quote_id: ""
-            confidence_score: 0.99
-            feed: "manual"
+            feed: manual
+        - targetEntity: 
+          # ane here more analogies come with metal, colors, etc.
 
-        - astroType: "has_throne"
-          astroValence: "+2"
-          astroScore: 2
+    astrologyProperties:
+      hasAstrologyRelationship:
+        # element
+        - relationshipType: "has_primary_element"
           relatedEntity:
-            uri: "monsieur:ZodiacEntity/Taurus"
+            uri: monsieur:ElementEntity/Earth
+            label: "Earth"
+        
+        # quality
+        - relationshipType: "has_quality"
+          relatedEntity:
+            uri: monsieur:QualityEntity/Humidity
+            label: "Humidity"
+        
+        # temperament
+        - relationshipType: "has_temperament"
+          relatedEntity:
+            uri: monsieur:TemperamentEntity/lymphatic
+            label: "lymphatic"
+        
+        # pole
+        - relationshipType: "has_pole"
+          relatedEntity:
+            uri: monsieur:TemperamentEntity/minus
+            label: "minus"
+
+        # domciles, throne, exaltation, fall
+        - relationshipType: "has_domicile"
+          relatedEntity:
+            uri: monsieur:CelestialBodyEntity/PlanetEntity/Taurus
             label: "Taurus"
-          astroRead:
-            uri: "monsieur:QualityEntity/Dominance"
-            label: "Dominance"
-          source:
-            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
-            quote_id: ""
-            confidence_score: 0.99
-            feed: "manual"
-
-        - astroType: "is_exalted"
-          astroValence: "+1"
-          astroScore: 1
+        - relationshipType: "has_domicile"
           relatedEntity:
-            uri: "monsieur:ZodiacEntity/Pisces"
-            label: "Pisces"
-          astroRead:
-            uri: "monsieur:QualityEntity/Exaltation"
-            label: "Exaltation"
-          source:
-            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
-            quote_id: ""
-            confidence_score: 0.99
-            feed: "manual"
-
-        - astroType: "in_exile"
-          astroValence: "0"
-          astroScore: 0
+            uri: monsieur:CelestialBodyEntity/PlanetEntity/Libra
+            label: "Libra"
+        - relationshipType: "has_exile"
           relatedEntity:
-            uri: "monsieur:ZodiacEntity/Scorpio"
+            uri: monsieur:CelestialBodyEntity/PlanetEntity/Scorpio
             label: "Scorpio"
-          astroRead:
-            uri: "monsieur:QualityEntity/Weakness"
-            label: "Weakness"
-          source:
-            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
-            quote_id: ""
-            confidence_score: 0.99
-            feed: "manual"
-
-        - astroType: "in_fall"
-          astroValence: "-1"
-          astroScore: -1
+        - relationshipType: "has_exile"
           relatedEntity:
-            uri: "monsieur:ZodiacEntity/Virgo"
+            uri: monsieur:CelestialBodyEntity/PlanetEntity/Aries
+            label: "Aries"
+        - relationshipType: "has_fall"
+          relatedEntity:
+            uri: monsieur:CelestialBodyEntity/PlanetEntity/Virgo
             label: "Virgo"
-          astroRead:
-            uri: "monsieur:QualityEntity/Fall"
-            label: "Fall"
-          source:
-            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
-            quote_id: ""
-            confidence_score: 0.99
-            feed: "manual"
-
-        - astroType: "planet_in_sign"
-          astroValence: "neutral"
-          astroScore: null
+        - relationshipType: "has_exaltation"
           relatedEntity:
-            uri: "monsieur:ZodiacEntity/Gemini"
-            label: "Gemini"
-          astroRead:
-            uri: "monsieur:QualityEntity/Adaptability"
-            label: "Adaptability"
-          source:
-            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
-            quote_id: ""
-            confidence_score: 0.99
-            feed: "manual"
+            uri: monsieur:CelestialBodyEntity/PlanetEntity/Pisces
+            label: "Pisces"
 
-        - astroType: "planet_in_house"
-          astroValence: "neutral"
-          astroScore: null
+        # MEDICAL ASTROLOGY
+        # Anathomy relationships
+        - relationshipType: "is_ruler_of"
           relatedEntity:
-            uri: "monsieur:HouseEntity/SecondHouse"
-            label: "Second House"
-          astroRead:
-            uri: "monsieur:QualityEntity/Wealth"
-            label: "Wealth"
-          source:
-            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
-            quote_id: ""
-            confidence_score: 0.99
-            feed: "manual"
+            uri: monsieur:AnathomyEntity/Gonads
+            label: "Gonads"
+        - relationshipType: "is_ruler_of"
+          relatedEntity:
+            uri: monsieur:AnathomyEntity/Ovaries
+            label: "Ovaries"
+        - relationshipType: "is_ruler_of"
+          relatedEntity:
+            uri: monsieur:AnathomyEntity/Veins
+            label: "Veins"
+        - relationshipType: "is_ruler_of"
+          relatedEntity:
+            uri: monsieur:AnathomyEntity/Neck
+            label: "Neck"
+        - relationshipType: "is_ruler_of"
+          relatedEntity:
+            uri: monsieur:AnathomyEntity/OlfactoryNerve
+            label: "OlfactoryNerve"
+        
+        # symbolic anathomy    
+        - relationshipType: "symbolizes"
+          relatedEntity:
+            uri: monsieur:AnathomyEntity/Vagina
+            label: "Vagina"
+        - relationshipType: "symbolizes"
+          relatedEntity:
+            uri: monsieur:AnathomyEntity/BackOfMouthy
+            label: "BackOfMouthy"
 
-        - astroType: "aspect_trine"
-          astroValence: "positive"
-          astroScore: +1
+        # Physiology
+        - relationshipType: "is_ruler_of"
           relatedEntity:
-            uri: "monsieur:PlanetEntity/Mercury"
-            label: "Mercury"
-          astroRead:
-            uri: "monsieur:QualityEntity/Harmony"
-            label: "Harmony"
-          source:
-            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
-            quote_id: ""
-            confidence_score: 0.99
-            feed: "manual"
+            uri: monsieur:AnathomyEntity/Reproduction
+            label: "Reproduction"
+        - relationshipType: "is_ruler_of"
+          relatedEntity:
+            uri: monsieur:AnathomyEntity/Germination
+            label: "Germination"
 
-        - astroType: "aspect_sextile"
-          astroValence: "positive"
-          astroScore: +1
-          relatedEntity:
-            uri: "monsieur:PlanetEntity/Mercury"
-            label: "Mercury"
-          astroRead:
-            uri: "monsieur:QualityEntity/Harmony"
-            label: "Harmony"
-          source:
-            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
-            quote_id: ""
-            confidence_score: 0.99
-            feed: "manual"
+         # Physiology Processes
 
-        - astroType: "aspect_square"
-          astroValence: "negative"
-          astroScore: -1
+
+
+
+
+        # Psychology
+        - relationshipType: "symbolizes"
           relatedEntity:
-            uri: "monsieur:PlanetEntity/Mercury"
-            label: "Mercury"
-          astroRead:
-            uri: "monsieur:QualityEntity/Harmony"
-            label: "Harmony"
-          source:
-            source_id: "monsieur:WorkEntity/Print/TrattatoPraticoDiAstrologia"
-            quote_id: ""
-            confidence_score: 0.99
-            feed: "manual"
+            uri: monsieur:AnthropologyEntity/Deities/Venus
+            label: "Pisces"
+
+      
+        
+        
+        # mythology
+        - relationshipType: "symbolizes"
+          relatedEntity:
+            uri: monsieur:AnthropologyEntity/Deities/Venus
+            label: "Pisces"
+  
+         
+        

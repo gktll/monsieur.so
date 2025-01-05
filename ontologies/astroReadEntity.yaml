@@ -54,7 +54,7 @@ instances:
       hasSynonyms: ""
 
 # I
-Immobility:
+  Immobility:
     uri: monsieur:AstroReadEntity/Immobility
     label: Immobility
     description: ""
@@ -99,15 +99,15 @@ Immobility:
 
 # P
 Prudence:
-    uri: monsieur:AstroReadEntity/Prudence
-    label: Prudence
-    description: "It is the ability to govern and discipline oneself by the use of reason; sagacity or shrewdness in the management of affairs; skill and good judgment in the use of resources; caution or circumspection as to danger or risk."
-    relationships:
-      - HAS_MEMBER: AstroReadEntity 
-    defaultProperties:  
-      hasName: "Prudence"
-      hasImage: "Image_URL_or_Description"
-      hasSynonyms: ""
+  uri: monsieur:AstroReadEntity/Prudence
+  label: Prudence
+  description: "It is the ability to govern and discipline oneself by the use of reason; sagacity or shrewdness in the management of affairs; skill and good judgment in the use of resources; caution or circumspection as to danger or risk."
+  relationships:
+    - HAS_MEMBER: AstroReadEntity 
+  defaultProperties:  
+    hasName: "Prudence"
+    hasImage: "Image_URL_or_Description"
+    hasSynonyms: ""
 
 # Q
 

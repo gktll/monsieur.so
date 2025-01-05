@@ -1,5 +1,6 @@
 from app.routes.constants import PLANETARY_COLORS, ESSENTIAL_DIGNITIES, PLANET_DIAMETERS
 import math
+from typing import List, Dict
 
 
 class HeatmapCalculator:
@@ -88,21 +89,21 @@ class HeatmapCalculator:
                 "combustion_status": "None",
             }
 
-
+    
 
     @staticmethod
     def normalize_planet_size(planet_name: str, planets_data: dict) -> float:
-        """Calculate normalized size based on distance and physical diameter."""
+        """Calculate normalized size based primarily on distance, with minimal physical diameter influence."""
         # Get all distances and current distance
         distances = [position.get("distance_au", 1.0) for position in planets_data.values()]
         min_distance = min(distances)
         max_distance = max(distances)
         current_distance = planets_data[planet_name].get("distance_au", 1.0)
         
-        # Constants
-        max_distance_size = 25
+        # Constants - reduced overall sizes and range
+        max_distance_size = 35  # Reduced from 50
         min_distance_size = 5
-        max_diameter_size = 25
+        max_diameter_size = 15  # Reduced from 25
         min_diameter_size = 5
 
         # Calculate distance size with logarithmic scaling
@@ -116,7 +117,7 @@ class HeatmapCalculator:
             min_distance_size
         )
 
-        # Physical size normalization
+        # Physical size normalization - but with much less influence
         diameter = PLANET_DIAMETERS[planet_name]
         max_diameter = max(PLANET_DIAMETERS.values())
         min_diameter = min(PLANET_DIAMETERS.values())
@@ -127,10 +128,12 @@ class HeatmapCalculator:
             min_diameter_size
         )
 
-        # Combined size with weights
-        return 0.6 * distance_size + 0.4 * diameter_size
+        # Combined size with much stronger weight on distance
+        return 0.85 * distance_size + 0.15 * diameter_size  # Changed from 0.6/0.4 split
     
     
+
+
 
     @staticmethod
     def calculate_planet_intensity(
@@ -201,14 +204,15 @@ class HeatmapCalculator:
 
         # 7) FINAL INTENSITY CALCULATION
         intensity = (
-            0.25 * intensity_proximity +
-            0.35 * visibility_factor +
+            0.15 * intensity_proximity +
+            0.20 * visibility_factor +
             0.2  * dignity_modifier +
-            0.1  * bonus +
-            0.1  * phase_modifier +
+            0.40  * bonus +
+            0.10  * phase_modifier +
             combustion_modifier
         )
-        intensity = max(round(intensity, 2), 0)  # Round & ensure non-negative
+        intensity = min(max(intensity * 1.5, 0), 10)  # Scale up by 1.5x but cap at 10
+        intensity = round(intensity, 2)
 
         print(f"[LOG] >>> Final intensity for {planet_name}: {intensity:.2f}")
         print("[LOG] ----------------------------------------\n")
@@ -216,153 +220,85 @@ class HeatmapCalculator:
         # Return numeric intensity + a label if combust/cazimi
         return intensity, combustion_status
 
-   
-   
 
-
-    # @staticmethod
-    # def calculate_gradient_properties(planet_name: str, intensity: float, normalized_size: float) -> dict:
-    #     """
-    #     Calculate gradient properties based on planet's intensity and size.
-        
-    #     Args:
-    #         planet_name: Name of the planet
-    #         intensity: The calculated intensity value
-    #         normalized_size: The pre-calculated normalized size
-        
-    #     Returns:
-    #         dict: Gradient properties including core, inner, and outer radiuses and their colors
-    #     """
-    #     print(f"DEBUG: Processing planet: {planet_name}")
-        
-    #     # Verify planet exists in PLANETARY_COLORS
-    #     planet_colors = PLANETARY_COLORS.get(planet_name)
-    #     if not planet_colors or not isinstance(planet_colors, dict):
-    #         print(f"ERROR: Invalid or missing color data for planet: {planet_name}")
-    #         return {
-    #             "core": {"radius": normalized_size, "color": "#FFFFFF"},  # Default white
-    #             "inner": {"radius": normalized_size * 1.5, "color": "#DDDDDD"},
-    #             "outer": {"radius": normalized_size * 2.0, "color": "#AAAAAA"}
-    #         }
-
-    #     # Verify gradient_stops exists
-    #     gradient_stops = planet_colors.get("gradient_stops")
-    #     if not gradient_stops or not isinstance(gradient_stops, dict):
-    #         print(f"ERROR: Missing or invalid 'gradient_stops' for planet: {planet_name}")
-    #         return {
-    #             "core": {"radius": normalized_size, "color": planet_colors.get("core", "#FFFFFF")},
-    #             "inner": {"radius": normalized_size * 1.5, "color": "#DDDDDD"},
-    #             "outer": {"radius": normalized_size * 2.0, "color": "#AAAAAA"}
-    #         }
-
-    #     print(f"DEBUG: Gradient stops for {planet_name}: {gradient_stops}")
-
-    #     # Calculate opacities
-    #     core_opacity = "FF"
-    #     inner_opacity = "D4"
-    #     outer_opacity = "1A"
-
-    #     # Core radius is the normalized size
-    #     core_radius = normalized_size
-
-    #     # Scale outer radius based on intensity
-    #     GRADIENT_SPREAD_FACTOR = 10
-    #     outer_radius = core_radius * (1 + (intensity * GRADIENT_SPREAD_FACTOR))
-
-    #     return {
-    #         "core": {
-    #             "radius": core_radius,
-    #             "color": f"{gradient_stops['core']}{core_opacity}"
-    #         },
-    #         "inner": {
-    #             "radius": (core_radius + outer_radius) * 0.5,
-    #             "color": f"{gradient_stops['inner']}{inner_opacity}"
-    #         },
-    #         "outer": {
-    #             "radius": outer_radius,
-    #             "color": f"{gradient_stops['outer']}{outer_opacity}"
-    #         }
-    #     }
-
+    
+    
     @staticmethod
-    def calculate_gradient_properties(planet_name: str, intensity: float, normalized_size: float) -> dict:
+    def calculate_gradient_properties(planet_name: str, intensity: float, normalized_size: float, hour_ruler: str, day_ruling_planet: str) -> dict:
         """
-        Calculate gradient properties with controlled opacity and intensity-based spread,
-        with debug logs to track each step.
+        Refined gradient generation with balanced ruling effects and dynamic scaling.
+        """
+        print(f"\n[LOG] --- Calculating gradient for {planet_name} ---")
+        print(f"[LOG] Incoming normalized_size: {normalized_size:.2f}")
+        print(f"[LOG] Incoming intensity: {intensity:.2f}")
         
-        Args:
-            planet_name: Name of the planet
-            intensity: The calculated intensity value
-            normalized_size: The pre-calculated normalized size
-
-        Returns:
-            dict: Gradient properties with controlled opacity and spread
-        """
-        print(f"[LOG] --- Calculating gradient for {planet_name} ---")
-        print(f"[LOG] Incoming intensity: {intensity:.2f}, normalized_size: {normalized_size:.2f}")
-
-        # 1) VERIFY PLANET COLORS
+        # Verify planet colors
         planet_colors = PLANETARY_COLORS.get(planet_name)
         if not planet_colors or not isinstance(planet_colors, dict):
-            print(f"[LOG] ERROR: Invalid or missing color data for planet: {planet_name}")
-            default_grad = HeatmapCalculator._default_gradient(planet_name, normalized_size)
-            print(f"[LOG] Returning default gradient for {planet_name}: {default_grad}")
-            print("[LOG] ----------------------------------------\n")
-            return default_grad
-
-        # 2) VERIFY GRADIENT STOPS
-        gradient_stops = planet_colors.get("gradient_stops")
-        if not gradient_stops or not isinstance(gradient_stops, dict):
-            print(f"[LOG] ERROR: Missing or invalid 'gradient_stops' for planet: {planet_name}")
-            default_grad = HeatmapCalculator._default_gradient(planet_name, normalized_size)
-            print(f"[LOG] Returning default gradient for {planet_name}: {default_grad}")
-            print("[LOG] ----------------------------------------\n")
-            return default_grad
+            return HeatmapCalculator._default_gradient(planet_name, normalized_size)
         
-        print(f"[LOG] gradient_stops found for {planet_name}: {gradient_stops}")
-
-        # 3) DEFINE HOW MUCH INTENSITY AFFECTS SPREAD
-        INTENSITY_SPREAD_FACTOR = 8.0
-        base_radius = normalized_size
-
-        # 4) CALCULATE INNER STOP DISTANCE
-        #    Using a logarithmic scale to prevent extremely large spreads.
-        import math
-        inner_stop_distance = 0.5 + (math.log(1 + intensity) * INTENSITY_SPREAD_FACTOR)
-        inner_stop_distance = min(inner_stop_distance, 0.9)
-        print(f"[LOG] inner_stop_distance: {inner_stop_distance:.2f} (capped at 0.9)")
-
-        # 5) BUILD THE GRADIENT
-        #    We append partial transparency in the hex color: E6 ~ 90% alpha, 33 ~ 20% alpha
-        core_color  = f"{gradient_stops['core']}E6"
-        inner_color = gradient_stops['inner']   # fully opaque
-        outer_color = f"{gradient_stops['outer']}33"
-
-        core_radius  = base_radius
-        inner_radius = base_radius * inner_stop_distance
-        outer_radius = base_radius * 10.5
-
-        # Log each layer
-        print(f"[LOG] core:  radius={core_radius:.2f},  color={core_color}")
-        print(f"[LOG] inner: radius={inner_radius:.2f}, color={inner_color}")
-        print(f"[LOG] outer: radius={outer_radius:.2f}, color={outer_color}")
-
+        gradient_stops = planet_colors.get("gradient_stops")
+        if not gradient_stops:
+            return HeatmapCalculator._default_gradient(planet_name, normalized_size)
+        
+        # Ruling multiplier adjustments
+        ruling_multiplier = 1.0
+        if planet_name == hour_ruler and planet_name == day_ruling_planet:
+            ruling_multiplier = 2.5  # Rules both
+            print(f"[LOG] {planet_name} rules both hour & day -> multiplier = {ruling_multiplier}")
+        elif planet_name == hour_ruler:
+            ruling_multiplier = 1.8  # Hour ruler
+            print(f"[LOG] {planet_name} is hour ruler -> multiplier = {ruling_multiplier}")
+        elif planet_name == day_ruling_planet:
+            ruling_multiplier = 1.3  # Day ruler
+            print(f"[LOG] {planet_name} is day ruler -> multiplier = {ruling_multiplier}")
+        
+        relative_intensity = intensity / 10
+        print(f"[LOG] Relative intensity (0-1): {relative_intensity:.3f}")
+        print(f"[LOG] Ruling multiplier: {ruling_multiplier}")
+        
+        # Logarithmic scaling for base size
+        base_size = math.log(normalized_size + 1) * 200 * ruling_multiplier
+        core_radius = base_size
+        
+        # Dynamic gradient length based on intensity
+        gradient_length = base_size * (0.2 + relative_intensity * 0.1)
+        inner_radius = core_radius + gradient_length * 0.2
+        outer_radius = core_radius + gradient_length * 0.4
+        
+        print(f"\n[LOG] Size calculations:")
+        print(f"[LOG] Base size (with ruling multiplier) = {base_size:.2f}")
+        print(f"[LOG] Core radius = {core_radius:.2f}")
+        print(f"[LOG] Gradient length = {gradient_length:.2f}")
+        print(f"[LOG] Additional spread beyond core:")
+        print(f"[LOG] - Inner: +{inner_radius - core_radius:.2f}")
+        print(f"[LOG] - Outer: +{outer_radius - core_radius:.2f}")
+        
+        # Adjust opacity for contrast
+        core_opacity = min(1.0, 0.5 + relative_intensity * 0.4 + ruling_multiplier * 0.2)
+        inner_opacity = max(0.05, 0.15 * ruling_multiplier)
+        outer_opacity = max(0.01, 0.02 * ruling_multiplier)
+        
+        def opacity_to_hex(opacity):
+            opacity = max(0, min(1, opacity))
+            return format(int(opacity * 255), '02x').upper()
+        
         gradient_data = {
             "core": {
                 "radius": core_radius,
-                "color": core_color
+                "color": f"{gradient_stops['core']}{opacity_to_hex(core_opacity)}"
             },
             "inner": {
                 "radius": inner_radius,
-                "color": inner_color
+                "color": f"{gradient_stops['inner']}{opacity_to_hex(inner_opacity)}"
             },
             "outer": {
                 "radius": outer_radius,
-                "color": outer_color
+                "color": f"{gradient_stops['outer']}{opacity_to_hex(outer_opacity)}"
             }
         }
-
-        print(f"[LOG] >>> Final gradient for {planet_name}: {gradient_data}")
+        
+        print(f"[LOG] Final gradient data for {planet_name}: {gradient_data}")
         print("[LOG] ----------------------------------------\n")
         return gradient_data
 
@@ -391,10 +327,10 @@ class HeatmapCalculator:
         }
         print(f"[LOG] Fallback gradient for {planet_name}: {fallback}")
         return fallback
-
-   
     
 
+
+   
     @staticmethod
     def calculate_heatmap_properties(ephemeris_data, hour_ruler, day_ruling_planet):
         """
@@ -417,6 +353,7 @@ class HeatmapCalculator:
                 altitude = position.get("altitude", 0)
                 azimuth = position.get("azimuth", 0)
                 distance_au = position.get("distance_au", 1.0)
+                angular_distance = position.get("angular_distance", 1.0)  # Fixed typo here
                 is_retrograde = position.get("is_retrograde", False)
                 is_stationary = position.get("is_stationary", False)
                 daily_motion = position.get("daily_motion", 0)
@@ -462,9 +399,10 @@ class HeatmapCalculator:
                 gradient_props = HeatmapCalculator.calculate_gradient_properties(
                     planet_name, 
                     intensity,
-                    normalized_planet_size
+                    normalized_planet_size,
+                    hour_ruler,
+                    day_ruling_planet 
                 )
-                
                 
                 # Create a heatmap entry
                 heatmap_entry = {
@@ -473,6 +411,7 @@ class HeatmapCalculator:
                     "altitude": round(altitude, 2),
                     "azimuth": round(azimuth, 2),
                     "distance_au": round(distance_au, 3),
+                    "angular_distance": angular_distance,
                     "is_retrograde": is_retrograde,
                     "is_stationary": is_stationary,
                     "daily_motion": daily_motion,
@@ -501,7 +440,7 @@ class HeatmapCalculator:
 
             except Exception as e:
                 print(f"Error processing {planet_name}: {e}")
-
+                      
         return heatmap_data
     
 
