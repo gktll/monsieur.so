@@ -70,6 +70,6 @@ htmlcov/
 .DS_Store
 Thumbs.db
 
-# General ignore patterns (if any)
+# General ignore ontologies patterns (if any)
 *.owl
 

@@ -57,8 +57,14 @@ SecondHouse:
     - relationshipType: "is_ruler_of"
       relationshipDomain: "anatomy"
       relatedEntity:
-        uri: "monsieur:AnatomyEntity/Throat_Neck"
-        label: "Throat and Neck"
+        uri: "monsieur:AnatomyEntity/Throat"
+        label: "Throat"
+      notes: ""
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Neck"
+        label: "Neck"
       notes: "Includes the neck vertebrae and all related structures."
     - relationshipType: "is_ruler_of"
       relationshipDomain: "physiology"
