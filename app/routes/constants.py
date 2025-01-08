@@ -46,6 +46,21 @@ EXTENDED_SKYFIELD_IDS = {
     'Pluto': 'pluto barycenter'
 }
 
+
+PLANET_SYMBOLS = {
+    'Sun': '☉',
+    'Moon': '☽',
+    'Mercury': '☿',
+    'Venus': '♀',
+    'Mars': '♂',
+    'Jupiter': '♃',
+    'Saturn': '♄',
+    'Uranus': '⛢',
+    'Neptune': '♆',
+    'Pluto': '♇'
+}
+
+
 DEFAULT_ASPECT_CONFIG = {
     "Conjunction": {"angle": 0, "orb": 8},
     "Opposition": {"angle": 180, "orb": 8},
@@ -53,6 +68,7 @@ DEFAULT_ASPECT_CONFIG = {
     "Trine": {"angle": 120, "orb": 7},
     "Sextile": {"angle": 60, "orb": 6},
 }
+
 
 # Essential dignities
 ESSENTIAL_DIGNITIES = {
@@ -68,11 +84,44 @@ ESSENTIAL_DIGNITIES = {
     'Pluto': {'rulership': 'Scorpio', 'exaltation': 'Aries', 'detriment': 'Taurus', 'fall': 'Libra'}
 }
 
+
 # Zodiac Signs
 ZODIAC_SIGNS = [
     'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo',
     'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'
 ]
+
+
+TRIPLICITIES = {
+    'Aries': 'Fire',
+    'Taurus': 'Water',
+    'Gemini': 'Air',
+    'Cancer': 'Earth',
+    'Leo': 'Fire',
+    'Virgo': 'Water',
+    'Libra': 'Air',
+    'Scorpio': 'Earth',
+    'Sagittarius': 'Fire', 
+    'Carpicorn': 'Water',
+    'Aquarius': 'Air',
+    'Pisces': 'Earth'     
+}
+
+
+SIGN_SYMBOLS = {
+    'Aries': '♈︎',
+    'Taurus': '♉︎',
+    'Gemini': '♊︎',
+    'Cancer': '♋︎',
+    'Leo': '♌︎',
+    'Virgo': '♍︎',
+    'Libra': '♎︎',
+    'Scorpio': '♏︎',
+    'Sagittarius': '♐︎', 
+    'Carpicorn': '♑︎',
+    'Aquarius': '♒︎',
+    'Pisces': '♓︎'     
+}
 
 
 # Planetary Colors with gradient definitions

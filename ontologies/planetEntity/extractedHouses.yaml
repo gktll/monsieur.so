@@ -1,0 +1,864 @@
+instances:
+
+
+  FirstHouse:
+    description: "Symbolizes Life and refers to the physical body generally, including its receptivity to disease and basic constitution."
+    relationships:
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "constitution"
+        relatedEntity:
+          uri: "monsieur:AstrologyEntity/Constitution"
+          label: "Basic Constitution"
+        notes: "The first house describes the basic constitution and its strength or weakness."
+      - relationshipType: "is_influence_on"
+        relationshipDomain: "appearance"
+        relatedEntity:
+          uri: "monsieur:AstrologyEntity/Physical_Appearance"
+          label: "Physical Appearance"
+        notes: "Affects the face, eyes, nose, tongue, teeth, and general physical appearance."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Head"
+          label: "Head"
+        notes: "Includes the brain, pituitary gland, pineal gland, and all head-related organs."
+    influences:
+      - positiveSigns:
+          - "Aries"
+          - "Leo"
+          - "Sagittarius"
+        notes: "Reputed to give vigour and strength."
+      - negativeSigns:
+          - "Cancer"
+          - "Scorpio"
+          - "Pisces"
+        notes: "Traditionally associated with weaker constitutions, though this can be mitigated by helpful aspects or an unafflicted Ascendant ruler."
+    planetaryAspects:
+      - planet: "Venus"
+        description: "Helpful aspects from Venus to the Ascendant strengthen the constitution."
+      - planet: "Jupiter"
+        description: "Helpful aspects from Jupiter to the Ascendant strengthen the constitution."
+    esotericAssociations:
+      - relationshipType: "is_connected_to"
+        relationshipDomain: "spiritual"
+        relatedEntity:
+          uri: "monsieur:EsotericEntity/Third_Eye"
+          label: "Third Eye"
+        notes: "The pineal gland is thought to influence spiritual sight and is the seat of the soul."
+    notes: 
+      - "Planets in the first house but in the succeeding sign influence the constitution, weakening or strengthening it."
+      - "The first house provides a physical description of the body, moderated by planetary aspects."
+      - "The head and its components, including the brain and glands, are ruled by this house."
+
+
+SecondHouse:
+  description: "Rules the throat and neck, including structures that pass through it, such as arteries, glands, and the airway. Symbolizes energy reserves and the use of energy."
+  relationships:
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Throat_Neck"
+        label: "Throat and Neck"
+      notes: "Includes the neck vertebrae and all related structures."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Carotid_Arteries"
+        label: "Carotid Arteries"
+      notes: "Arteries arising from the aorta, located in the neck."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Parotid_Glands"
+        label: "Parotid Glands"
+      notes: "Located below the jawline, these glands secrete saliva."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: monsieur:AnatomyEntity/Parathyroid Glands
+        label: "Parathyroid Glands"
+      notes: "Regulate metabolism and calcium uptake essential for cell functioning."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Thyroid
+        label: "Thyroid"
+      notes: "Regulate metabolism and calcium uptake essential for cell functioning."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "immunity"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Tonsils"
+        label: "Tonsils"
+      notes: "Lymphoid tissue involved in safeguarding immunity."
+    - relationshipType: "is_associated_with"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Homeostasis"
+        label: "Homeostasis"
+      notes: "The second/eighth house axis helps maintain homeostasis."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Larynx_Pharynx_Trachea"
+        label: "Larynx, Pharynx, and Trachea"
+      notes: "Includes the vocal organs, upper airway, and lower airway."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Voice"
+        label: "Voice"
+      notes: "The voice is governed by this house, often reflecting energy levels."
+    - relationshipType: "is_storehouse_of"
+      relationshipDomain: "esoteric"
+      relatedEntity:
+        uri: "monsieur:EsotericEntity/Prana"
+        label: "Prana"
+      notes: "Storehouse of prana, also known as Chi energy or the life force."
+    - relationshipType: "is_connected_to"
+      relationshipDomain: "nutrition"
+      relatedEntity:
+        uri: "monsieur:NutritionEntity/Food"
+        label: "Food"
+      notes: "Essential for vitalizing the physical body and affecting energy reserves."
+  esotericAssociations:
+    - relationshipType: "is_storehouse_of"
+      relatedEntity:
+        uri: "monsieur:EsotericEntity/Energy"
+        label: "Energy"
+      notes: "The second house symbolizes the use and storage of energy."
+  notes: 
+    - "Denuded food (lacking nutrients and minerals) weakens energy reserves and affects metabolism."
+    - "The second house governs energy reserves essential for vitalizing the body."
+
+
+  ThirdHouse:
+    description: "Represents the domain of the lower mind, general mental capacity, and the nervous system. Governs conscious awareness, speech, and mode of gesticulation."
+    relationships:
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "psychology"
+        relatedEntity:
+          uri: "monsieur:PsychologyEntity/Conscious_Awareness"
+          label: "Conscious Awareness"
+        notes: "Describes awareness of self and surroundings, mainly connected to the cerebrum."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "psychology"
+        relatedEntity:
+          uri: "monsieur:PsychologyEntity/Memory"
+          label: "Memory"
+        notes: "Memory storage and recall are associated with this house and linked to the limbic system."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Limbic_System"
+          label: "Limbic System"
+        notes: "A nerve cluster area in the brain associated with memory."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Nervous_System"
+          label: "Nervous System"
+        notes: "Includes the central and peripheral nervous systems, and autonomic divisions."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Central_Nervous_System"
+          label: "Central Nervous System (CNS)"
+        notes: "Involves the brain and spinal cord."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Peripheral_Nervous_System"
+          label: "Peripheral Nervous System (PNS)"
+        notes: "Connects the brain and spinal cord with outlying regions of the body."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Autonomic_Nervous_System"
+          label: "Autonomic Nervous System"
+        notes: "Includes the sympathetic and parasympathetic divisions for activating and relaxing nerves."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "psychology"
+        relatedEntity:
+          uri: "monsieur:PsychologyEntity/Wakefulness"
+          label: "Wakefulness"
+        notes: "Governed by the reticular activating system (RAS) within the brain stem."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Reticular_Activating_System"
+          label: "Reticular Activating System (RAS)"
+        notes: "A network of cells in the brain stem deciding prime attention in activities."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Shoulders"
+          label: "Shoulders"
+        notes: "Includes shoulders and upper body areas."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Chest"
+          label: "Chest"
+        notes: "Governs the chest area and breathing."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Arms_Hands_Fingers"
+          label: "Arms, Hands, and Fingers"
+        notes: "Rules these body parts and their movement."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "immunity"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Thymus_Gland"
+          label: "Thymus Gland"
+        notes: "Provides immunity in childhood but atrophies in adulthood."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "physiology"
+        relatedEntity:
+          uri: "monsieur:PhysiologyEntity/Breath"
+          label: "Breath"
+        notes: "Carries oxygen through the lungs."
+    notes:
+      - "Speech and mode of gesticulation are governed by this house."
+      - "The nervous system initiates responses aimed at survival."
+      - "The brain's limbic system is linked to memory and emotional response."
+
+
+
+  FourthHouse:
+    description: "Represents inherited psychological and physical conditions, childhood bonding and nurturing, and their influence on emotional responses and sense of security."
+    relationships:
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Breasts"
+          label: "Breasts"
+        notes: "Symbolic of love and bonding; involved in lactation."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Stomach"
+          label: "Stomach"
+        notes: "Governs the digestion of food, linked to nurturing and survival."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Solar_Plexus"
+          label: "Solar Plexus"
+        notes: "A network of autonomic nerves linked to emotions, often affected by stress."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Lungs"
+          label: "Lungs"
+        notes: "Responsible for oxygenation of the blood."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Diaphragm"
+          label: "Diaphragm"
+        notes: "Vital muscle for breathing, controlled by the autonomic nervous system."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Axilla"
+          label: "Axilla (Armpit)"
+        notes: "Location of sweat glands regulated by the autonomic nervous system."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "physiology"
+        relatedEntity:
+          uri: "monsieur:PhysiologyEntity/Sweat_Glands"
+          label: "Sweat Glands"
+        notes: "Controlled by the autonomic nervous system; secrete water and salt."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Adrenal_Glands"
+          label: "Adrenal Glands"
+        notes: "Secrete hormones maintaining blood volume, blood pressure, and defence against emotional stress. Jointly associated with the Seventh House."
+    esotericAssociations:
+      - relationshipType: "is_associated_with"
+        relatedEntity:
+          uri: "monsieur:EsotericEntity/Inherited_Conditions"
+          label: "Inherited Conditions"
+        notes: "Includes psychological and physical traits passed down through the family."
+      - relationshipType: "is_associated_with"
+        relatedEntity:
+          uri: "monsieur:EsotericEntity/Emotional_Response"
+          label: "Emotional Response"
+        notes: "Influenced by early bonding and nurturing in childhood."
+    notes:
+      - "Under stress, the solar plexus nerves tighten, leading to shallow breathing and inhibited oxygen flow."
+      - "This house traditionally rules both the lungs and diaphragm, emphasizing their role in breathing."
+      - "The adrenal glands have a dual rulership with the Seventh House."
+
+
+
+FifthHouse:
+  description: "Represents children, fertility, and parturition. Governs the back, spinal cord, heart, and the liver, with connections to the nervous and digestive systems."
+  relationships:
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "reproduction"
+      relatedEntity:
+        uri: "monsieur:ReproductiveEntity/Fertility"
+        label: "Fertility"
+      notes: "Associated with fertility and parturition, especially with water signs, the Moon, or Venus on the cusp."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "reproduction"
+      relatedEntity:
+        uri: "monsieur:ReproductiveEntity/Parturition"
+        label: "Parturition"
+      notes: "Possible influence over childbirth."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Back"
+        label: "Back"
+      notes: "Governs the back as a whole, including the scapula and vertebral column."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Thoracic_Spine"
+        label: "Thoracic Spine"
+      notes: "Specifically governs the thoracic area of the vertebral column."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "nervous_system"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Spinal_Cord"
+        label: "Spinal Cord"
+      notes: "Encases nerves of the central nervous system, connecting the fifth house to the nerves."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Heart"
+        label: "Heart"
+      notes: "Responsible for pumping blood through the arterial and venous systems."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Liver"
+        label: "Liver"
+      notes: "Governs the liver, responsible for detoxification and bile formation."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Digestion"
+        label: "Digestive System"
+      notes: "Influences digestion through the liver's connection to bile and nutrient processing."
+    - relationshipType: "is_connected_to"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Blood_Proteins"
+        label: "Blood Proteins"
+      notes: "Responsible for maintaining the correct balance of blood plasma."
+    - relationshipType: "is_connected_to"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Blood_Clotting"
+        label: "Blood Clotting"
+      notes: "Influences production of clotting agents in the liver."
+    - relationshipType: "is_connected_to"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Glycogen_Storage"
+        label: "Glycogen Storage"
+      notes: "The liver's role in storing glycogen for energy production."
+  esotericAssociations:
+    - relationshipType: "is_associated_with"
+      relatedEntity:
+        uri: "monsieur:EsotericEntity/Children"
+        label: "Children"
+      notes: "Symbolically associated with children and their care."
+  notes:
+    - "The fifth house's connection to the liver includes its role in blood and digestion."
+    - "Opposite the eleventh house, which governs general circulation."
+    - "Water signs and benefic planets like the Moon and Venus indicate fertility if unafflicted."
+
+
+
+  SixthHouse:
+    description: "Represents sickness, health hygiene, and physiological processes like absorption and evacuation. It also relates to congenital conditions and nutritional health."
+    relationships:
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "health"
+        relatedEntity:
+          uri: "monsieur:HealthEntity/Sickness"
+          label: "Sickness"
+        notes: "Points to disruptions in health and the potential work of individuals in the health field."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Small_Intestine"
+          label: "Small Intestine"
+        notes: "Absorbs nutrients and enzymes, completing the digestive process."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Large_Intestine"
+          label: "Large Intestine (Colon)"
+        notes: "Responsible for water absorption from food residue."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "nutrition"
+        relatedEntity:
+          uri: "monsieur:NutritionEntity/Food"
+          label: "Food"
+        notes: "Proper nutrition ensures the flow of health; also linked to the second and fourth houses."
+      - relationshipType: "shares_rulership_with"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Liver"
+          label: "Liver"
+        notes: "Shares rulership with the fifth house; stores by-products of food and produces bile."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Kidneys"
+          label: "Kidneys"
+        notes: "Filters unwanted substances from the blood; primarily ruled by the seventh house."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "immunity"
+        relatedEntity:
+          uri: "monsieur:ImmunityEntity/Microbes_Bacteria"
+          label: "Microbes and Bacteria"
+        notes: "Relates to hygiene and the body's defense mechanisms."
+      - relationshipType: "is_influence_on"
+        relationshipDomain: "congenital"
+        relatedEntity:
+          uri: "monsieur:CongenitalEntity/Congenital_Conditions"
+          label: "Congenital Conditions"
+        notes: "Shows congenital conditions, particularly if linked to the fourth house by aspect."
+    notes:
+      - "Afflicted planets in this house may reveal disruptions in health or congenital issues."
+      - "The sign on the sixth house cusp may reveal bodily areas subject to weakness."
+      - "Proper hygiene and the role of microbes and bacteria are key concerns of this house."
+      - "The sixth house is jointly concerned with food, along with the second and fourth houses."
+      - "Aspects between the fourth and sixth houses, or planets within them, may indicate congenital conditions."
+
+
+
+  SeventhHouse:
+    description: "Represents the anatomical area between the navel and the top of the legs. Governs the kidneys, navel, reproductive organs, and homeostasis. Linked to health matters through its opposition to the first house."
+    relationships:
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Kidneys"
+          label: "Kidneys"
+        notes: "Filter blood, eliminate waste, adjust water balance, and produce hormones regulating red blood cells."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Navel"
+          label: "Navel"
+        notes: "Includes the umbilicus, which connects mother and child."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Uterus"
+          label: "Uterus"
+        notes: "Governs the uterus, involved in reproduction and childbirth."
+      - relationshipType: "shares_rulership_with"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Reproductive_Organs"
+          label: "Reproductive Organs"
+        notes: "Shared rulership with the eighth house."
+      - relationshipType: "shares_rulership_with"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Intestines"
+          label: "Intestines"
+        notes: "Shared rulership with the sixth house."
+      - relationshipType: "shares_rulership_with"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Bladder"
+          label: "Bladder"
+        notes: "Shared rulership with the eighth house."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "health"
+        relatedEntity:
+          uri: "monsieur:HealthEntity/Epidemics"
+          label: "Epidemics"
+        notes: "Planets in the seventh house, particularly outer planets, may indicate health matters or external circumstances like epidemics."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "physiology"
+        relatedEntity:
+          uri: "monsieur:PhysiologyEntity/Homeostasis"
+          label: "Homeostasis"
+        notes: "Rules the body's automatic self-regulation mechanisms."
+    notes:
+      - "The seventh house opposes the first house, linking planets here to health and constitution."
+      - "Particular attention should be paid to outer planets in this house, as they may suggest circumstances outside one's control."
+      - "The seventh house shares rulership of the reproductive organs and bladder with the eighth house, and the intestines with the sixth house."
+
+
+  EighthHouse:
+    description: "Represents dissolution of energy, physical death, severe illnesses, and toxic conditions. Governs excretion, reproduction, and spiritual interests. Part of the terminal triangle indicating forces of change."
+    relationships:
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "health"
+        relatedEntity:
+          uri: "monsieur:HealthEntity/Loss_Of_Vitality"
+          label: "Loss of Vitality"
+        notes: "Includes conditions like atrophy of an organ, metabolic changes, or nervous breakdown."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "health"
+        relatedEntity:
+          uri: "monsieur:HealthEntity/Severe_Illnesses"
+          label: "Severe Illnesses"
+        notes: "Includes conditions close to death, near-death experiences, or healing crises."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "health"
+        relatedEntity:
+          uri: "monsieur:HealthEntity/Toxic_Conditions"
+          label: "Toxic Conditions"
+        notes: "Includes poisoning, decomposition, and illnesses that corrode or destroy the organism."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "excretion"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Colon"
+          label: "Colon"
+        notes: "Rules excretion and the removal of toxic waste."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "excretion"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Anus"
+          label: "Anus"
+        notes: "Associated with the expulsion of poisons and waste from the body."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "reproduction"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Reproductive_Organs"
+          label: "Reproductive Organs"
+        notes: "Rules both male and female reproductive organs and is examined in matters of childbirth."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "reproduction"
+        relatedEntity:
+          uri: "monsieur:HealthEntity/Sterility"
+          label: "Sterility"
+        notes: "May be indicated by aspects between the fifth and eighth houses, supported by other chart factors."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Genitalia"
+          label: "Genitalia"
+        notes: "Rules the genitalia and groin area."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Bladder_Ureter_Tubes"
+          label: "Bladder and Ureter Tubes"
+        notes: "Includes the tubes connecting the kidneys to the bladder."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "spiritual"
+        relatedEntity:
+          uri: "monsieur:EsotericEntity/Spiritual_Interests"
+          label: "Spiritual Interests"
+        notes: "Includes psychic abilities and openness to spiritual or psychic influences."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "psychology"
+        relatedEntity:
+          uri: "monsieur:PsychologyEntity/Obsessive_Behaviour"
+          label: "Obsessive Behaviour"
+        notes: "May lead to obsessive thoughts, fear, and anguish of the mind."
+    esotericAssociations:
+      - relationshipType: "is_part_of"
+        relatedEntity:
+          uri: "monsieur:EsotericEntity/Terminal_Triangle"
+          label: "Terminal Triangle"
+        notes: "Indicates forces of change, voluntary or otherwise, along with the fourth and twelfth houses."
+    notes:
+      - "The eighth house is considered difficult due to its association with death, transformation, and severe health conditions."
+      - "Examined in matters of reproduction and childbirth, along with the fifth house."
+      - "Aspects to afflicted planets in this house may reveal weaknesses in associated organs or functions."
+
+
+
+
+  NinthHouse:
+    description: "Governs movement and the parts of the body related to it, including the legs, hips, and motor nerves. Represents the higher mind, faith, and visionary aspects, with connections to the cerebellum and dreams."
+    relationships:
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Legs"
+          label: "Legs"
+        notes: "Supports the body's weight and enables movement."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Pelvic_Girdle"
+          label: "Pelvic Girdle (Hips)"
+        notes: "Supports the body through the coxal bones."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Femur"
+          label: "Femur"
+        notes: "Longest bone in the body, associated with weight-bearing and movement."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Hamstrings"
+          label: "Hamstrings"
+        notes: "Responsible for flexing and extending the thigh."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Buttocks"
+          label: "Buttocks"
+        notes: "Supports posture and movement."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Cerebellum"
+          label: "Cerebellum"
+        notes: "Presides over muscular coordination and reflexive movement below consciousness."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Motor_Nerves"
+          label: "Motor Nerves"
+        notes: "Promotes activity by conveying impulses from the brain to muscles; shared rulership with Mars."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "psychology"
+        relatedEntity:
+          uri: "monsieur:PsychologyEntity/Higher_Mind"
+          label: "Higher Mind"
+        notes: "Represents faith, visionary aspects, and connections to the right cerebral cortex."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "esoteric"
+        relatedEntity:
+          uri: "monsieur:EsotericEntity/Dreams_Prophecy"
+          label: "Dreams and Prophecy"
+        notes: "Associated with visionary experiences and operating below consciousness."
+      - relationshipType: "is_connected_to"
+        relationshipDomain: "psychology"
+        relatedEntity:
+          uri: "monsieur:PsychologyEntity/Faith_Survival"
+          label: "Faith and Survival"
+        notes: "Planetary emphasis here often provides faith and a strong will to survive."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "psychology"
+        relatedEntity:
+          uri: "monsieur:PsychologyEntity/Mental_Illness"
+          label: "Mental Illness"
+        notes: "Malefic planets may disturb the mind, sometimes manifesting with religious overtones."
+    notes:
+      - "Afflicted planets in this house may reduce faith in the future and disturb the mind."
+      - "This house has trine aspects to the Ascendant, reinforcing its connection to fortune and survival."
+      - "The ninth house governs visionary aspects linked to the right brain, contrasting with the third house's logical left brain."
+      - "The cerebellum and motor nerves emphasize its role in movement and reflexive action."
+
+
+
+  TenthHouse:
+    description: "Represents the skeletal system, knees, blood production, and the influence of nurturing on health. Governs self-image, mental health, and treatment in decumbiture charts."
+    relationships:
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Skeletal_System"
+          label: "Skeletal System"
+        notes: "Includes bones and their role in supporting the body and health."
+      - relationshipType: "is_ruler_of"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Knees"
+          label: "Knees"
+        notes: "Specifically governs the knees, a critical part of the skeletal system."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "physiology"
+        relatedEntity:
+          uri: "monsieur:PhysiologyEntity/Blood_Making"
+          label: "Blood Making Process"
+        notes: "Occurs in bone marrow, which is part of the skeletal system."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "physiology"
+        relatedEntity:
+          uri: "monsieur:PhysiologyEntity/Calcium_Reservoir"
+          label: "Calcium Reservoir"
+        notes: "Bones act as reservoirs for calcium, aiding muscles, nerves, and blood."
+      - relationshipType: "shares_rulership_with"
+        relationshipDomain: "anatomy"
+        relatedEntity:
+          uri: "monsieur:AnatomyEntity/Hamstrings"
+          label: "Hamstrings"
+        notes: "Shares rulership with the ninth house."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "psychology"
+        relatedEntity:
+          uri: "monsieur:PsychologyEntity/Depression"
+          label: "Depression"
+        notes: "Linked to faulty nurturing and Saturn, influencing mental health."
+      - relationshipType: "is_connected_to"
+        relationshipDomain: "psychology"
+        relatedEntity:
+          uri: "monsieur:PsychologyEntity/Self_Image"
+          label: "Self-Image"
+        notes: "Governs the image we project upon the world, influencing positivity or negativity."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "health"
+        relatedEntity:
+          uri: "monsieur:HealthEntity/Anorexia_Nervosa"
+          label: "Anorexia Nervosa"
+        notes: "Linked to this house, influencing the struggle for existence and basic metabolic rate."
+      - relationshipType: "is_associated_with"
+        relationshipDomain: "treatment"
+        relatedEntity:
+          uri: "monsieur:HealthEntity/Treatment"
+          label: "Treatment"
+        notes: "Represents medicine or treatments likely to help the patient in decumbiture charts."
+      - relationshipType: "is_connected_to"
+        relationshipDomain: "psychology"
+        relatedEntity:
+          uri: "monsieur:PsychologyEntity/Nurturing"
+          label: "Nurturing"
+        notes: "Good health depends on the quality of nurturing received, traditionally linked to the mother."
+    esotericAssociations:
+      - relationshipType: "is_connected_to"
+        relatedEntity:
+          uri: "monsieur:EsotericEntity/Life_Force"
+          label: "Life Force"
+        notes: "Negativity and depression may obstruct the flow of the life force, influencing health."
+    notes:
+      - "Planets in the tenth house, especially malefic ones elevated above the lights, may influence health and the metabolic rate."
+      - "The tenth house, linked to Saturn, governs emotions like depression, which may lay the foundation for health issues."
+      - "Examining the fourth house alongside the tenth is necessary to fully understand the influence of nurturing on health."
+      - "In decumbiture charts, this house reveals potential treatments or medicines for patients."
+
+
+
+
+EleventhHouse:
+  description: "Represents the calves, ankles, blood circulation, and nerve cells. Governs fertility indications, hopes, and wishes, as well as their impact on mental health."
+  relationships:
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Calves"
+        label: "Calves"
+      notes: "Governs the calves and the tibia and fibula bones."
+    - relationshipType: "shares_rulership_with"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Ankles"
+        label: "Ankles"
+      notes: "Shares rulership with the twelfth house."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Blood_Circulation"
+        label: "Blood Circulation"
+      notes: "Includes red and white blood cells and platelets involved in blood clotting."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Varicose_Veins"
+        label: "Varicose Veins"
+      notes: "Associated with the calves and blood return to the heart."
+    - relationshipType: "is_associated_with"
+      relationshipDomain: "nervous_system"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Nerve_Cells"
+        label: "Nerve Cells"
+      notes: "Governs the electrical/chemical transmitters linking nerve cells."
+    - relationshipType: "is_connected_to"
+      relationshipDomain: "reproduction"
+      relatedEntity:
+        uri: "monsieur:ReproductiveEntity/Fertility"
+        label: "Partner's Fertility"
+      notes: "Provides indications of partner's fertility or sterility, connected to the fifth house."
+    - relationshipType: "is_associated_with"
+      relationshipDomain: "psychology"
+      relatedEntity:
+        uri: "monsieur:PsychologyEntity/Hopes_Wishes"
+        label: "Hopes and Wishes"
+      notes: "Connected to aspirations; unfulfilled hopes may lead to negativity and despair."
+    - relationshipType: "is_associated_with"
+      relationshipDomain: "psychology"
+      relatedEntity:
+        uri: "monsieur:PsychologyEntity/Depression"
+        label: "Depression"
+      notes: "Unfulfilled hopes and negativity may lay the foundation for health issues."
+  esotericAssociations:
+    - relationshipType: "is_connected_to"
+      relatedEntity:
+        uri: "monsieur:EsotericEntity/Electrical_Effect"
+        label: "Electrical Effect"
+      notes: "Often described as electrical due to its association with Uranus and nerve activity."
+  notes:
+    - "The eleventh house rules over the calves and ankles, and shares rulership of the ankles with the twelfth house."
+    - "Blood circulation, including valves preventing backflow, is governed by this house."
+    - "Associated with varicose veins and conditions exacerbated by ageing or other factors like obesity or pregnancy."
+    - "Provides fertility indications, especially when the fifth house shows poor indications."
+    - "Hopes and wishes are central to this house, with thwarted aspirations potentially leading to depression."
+
+
+
+
+
+TwelfthHouse:
+  description: "Known as the house of sorrow, it governs ill health, unconscious processes, the immune system, prenatal experiences, and the feet. Represents self-undoing, psychic gifts, and hidden enemies."
+  relationships:
+    - relationshipType: "is_associated_with"
+      relationshipDomain: "health"
+      relatedEntity:
+        uri: "monsieur:HealthEntity/Ill_Health"
+        label: "Ill Health"
+      notes: "Energy flow is diminished here, creating weaknesses in functions or organs, particularly when planets are afflicted."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "immunity"
+      relatedEntity:
+        uri: "monsieur:ImmunityEntity/Immune_System"
+        label: "Immune System"
+      notes: "Includes lymphocytes and phagocytes that defend against bacteria, fungi, and parasites."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Feet"
+        label: "Feet"
+      notes: "Physical problems in other parts of the body may manifest in the feet, as represented in disciplines like reflexology."
+    - relationshipType: "is_associated_with"
+      relationshipDomain: "psychology"
+      relatedEntity:
+        uri: "monsieur:PsychologyEntity/Mental_Health"
+        label: "Mental Health"
+      notes: "Includes institutions like hospitals and mental asylums, and issues such as dissociation, persecution complexes, and unexplained fears."
+    - relationshipType: "is_associated_with"
+      relationshipDomain: "psychic"
+      relatedEntity:
+        uri: "monsieur:PsychicEntity/Psychic_Gifts"
+        label: "Psychic Gifts"
+      notes: "When energies in this house are expressed freely, psychic abilities may manifest."
+    - relationshipType: "is_associated_with"
+      relationshipDomain: "psychic"
+      relatedEntity:
+        uri: "monsieur:PsychicEntity/Witchcraft"
+        label: "Witchcraft"
+      notes: "Linked to involuntary mediumship and psychic abilities."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "prenatal"
+      relatedEntity:
+        uri: "monsieur:PrenatalEntity/In_Utero_Experience"
+        label: "In-Utero Experience"
+      notes: "Describes the experiences of the individual during gestation and the emotional dialogue between mother and child."
+    - relationshipType: "is_associated_with"
+      relationshipDomain: "psychology"
+      relatedEntity:
+        uri: "monsieur:PsychologyEntity/Self_Undoing"
+        label: "Self-Undoing"
+      notes: "Refers to unconscious processes and tendencies that inhibit personal expression or cause harm."
+  esotericAssociations:
+    - relationshipType: "is_connected_to"
+      relatedEntity:
+        uri: "monsieur:EsotericEntity/Hidden_Enemies"
+        label: "Hidden Enemies"
+      notes: "Represents unconscious processes and aspects of life that undermine the individual."
+  notes:
+    - "Planets in the twelfth house act below the level of consciousness and may inhibit full expression."
+    - "This house governs autoimmune disorders, including conditions like rheumatoid arthritis, diabetes mellitus, and lupus erythematosus."
+    - "Research suggests the twelfth house may describe prenatal experiences, including the mother's thoughts and feelings during pregnancy."
+    - "The unconscious processes of this house are associated with hidden enemies and self-undoing."
+    - "The feet are governed by this house, often reflecting physical issues elsewhere in the body."

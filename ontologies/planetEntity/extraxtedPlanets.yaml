@@ -1,0 +1,1250 @@
+instances:
+  Venus:
+    uri: "monsieur:CelestialBodyEntity/PlanetEntity/Venus"
+    label: "Venus"
+    description: "Venus is the planet of love, harmony and beauty."
+    defaultProperties:  
+    
+
+    analogyProperties:
+      hasAnalogyWith:
+        - targetEntity:
+            uri: monsieur:SpiritualEntity/Angel/Anael
+            label: Anael
+          analogySystem:
+            uri: monsieur:AnalogySystemEntity/KeyOfSolomon
+            label: KeyOfSolomon
+          confidence:
+            score: 0.99
+            source_id: monsieur:WorkEntity/Print///
+            quote_id: ""
+            feed: manual
+        - targetEntity: 
+          # ane here more analogies come with metal, colors, etc.
+
+    astrologyProperties:
+      hasAstrologyRelationship:
+        # element
+        - relationshipType: "has_primary_element"
+          relatedEntity:
+            uri: monsieur:ElementEntity/Earth
+            label: "Earth"
+        
+        # quality
+        - relationshipType: "has_quality"
+          relatedEntity:
+            uri: monsieur:QualityEntity/Humidity
+            label: "Humidity"
+        
+        # temperament
+        - relationshipType: "has_temperament"
+          relatedEntity:
+            uri: monsieur:TemperamentEntity/lymphatic
+            label: "lymphatic"
+        
+        # pole
+        - relationshipType: "has_pole"
+          relatedEntity:
+            uri: monsieur:TemperamentEntity/minus
+            label: "minus"
+
+        # domciles, throne, exaltation, fall
+        - relationshipType: "has_domicile"
+          relatedEntity:
+            uri: monsieur:CelestialBodyEntity/PlanetEntity/Taurus
+            label: "Taurus"
+        - relationshipType: "has_domicile"
+          relatedEntity:
+            uri: monsieur:CelestialBodyEntity/PlanetEntity/Libra
+            label: "Libra"
+        - relationshipType: "has_exile"
+          relatedEntity:
+            uri: monsieur:CelestialBodyEntity/PlanetEntity/Scorpio
+            label: "Scorpio"
+        - relationshipType: "has_exile"
+          relatedEntity:
+            uri: monsieur:CelestialBodyEntity/PlanetEntity/Aries
+            label: "Aries"
+        - relationshipType: "has_fall"
+          relatedEntity:
+            uri: monsieur:CelestialBodyEntity/PlanetEntity/Virgo
+            label: "Virgo"
+        - relationshipType: "has_exaltation"
+          relatedEntity:
+            uri: monsieur:CelestialBodyEntity/PlanetEntity/Pisces
+            label: "Pisces"
+
+        # MEDICAL ASTROLOGY
+        # Anathomy relationships
+        - relationshipType: "is_ruler_of"
+          relatedEntity:
+            uri: monsieur:AnathomyEntity/Gonads
+            label: "Gonads"
+        - relationshipType: "is_ruler_of"
+          relatedEntity:
+            uri: monsieur:AnathomyEntity/Ovaries
+            label: "Ovaries"
+        - relationshipType: "is_ruler_of"
+          relatedEntity:
+            uri: monsieur:AnathomyEntity/Veins
+            label: "Veins"
+        - relationshipType: "is_ruler_of"
+          relatedEntity:
+            uri: monsieur:AnathomyEntity/Neck
+            label: "Neck"
+        - relationshipType: "is_ruler_of"
+          relatedEntity:
+            uri: monsieur:AnathomyEntity/OlfactoryNerve
+            label: "OlfactoryNerve"
+        
+        # symbolic anathomy    
+        - relationshipType: "symbolizes"
+          relatedEntity:
+            uri: monsieur:AnathomyEntity/Vagina
+            label: "Vagina"
+        - relationshipType: "symbolizes"
+          relatedEntity:
+            uri: monsieur:AnathomyEntity/BackOfMouthy
+            label: "BackOfMouthy"
+
+        # Physiology
+        - relationshipType: "is_ruler_of"
+          relatedEntity:
+            uri: monsieur:AnathomyEntity/Reproduction
+            label: "Reproduction"
+        - relationshipType: "is_ruler_of"
+          relatedEntity:
+            uri: monsieur:AnathomyEntity/Germination
+            label: "Germination"
+
+         # Physiology Processes
+
+        # Psychology
+        - relationshipType: "symbolizes"
+          relatedEntity:
+            uri: monsieur:AnthropologyEntity/Deities/Venus
+            label: "Pisces"
+        # mythology
+        - relationshipType: "symbolizes"
+          relatedEntity:
+            uri: monsieur:AnthropologyEntity/Deities/Venus
+            label: "Pisces"
+  
+         
+
+instances:
+
+# THE SUN
+Sun:
+  relationships:
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Heat_Thermostat"
+        label: "Heat Thermostat"
+      notes: "Rules the body's temperature regulation, with normal temperature at 37°C."
+    - relationshipType: "is_joint_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Hypothalamus"
+        label: "Hypothalamus"
+      notes: "Controls internal temperature balance, jointly ruled with the Moon."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Cell"
+        label: "Cell"
+      notes: "Vitalizes the cell, the foundation of life."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Heart"
+        label: "Heart"
+      notes: "Pumps blood carrying oxygen to produce energy."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Immunity"
+        label: "Immunity"
+      notes: "Rules white blood cells involved in repelling antigens."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Circulatory_Organs"
+        label: "Circulatory Organs"
+      notes: "Rules organs like the vena cavae and the pericardium."
+    - relationshipType: "imbues"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Vitality"
+        label: "Vitality"
+      notes: "Imbues the body with vitality through the spleen's work."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "psychology"
+      relatedEntity:
+        uri: "monsieur:PsychologyEntity/Consciousness"
+        label: "Consciousness"
+      notes: "Awareness of self and surroundings, involving the brain."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "psychology"
+      relatedEntity:
+        uri: "monsieur:PsychologyEntity/Focus"
+        label: "Focus"
+      notes: "Rules the ability to focus, involving the brain and eyes."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Sight"
+        label: "Sight"
+      notes: "Particularly rules sight, the right eye of a man and left eye of a woman."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Back_Spine"
+        label: "Back and Spine"
+      notes: "Particularly the thoracic area of the spine."
+    - relationshipType: "has_greatest_influence_in"
+      relationshipDomain: "development"
+      relatedEntity:
+        uri: "monsieur:DevelopmentEntity/Middle_Age"
+        label: "Middle Age"
+      notes: "Rules associated conditions of middle age, including chronic and hereditary diseases."
+    - relationshipType: "is_more_powerful_during"
+      relationshipDomain: "astrology"
+      relatedEntity:
+        uri: "monsieur:AstrologyEntity/Daytime_Chart"
+        label: "Daytime Chart"
+      notes: "More powerful for good or ill when above the horizon in a daytime chart."
+  associatedConditions:
+    - acne
+    - back problems
+    - barrenness
+    - bi-polar disease
+    - blood disorders
+    - bowel disorders
+    - brain disorders
+    - cancer
+    - cataract
+    - catarrh
+    - conjunctivitis
+    - consciousness (loss of)
+    - diphtheria
+    - cramp
+    - dizziness
+    - eye disorders
+    - fainting
+    - fevers
+    - fistula (abnormal cavity)
+    - glaucoma
+    - haemorrhage
+    - halitosis
+    - heart disorders
+    - heart palpitations
+    - heat stroke
+    - hereditary diseases
+    - hot flushes
+    - inflammatory conditions
+    - lack of focus
+    - migraine
+    - mouth diseases
+    - ophthalmia
+    - pimples
+    - smallpox
+    - spine disorders
+    - stroke
+    - sunstroke
+    - trembling
+    - tumours
+
+
+ 
+# THE MOON
+Moon:
+  relationships:
+  - relationshipType: "is_ruler_of"
+    relationshipDomain: "physiology"
+    relatedEntity:
+      uri: "monsieur:PhysiologyEntity/Cooling_Function"
+      label: "Cooling Function"
+    notes: "Causes perspiration when the body is too hot."
+  - relationshipType: "is_ruler_of"
+    relationshipDomain: "physiology"
+    relatedEntity:
+      uri: "monsieur:PhysiologyEntity/Body_Fluids"
+      label: "Body Fluids"
+    notes: "Includes plasma, lymph, cell cytoplasm, cerebrospinal fluid, tissue fluid, and mucous."
+  - relationshipType: "is_ruler_of"
+    relationshipDomain: "physiology"
+    relatedEntity:
+      uri: "monsieur:PhysiologyEntity/Fertility"
+      label: "Fertility"
+    notes: "Exerts strong influence over female reproductive functions like menstruation, ovulation, and childbirth."
+  - relationshipType: "is_ruler_of"
+    relationshipDomain: "anatomy"
+    relatedEntity:
+      uri: "monsieur:AnatomyEntity/Female_Reproductive_Organs"
+      label: "Female Reproductive Organs"
+    notes: "Includes the womb and breasts."
+  - relationshipType: "is_associated_with"
+    relationshipDomain: "psychology"
+    relatedEntity:
+      uri: "monsieur:PsychologyEntity/Imagination"
+      label: "Imagination"
+    notes: "Concerned with right-brain functions and imagination."
+  - relationshipType: "is_associated_with"
+    relationshipDomain: "psychology"
+    relatedEntity:
+      uri: "monsieur:PsychologyEntity/Unconscious"
+      label: "Unconscious"
+    notes: "Relates to the unconscious processes as opposed to conscious ones ruled by Mercury."
+  - relationshipType: "is_ruler_of"
+    relationshipDomain: "anatomy"
+    relatedEntity:
+      uri: "monsieur:AnatomyEntity/Limbic_System"
+      label: "Limbic System"
+    notes: "Concerns emotions, hunger, memory, and the sense of smell."
+  - relationshipType: "is_connected_to"
+    relationshipDomain: "anatomy"
+    relatedEntity:
+      uri: "monsieur:AnatomyEntity/Pituitary_Gland"
+      label: "Pituitary Gland"
+    notes: "Potential shared rulership with Venus, over the glands generally."
+  - relationshipType: "is_connected_to"
+    relationshipDomain: "anatomy"
+    relatedEntity:
+      uri: "monsieur:AnatomyEntity/Hypothalamus"
+      label: "Hypothalamus"
+    notes: "Regulates hormones, nerves, stimulation of sweat glands, and thirst center."
+  - relationshipType: "is_connected_to"
+    relationshipDomain: "anatomy"
+    relatedEntity:
+      uri: "monsieur:AnatomyEntity/Cerebellum"
+      label: "Cerebellum"
+    notes: "Concerned with posture, balance, coordination, and movement."
+  - relationshipType: "is_ruler_of"
+    relationshipDomain: "physiology"
+    relatedEntity:
+      uri: "monsieur:PhysiologyEntity/Digestion"
+      label: "Digestion"
+    notes: "Rules digestion and associated processes."
+  - relationshipType: "is_ruler_of"
+    relationshipDomain: "physiology"
+    relatedEntity:
+      uri: "monsieur:PhysiologyEntity/Lacteals"
+      label: "Lacteals"
+    notes: "Fat-absorbing lymphatics in the intestines."
+  - relationshipType: "is_ruler_of"
+    relationshipDomain: "physiology"
+    relatedEntity:
+      uri: "monsieur:PhysiologyEntity/Pancreas"
+      label: "Pancreas"
+    notes: "Part of its rulership over digestion."
+  - relationshipType: "is_ruler_of"
+    relationshipDomain: "anatomy"
+    relatedEntity:
+      uri: "monsieur:AnatomyEntity/Ribcage"
+      label: "Ribcage"
+    notes: "An anatomical domain under the Moon's rulership."
+  - relationshipType: "has_influence_over"
+    relationshipDomain: "development"
+    relatedEntity:
+      uri: "monsieur:DevelopmentEntity/Childhood"
+      label: "Childhood"
+    notes: "Most powerful during childhood, associated with childhood conditions."
+  - relationshipType: "is_stronger_during"
+    relationshipDomain: "astrology"
+    relatedEntity:
+      uri: "monsieur:AstrologyEntity/Night_Chart"
+      label: "Night Chart"
+    notes: "More powerful below the earth or horizon in a night-time chart."
+  healthConditionsAnaemia: 
+    - apathy 
+    - asthma 
+    - birth difficulties
+    - bladder disorders
+    - blood disorders
+    - boils
+    - breast disorders 
+    - carcinoma
+    - cystitis 
+    - colic 
+    - colds 
+    - convulsions 
+    - coughs 
+    - diarrhoea, 
+    - discharges of the body 
+    - epilepsy
+    - eye problems 
+    - fertility problems 
+    - flatulence 
+    - gout 
+    - gynaecological problems
+    - hyperemesis (excessive vomiting)
+    - hysteria
+    - left side of the body
+    - lethargy
+    - leucorrhoea
+    - lymphatic disorders
+    - measles
+    - mental problems
+    - menstrual irregularities 
+    - miscarriage 
+    - night sweats 
+    - palsy (paralysis) 
+    - rheumatism
+    - ringworm
+    - sciatica
+    - scrofula (tuberculosis of the lymph nodes)
+    - smallpox
+    - stomach disorders
+    - stone formation in the body
+    - stroke
+    - swellings
+    - vertigo
+    - water retention
+    - worm infestation
+
+Mercury:
+  relationships:
+  - relationshipType: "is_ruler_of"
+    relationshipDomain: "physiology"
+    relatedEntity:
+      uri: "monsieur:PhysiologyEntity/Nervous_System"
+      label: "Nervous System"
+    notes: "Rules the nervous system, including the communication of messages via neurons."
+  - relationshipType: "is_ruler_of"
+    relationshipDomain: "anatomy"
+    relatedEntity:
+      uri: "monsieur:AnatomyEntity/Cerebrum"
+      label: "Cerebrum"
+    notes: "The largest and most developed part of the brain, associated with intelligent activities."
+  - relationshipType: "is_associated_with"
+    relationshipDomain: "psychology"
+    relatedEntity:
+      uri: "monsieur:PsychologyEntity/Logic"
+      label: "Logic"
+    notes: "Primarily linked to the left hemisphere of the cerebrum, dealing with logical functions."
+  - relationshipType: "is_associated_with"
+    relationshipDomain: "psychology"
+    relatedEntity:
+      uri: "monsieur:PsychologyEntity/Mental_Ability"
+      label: "Mental Ability"
+    notes: "Represents mental abilities and nervous sensitivity."
+  - relationshipType: "is_ruler_of"
+    relationshipDomain: "physiology"
+    relatedEntity:
+      uri: "monsieur:PhysiologyEntity/Senses"
+      label: "Five Senses"
+    notes: "Rules the five senses: sight, speech, hearing, smell, and touch."
+  - relationshipType: "is_ruler_of"
+    relationshipDomain: "anatomy"
+    relatedEntity:
+      uri: "monsieur:AnatomyEntity/Larynx"
+      label: "Larynx"
+    notes: "Rules the voice box, vocal cords, and the tongue."
+  - relationshipType: "influences"
+    relationshipDomain: "physiology"
+    relatedEntity:
+      uri: "monsieur:PhysiologyEntity/Respiratory_System"
+      label: "Respiratory System"
+    notes: "Includes the lungs, bronchi, trachea, and the breath itself."
+  - relationshipType: "is_ruler_of"
+    relationshipDomain: "physiology"
+    relatedEntity:
+      uri: "monsieur:PhysiologyEntity/Assimilation"
+      label: "Assimilative Function"
+    notes: "Influences the small intestine, duodenum, and the action of peristalsis."
+  - relationshipType: "is_ruler_of"
+    relationshipDomain: "anatomy"
+    relatedEntity:
+      uri: "monsieur:AnatomyEntity/Shoulders_Arms_Hands_Fingers"
+      label: "Shoulders, Arms, Hands, Fingers"
+    notes: "Rules the limbs, particularly the shoulders, arms, hands, and fingers."
+  - relationshipType: "has_greatest_influence_in"
+    relationshipDomain: "development"
+    relatedEntity:
+      uri: "monsieur:DevelopmentEntity/Teenage_Years"
+      label: "Teenage Years"
+    notes: "Most influential during teenage years, with associated conditions."
+  - relationshipType: "takes_on_quality_of"
+    relationshipDomain: "astrology"
+    relatedEntity:
+      uri: "monsieur:AstrologyEntity/Sign"
+      label: "Sign"
+    notes: "Mercury adapts to the quality of the sign it is in."
+  - relationshipType: "takes_on_aspect_of"
+    relationshipDomain: "astrology"
+    relatedEntity:
+      uri: "monsieur:AstrologyEntity/Planet"
+      label: "Planet"
+    notes: "Mercury adapts to the planet with which it is in close aspect."
+  healthConditionsAnaemia:  
+    - asthma
+    - breathing disorders
+    - bronchitis
+    - cholera
+    - communication problems
+    - coughs
+    - cramps
+    - delirium
+    - epilepsy
+    - giddiness
+    - gout
+    - hallucinations
+    - headaches
+    - hoarseness
+    - hyperthyroidism
+    - insomnia
+    - lethargy
+    - metastasis (harmful subsidiary growths)
+    - memory defects
+    - mental problems
+    - mouth diseases
+    - nervous problems
+    - neurosis
+    - palpitations
+    - paralysis
+    - phlegm
+    - respiratory complaints
+    - rheumatism
+    - sense impairment like deafness or blindness
+    - stammering
+    - thyroid disorders
+    - tinnitus
+    - tuberculosis
+    - vertigo
+    - voice loss
+
+Venus:
+  relationships:
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Homeostasis"
+        label: "Homeostasis"
+      notes: "Responsible for the mechanism of balance in the body, including water balance, body temperature, blood sugar levels, and blood pressure."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Acid_Alkaline_Balance"
+        label: "Acid/Alkaline Balance"
+      notes: "Maintains balance in the blood for efficient organ and tissue function."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Kidneys"
+        label: "Kidneys"
+      notes: "Regulates blood, fluids, hormones, and waste elimination."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Venous_Circulation"
+        label: "Venous Circulation"
+      notes: "Rules veins and the venous blood circulation returning deoxygenated blood to the heart."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Osmosis"
+        label: "Osmosis"
+      notes: "Rules the process of osmosis and the diffusion of fluids through semi-permeable membranes."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Neck_Structures"
+        label: "Neck Structures"
+      notes: "Includes structures like the thyroid and parathyroid glands."
+    - relationshipType: "is_linked_to"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Endocrine_System"
+        label: "Endocrine System"
+      notes: "Linked to glands and hormones that regulate body functions."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Female_Reproductive_System"
+        label: "Female Reproductive System"
+      notes: "Includes ovaries and ova."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Body_Orifices"
+        label: "Body Orifices"
+      notes: "Includes the mouth, tubes, and ducts."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Appetite"
+        label: "Appetite"
+      notes: "Controlled by the hypothalamus and cerebral cortex."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Skin_Sense_Organ"
+        label: "Skin as a Sense Organ"
+      notes: "Influences the skin as a sensory organ."
+    - relationshipType: "has_greatest_influence_in"
+      relationshipDomain: "development"
+      relatedEntity:
+        uri: "monsieur:DevelopmentEntity/Young_Adulthood"
+        label: "Young Adulthood"
+      notes: "Most influential during young adulthood."
+  associatedConditions:
+    - blackheads
+    - breast problems
+    - bright’s disease (inflammation of kidneys)
+    - chilblains
+    - clogging of system
+    - complexion disorders
+    - congestion generally
+    - cyst formation
+    - cystitis
+    - diabetes
+    - diphtheria
+    - dystrophy (defective nourishment)
+    - glandular swellings
+    - gynaecological disorders
+    - hernia
+    - impotence
+    - infections
+    - infertility
+    - kidney disorders
+    - lumber problems
+    - measles
+    - navel problems
+    - over-indulgence such as gluttony
+    - scrofula
+    - sex perversions
+    - smallpox
+    - stasis (a lack of tone)
+    - tonsillitis
+    - tuberculosis
+    - typhus fever
+    - venereal disease
+    - womb problems
+
+Mars:
+  relationships:
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Iron_Haemoglobin"
+        label: "Iron in Haemoglobin"
+      notes: "Helps propel oxygen around the blood circulation."
+    - relationshipType: "is_associated_with"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Vitality"
+        label: "Vitality"
+      notes: "Associated with energy, body heat, and stimulating cells into action."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Fibrinogen"
+        label: "Fibrinogen"
+      notes: "Influences blood clotting processes."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Haemopoiesis"
+        label: "Haemopoiesis"
+      notes: "Influences blood making processes."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Muscular_Tissue"
+        label: "Muscular Tissue"
+      notes: "Rules muscular tissue and tonicity."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Motor_Nerves"
+        label: "Motor Nerves"
+      notes: "Rules motor nerves that fire body movements."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Sexual_Organs"
+        label: "Sexual Organs"
+      notes: "Includes penis, sperm, and libido."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Sacrum_Coccyx"
+        label: "Sacrum and Coccyx"
+      notes: "Influences these bones in the lower spine."
+    - relationshipType: "activates"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Adrenal_Function"
+        label: "Adrenal Function"
+      notes: "Activates adrenal glands in stressful situations."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Left_Cerebral_Hemisphere"
+        label: "Left Cerebral Hemisphere"
+      notes: "Specifically influences the left hemisphere of the brain."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Left_Ear"
+        label: "Left Ear"
+      notes: "Specifically influences the left ear, while Saturn rules the ears generally."
+    - relationshipType: "has_pathological_action"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Inflammation"
+        label: "Inflammation"
+      notes: "Causes acute and forceful inflammation, often with fevers."
+    - relationshipType: "has_greatest_influence_in"
+      relationshipDomain: "development"
+      relatedEntity:
+        uri: "monsieur:DevelopmentEntity/Early_Middle_Age"
+        label: "Early Middle Age"
+      notes: "Most influential during early middle age."
+  associatedConditions:
+    - accidents
+    - acute diseases
+    - adrenal exhaustion
+    - appendicitis
+    - bites
+    - burns
+    - erysipelas (skin disease)
+    - eruptions
+    - fevers
+    - gallstones
+    - haemorrhage
+    - inflammation
+    - infectious diseases
+    - injuries
+    - irritations
+    - itches
+    - lesions
+    - measles
+    - organic lesions
+    - scarlet fever
+    - sexual dysfunction
+    - skin eruption
+    - skin irritation
+    - smallpox
+    - stings
+    - surgery
+    - typhus
+    - ulcers
+    - wounds
+
+
+Jupiter:
+  relationships:
+    - relationshipType: "is_connected_to"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Immune_System"
+        label: "Immune System"
+      notes: "Connected to phagocytic action of white blood cells that engulf bacteria."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Fibrin"
+        label: "Fibrin"
+      notes: "Influences fibrin, the principal component of blood clotting."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Arterial_Circulation"
+        label: "Arterial Circulation"
+      notes: "Rules oxygenated blood circulation to the tissues."
+    - relationshipType: "is_joint_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Pleura"
+        label: "Pleura"
+      notes: "Shared rulership with Mercury over the thin membrane in the lungs."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Right_Auricle"
+        label: "Right Auricle"
+      notes: "Rules the right auricle of the heart."
+    - relationshipType: "aids_in"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Homeostasis"
+        label: "Homeostasis"
+      notes: "Aids Venus in maintaining homeostasis."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Cell_Development"
+        label: "Cell Development"
+      notes: "Rules cell development, regeneration, or mutation in pathological conditions."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Liver"
+        label: "Liver"
+      notes: "Chief rulership over the liver, detoxification, and urea production."
+    - relationshipType: "is_connected_to"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Sugar_Metabolism"
+        label: "Sugar Metabolism"
+      notes: "Associated with glycogen storage, connecting Jupiter to smooth muscle and fuel for muscular activity."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Bile"
+        label: "Bile"
+      notes: "Helps breakdown fats."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Adipose_Tissue"
+        label: "Adipose Tissue"
+      notes: "Rules the layer of fat beneath the skin."
+    - relationshipType: "is_connected_to"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Growth_Hormone"
+        label: "Growth Hormone"
+      notes: "Associated with growth and height."
+    - relationshipType: "is_connected_to"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Amniotic_Fluid"
+        label: "Amniotic Fluid"
+      notes: "Associated with amniotic fluid through growth and development."
+    - relationshipType: "is_connected_to"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Lower_Limbs_Thighs"
+        label: "Lower Limbs and Thighs"
+      notes: "Associated with these body parts through its rulership of Sagittarius."
+    - relationshipType: "has_greatest_influence_in"
+      relationshipDomain: "development"
+      relatedEntity:
+        uri: "monsieur:DevelopmentEntity/Late_Middle_Age"
+        label: "Late Middle Age"
+      notes: "Most influential during late middle age."
+  associatedConditions:
+    - abscesses
+    - adrenals (disorders of)
+    - boils
+    - blood disorders
+    - cancer of breast
+    - cancer of pancreas
+    - congestion
+    - corpulence
+    - cramp
+    - gout
+    - haemorrhage
+    - high blood pressure
+    - hyperglycaemia (high level of glucose in the blood)
+    - hypertrophy (enlargement of organ)
+    - indigestion
+    - liver problems
+    - mental problems
+    - pleurisy
+    - stroke
+
+
+Saturn:
+  relationships:
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Bones_Skeletal_System"
+        label: "Bones and Skeletal System"
+      notes: "Rules the bones, skeletal system, and ossification process."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Knees"
+        label: "Knees"
+      notes: "Specific rulership over the knees."
+    - relationshipType: "is_joint_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Haemopoiesis"
+        label: "Haemopoiesis"
+      notes: "Rules blood-making processes, shared with Mars and Jupiter."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Spleen"
+        label: "Spleen"
+      notes: "Rules the spleen, which breaks down red blood cells and manufactures lymphocytes."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Coagulation"
+        label: "Coagulation"
+      notes: "Rules the blood clotting process and fibrin production."
+    - relationshipType: "is_associated_with"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Cartilage_Tendons_Skin"
+        label: "Cartilage, Tendons, Skin"
+      notes: "Associated with cartilage, tendons, skin, nails, and hair."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Protoplasm"
+        label: "Protoplasm"
+      notes: "Influences the essential chemical compound of living cells."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Ears"
+        label: "Ears"
+      notes: "Rules the ears generally, with specific rulership of the right ear."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Urea_Uric_Acid_Gall"
+        label: "Urea, Uric Acid, Gall"
+      notes: "Influences formation of urea, uric acid, and gall in the liver."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Waste_Formation"
+        label: "Waste Formation"
+      notes: "Influences waste excretion, such as in faeces."
+    - relationshipType: "has_pathological_action"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Asthenia_Stenosis"
+        label: "Asthenia and Stenosis"
+      notes: "Causes vitality reduction, constriction, and obstructions."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "development"
+      relatedEntity:
+        uri: "monsieur:DevelopmentEntity/Old_Age"
+        label: "Old Age"
+      notes: "Best describes diseases and conditions associated with old age."
+  associatedConditions:
+    - acromegaly (abnormal enlargement of skull)
+    - anomalies in the body
+    - arteriosclerosis
+    - barrenness
+    - bright’s disease
+    - bruises
+    - bunions
+    - calcification
+    - chronic pain
+    - colds
+    - constipation
+    - crippling diseases
+    - deafness
+    - deformity
+    - dental problems
+    - depression
+    - disordered functions
+    - dyspnoea (shortness of breath)
+    - eczema
+    - exhaustion
+    - falls
+    - gangrene
+    - gout
+    - hereditary weakness
+    - lameness
+    - lethargy
+    - malnutrition
+    - moles
+    - mumps
+    - osteoporosis
+    - paralysis
+    - plague
+    - reflex inhibition
+    - rheumatism
+    - rickets
+    - skeletal problems
+    - schizophrenia
+    - sclerosis
+    - stiffness of joints and muscles
+    - stone formation
+    - skin thickening
+    - skin problems
+
+
+Uranus:
+  relationships:
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Body_Rhythms"
+        label: "Body Rhythms"
+      notes: "Governs body rhythms like pulse, breathing, peristalsis, and synapses."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Sino_Auricular_Node"
+        label: "Sino-Auricular Node"
+      notes: "Influences the heart's pacemaker that emits electrical impulses."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Fibrillation"
+        label: "Fibrillation"
+      notes: "Influences vibrating movement of muscle fibers."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Nervous_System"
+        label: "Nervous System"
+      notes: "Connected to synapses and neural chemical messengers."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Meninges"
+        label: "Meninges"
+      notes: "Influences the membranes of the brain."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Membranous_Body_Parts"
+        label: "Membranous Body Parts"
+      notes: "Rules tissues lining body surfaces."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Involuntary_Reflexes"
+        label: "Involuntary Reflexes"
+      notes: "Connected to reflex actions involving sensory and motor neurons."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Etheric_Body"
+        label: "Etheric Body"
+      notes: "Rules the etheric body, which transmits vital energy and life force."
+    - relationshipType: "is_associated_with"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Ether"
+        label: "Ether"
+      notes: "Transmits light rays received by the eyes and connects to clairvoyant vision."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Metabolism"
+        label: "Metabolism"
+      notes: "Rules the body's chemical processes."
+    - relationshipType: "has_pathological_action"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Spasm"
+        label: "Spasm"
+      notes: "Creates spasmodic and erratic movements."
+  associatedConditions:
+    - abnormality both physical and mental
+    - accidents
+    - appendicitis
+    - bi-polar disease (manic depression)
+    - compulsive behaviour
+    - contortions
+    - cramp
+    - erratic behaviour
+    - fractures
+    - heart blocks
+    - lesions
+    - mutation
+    - neuralgia
+    - nervous tension
+    - nervous tics
+    - paranoia
+    - paroxysms
+    - perversions
+    - rupture
+    - spasm
+    - spastic conditions
+    - stricture
+    - tetanus
+    - twitches
+    - venereal diseases
+
+
+
+
+Neptune:
+  relationships:
+    - relationshipType: "has_pathological_action"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Atrophy"
+        label: "Atrophy"
+      notes: "Creates weakness and atrophy in organs through dissolving and slackening action."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Susceptibility"
+        label: "Susceptibility"
+      notes: "Increases susceptibility to infections and nervous problems from negative surroundings."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Nervous_System"
+        label: "Nervous System"
+      notes: "Influences the nervous system, particularly in reaction to subtle environmental factors."
+    - relationshipType: "is_associated_with"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Aura"
+        label: "Aura"
+      notes: "Linked to the bio-energetic field around the body, interacting with spiritual and physical forces."
+    - relationshipType: "is_associated_with"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Subtle_Emotional_Body"
+        label: "Subtle Emotional Body"
+      notes: "Relates to the individual's emotional state and desires, often affected by vibrational healing."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Pineal_Gland"
+        label: "Pineal Gland"
+      notes: "Influences the gland associated with circadian rhythm and inner vision (third eye)."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Circadian_Rhythm"
+        label: "Circadian Rhythm"
+      notes: "Regulates the body's daylight cycle and biological processes over a 24-hour period."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "psychology"
+      relatedEntity:
+        uri: "monsieur:PsychologyEntity/Clairvoyant_Tendencies"
+        label: "Clairvoyant Tendencies"
+      notes: "Encourages clairvoyance and inner vision but may lead to hallucinations or obsessions."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Fluids"
+        label: "Fluids"
+      notes: "Influences the body's fluids, similar to the Moon."
+    - relationshipType: "has_pathological_action"
+      relationshipDomain: "psychology"
+      relatedEntity:
+        uri: "monsieur:PsychologyEntity/Addictions"
+        label: "Addictions"
+      notes: "Inclines individuals toward narcotics and substances like drugs, nicotine, and alcohol."
+  associatedConditions:
+    - allergies
+    - auto-immune disorders
+    - addictions
+    - blindness
+    - catalepsy
+    - coma
+    - confused mental states
+    - disintegration
+    - dissipation
+    - fantasy
+    - fungus
+    - hallucinations
+    - hypochondria
+    - illusion
+    - introversion
+    - lack of muscle tone
+    - myalgic encephalomyelitis (ME)
+    - nausea
+    - neurasthenia (debility)
+    - neurosis
+    - nymphomania
+    - obsessions
+    - oedema
+    - oxygen deficiency
+    - parasites
+    - paresis (partial paralysis)
+    - phobias
+    - poisoning
+    - poliomyelitis
+    - possessions
+    - psychosis
+    - schizophrenia
+    - somnambulism
+    - tissue wasting
+    - viral diseases
+
+
+
+Pluto:
+  relationships:
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Deep_Permutation"
+        label: "Deep Permutation"
+      notes: "Creates profound, irrevocable change on a deep level, for good or ill."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "medicine"
+      relatedEntity:
+        uri: "monsieur:MedicineEntity/Surgery"
+        label: "Surgery"
+      notes: "Associated with extreme actions, sometimes resulting in organ removal."
+    - relationshipType: "is_associated_with"
+      relationshipDomain: "psychology"
+      relatedEntity:
+        uri: "monsieur:PsychologyEntity/Psychoanalysis"
+        label: "Psychoanalysis"
+      notes: "Linked to therapy that reveals inner complexes and promotes regeneration."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Excretory_Functions"
+        label: "Excretory Functions"
+      notes: "Rules processes like defecation and the bladder and colon."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Sperm_Genetics"
+        label: "Sperm and Genetics"
+      notes: "Connected to seed, sperm, chromosomes, and genes, referring to new life and mutation."
+    - relationshipType: "is_protective_action"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Phagocytosis"
+        label: "Phagocytosis"
+      notes: "Protects against infection through drastic action like engulfing bacteria."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Antibodies"
+        label: "Antibodies"
+      notes: "Rules the creation and action of antibodies to resist infection."
+    - relationshipType: "is_influence_on"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Metabolism"
+        label: "Metabolism"
+      notes: "Influences both catabolism and anabolism processes."
+    - relationshipType: "is_associated_with"
+      relationshipDomain: "psychology"
+      relatedEntity:
+        uri: "monsieur:PsychologyEntity/Subtle_Mental_Body"
+        label: "Subtle Mental Body"
+      notes: "Relates to the thinking part of our energy fields."
+  associatedConditions:
+    - abnormal cellular growth
+    - abscesses
+    - acidosis
+    - amputation
+    - arteriosclerosis
+    - arthritis
+    - boils
+    - endometriosis
+    - festering sores
+    - fistulas
+    - leucorrhoea
+    - malformation
+    - malignancies
+    - menstrual problems
+    - miasmas
+    - mutation
+    - plague
+    - poisonous bites
+    - psychological complexes
+    - repressed emotions
+    - ulcers
+    - venereal diseases
+
+

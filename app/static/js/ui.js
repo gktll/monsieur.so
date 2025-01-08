@@ -2,59 +2,6 @@
 // ------------------------
 // THE DRAGGABLE TERMINAL
 // ------------------------
-
-// const terminal = document.getElementById('terminal');
-// const networkContainer = document.getElementById('networkContainer');
-// const dragHandle = document.getElementById('dragHandle');
-
-// let startY, startHeight, startNetworkHeight;
-
-// // Start dragging
-// dragHandle.addEventListener('mousedown', (e) => {
-//   startY = e.clientY;
-//   startHeight = terminal.offsetHeight;
-//   startNetworkHeight = networkContainer.offsetHeight;
-
-//   // Disable transition during resize
-//   terminal.style.transition = 'none';
-
-//   document.addEventListener('mousemove', resizeTerminal);
-//   document.addEventListener('mouseup', stopResize);
-// });
-
-// // Perform resizing
-// function resizeTerminal(e) {
-//   const delta = startY - e.clientY;
-//   const newHeight = Math.max(startHeight + delta, 50); // Minimum height = 50px
-//   terminal.style.height = `${newHeight}px`;
-
-//   // Automatically collapse terminal if dragged to the minimum height
-//   if (newHeight <= 50) {
-//       terminal.classList.add('closed');
-//   } else {
-//       terminal.classList.remove('closed');
-//   }
-// }
-
-// // Stop dragging
-// function stopResize() {
-//   document.removeEventListener('mousemove', resizeTerminal);
-//   document.removeEventListener('mouseup', stopResize);
-
-//   // Re-enable transition after resize
-//   terminal.style.transition = 'height 0.3s ease, transform 0.3s ease, opacity 0.3s ease';
-// }
-
-
-
-// // Initialize terminal state
-// document.addEventListener('DOMContentLoaded', () => {
-//   // Ensure drag handle remains visible when collapsed
-//   terminal.classList.add('closed'); // Start with the terminal collapsed
-// });
-
-
-// Terminal dragging functionality
 const terminal = document.getElementById('terminal');
 const networkContainer = document.getElementById('networkContainer');
 const dragHandle = document.getElementById('dragHandle');
