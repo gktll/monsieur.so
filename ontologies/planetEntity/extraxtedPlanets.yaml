@@ -170,9 +170,15 @@ Sun:
     - relationshipType: "is_ruler_of"
       relationshipDomain: "anatomy"
       relatedEntity:
-        uri: "monsieur:AnatomyEntity/Circulatory_Organs"
-        label: "Circulatory Organs"
-      notes: "Rules organs like the vena cavae and the pericardium."
+        uri: "monsieur:AnatomyEntity/Vena_cavae"
+        label: "Vena cavae"
+      notes: ""
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "anatomy"
+      relatedEntity:
+        uri: "monsieur:AnatomyEntity/Pericardium"
+        label: "Pericardium"
+      notes: ""  
     - relationshipType: "imbues"
       relationshipDomain: "physiology"
       relatedEntity:
@@ -197,6 +203,18 @@ Sun:
         uri: "monsieur:PhysiologyEntity/Sight"
         label: "Sight"
       notes: "Particularly rules sight, the right eye of a man and left eye of a woman."
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Male_Right_eye"
+        label: "Male Right Eye"
+      notes: "Rules the right eye of the man"
+    - relationshipType: "is_ruler_of"
+      relationshipDomain: "physiology"
+      relatedEntity:
+        uri: "monsieur:PhysiologyEntity/Female_Left_eye"
+        label: "Female Left Eye"
+      notes: "Rules the left eye of the woman"
     - relationshipType: "is_ruler_of"
       relationshipDomain: "anatomy"
       relatedEntity:

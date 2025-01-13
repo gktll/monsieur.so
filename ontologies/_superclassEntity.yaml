@@ -2,7 +2,7 @@
 ontology:
   uri: "http://monsieur/"
   name: "Analogies Entity Ontology"
-  description: "An ontology for categorizing spiritual entities, including angels, demons, and other supernatural beings."
+  description: "An ontology"
   version: "1.0"
   prefixes:
     rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
