@@ -3,6 +3,7 @@ from flask import Blueprint, jsonify, request
 from app.routes.utils.ephemeris_calculator import EphemerisCalculator
 from app.routes.utils.neo4j_queries import Neo4jQueries
 from app.routes.utils.heatmap_calculator import HeatmapCalculator
+
 from app.routes.ephemeris import get_ephemeris_data
 
 geolocate_bp = Blueprint('geolocate', __name__)
@@ -40,6 +41,7 @@ def handle_geolocation_and_visualization():
             hour_ruler=dataset["additional_info"].get("hour_ruler"),
             day_ruling_planet=dataset.get('additional_info', {}).get('day_ruling_planet'),
         )
+        
 
         return jsonify({
             "latitude": data['latitude'],
@@ -53,3 +55,5 @@ def handle_geolocation_and_visualization():
     except Exception as e:
         print("DEBUG: Error occurred in visualization generation:", str(e))
         return jsonify({"error": str(e)}), 500
+
+

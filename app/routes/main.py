@@ -1,6 +1,7 @@
-from flask import Blueprint, render_template, current_app, jsonify, request
+from flask import Blueprint, render_template, current_app, jsonify, request, Response
 from app.routes.constants import neo4j_driver
 import json
+
 
 
 main_bp = Blueprint('main_bp', __name__)
@@ -53,19 +54,6 @@ def landing_page():
 @main_bp.route('/admin')
 def admin_page():
     return render_template('admin_page.html')
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -40,7 +40,7 @@ def create_app():
     with app.app_context():
         from app import models
         from app.routes import main, geolocate, ephemeris, graph
-        from app.routes.test_ephemeris import test_bp
+       
 
         print("Registering blueprints...")
         
@@ -56,9 +56,8 @@ def create_app():
         app.register_blueprint(graph.filter_viz_bp, url_prefix='/')
         print("Graph filter routes registered.")
         
-        #testing ephemeris data structure endopint
-        app.register_blueprint(test_bp, url_prefix='/')
-        print("Test Ephemeris routes registered.")
+        from app.routes.chart import chart_routes
+        app.register_blueprint(chart_routes)
 
 
     return app

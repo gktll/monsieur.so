@@ -71,24 +71,37 @@
           </div>
           <div id="terminalOutput" class="terminal-output"></div>
           <div class="terminal-input-container">
-            <input
-              type="text"
-              id="terminalInput"
-              class="terminal-input"
-              placeholder="Type a command and press Enter"
-            />
-          <div>
+              <input
+                type="text"
+                id="terminalInput"
+                class="terminal-input"
+                placeholder="Type a command and press Enter"
+              />
+            </div>
         </div>
+        
+        <!--The chart modal--> 
+        <div id="chartModal" class="modal fade" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title">Astrological Chart</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" id="chartContainer">
+                      <!-- SVG will be dynamically inserted here -->
+                  </div>
+              </div>
+          </div>
       </div>
 
+    </div>
 
-    <!-- Scripts -->
+
+  
+      <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
 
-    
-   
-   
     <script type="module" src="/static/js/geolocationService.js"></script>
     <script type="module" src="/static/js/terminalOutput.js"></script>
     
@@ -101,8 +114,6 @@
     <script type="module" src="/static/js/heatmap.js"></script>
 
     <script type="module" src="/static/js/main.js"></script>
-
-
 
 
     </body>

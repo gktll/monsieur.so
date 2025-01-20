@@ -143,6 +143,11 @@ a {
   background-color: #1a1a1a;
 }
 
+.user-input-field {
+  width: 100%;
+  position: absolute;
+}
+
 /* Input styling */
 .terminal-input {
   width: 100%;
@@ -159,6 +164,13 @@ a {
 
 .terminal-input:focus {
   background-color: #3d3d3d;
+}
+
+.input-submit {
+  background-color: #530696;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 /* Collapsed state */

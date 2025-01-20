@@ -155,13 +155,13 @@ class HeatmapCalculator:
         Returns:
             tuple: (intensity, combustion_status)
         """
-        print(f"[LOG] --- Calculating intensity for {planet_name} ---")
+        # print(f"[LOG] --- Calculating intensity for {planet_name} ---")
 
         # 1) PROXIMITY INTENSITY
         distance_au = position.get("distance_au", 1.0)
         intensity_proximity = 1 / distance_au
         intensity_proximity = min(intensity_proximity, 10)  # Cap so it's not extreme
-        print(f"[LOG] distance_au: {distance_au:.3f}, intensity_proximity (capped): {intensity_proximity:.3f}")
+        # print(f"[LOG] distance_au: {distance_au:.3f}, intensity_proximity (capped): {intensity_proximity:.3f}")
 
         # 2) VISIBILITY FACTOR (Altitude)
         altitude = position.get("altitude", 0)
@@ -170,37 +170,37 @@ class HeatmapCalculator:
         else:
             # If below horizon, reduce factor significantly but never below 0.1
             visibility_factor = max((altitude / 90) * 0.4, 0.1)
-        print(f"[LOG] altitude: {altitude:.2f}, visibility_factor: {visibility_factor:.3f}")
+        # print(f"[LOG] altitude: {altitude:.2f}, visibility_factor: {visibility_factor:.3f}")
 
         # 3) RULING BONUSES
         bonus = 0
         if planet_name == hour_ruler and planet_name == day_ruling_planet:
             bonus += 1.5  # smaller bonus if it rules both simultaneously
-            print(f"[LOG] {planet_name} rules both hour & day -> bonus = {bonus}")
+            # print(f"[LOG] {planet_name} rules both hour & day -> bonus = {bonus}")
         elif planet_name == hour_ruler:
             bonus += 9.0
-            print(f"[LOG] {planet_name} is the hour ruler -> bonus = {bonus}")
+            # print(f"[LOG] {planet_name} is the hour ruler -> bonus = {bonus}")
         elif planet_name == day_ruling_planet:
             bonus += 6.5
-            print(f"[LOG] {planet_name} is the day ruler -> bonus = {bonus}")
+            # print(f"[LOG] {planet_name} is the day ruler -> bonus = {bonus}")
 
         # 4) DIGNITY MODIFIER
         sign = position.get("sign", "")
         dignity_modifier = HeatmapCalculator.calculate_dignity_modifier(planet_name, sign)
-        print(f"[LOG] sign: {sign}, dignity_modifier: {dignity_modifier:.2f}")
+        # print(f"[LOG] sign: {sign}, dignity_modifier: {dignity_modifier:.2f}")
 
         # 5) COMBUSTION & CAZIMI
         combustion_data = HeatmapCalculator.calculate_combustion_cazimi_modifier(position)
         combustion_modifier = combustion_data["combustion_modifier"]
         combustion_status = combustion_data["combustion_status"]
-        print(f"[LOG] combustion_modifier: {combustion_modifier:.2f}, combustion_status: {combustion_status}")
+        # print(f"[LOG] combustion_modifier: {combustion_modifier:.2f}, combustion_status: {combustion_status}")
 
         # 6) MOON-SPECIFIC PHASE MODIFIER
         phase_modifier = 0
         if planet_name == "Moon":
             phase_modifier_data = HeatmapCalculator.calculate_moon_phase_modifier(position)
             phase_modifier = phase_modifier_data["phase_modifier"]
-            print(f"[LOG] Moon phase_modifier: {phase_modifier:.2f}")
+            # print(f"[LOG] Moon phase_modifier: {phase_modifier:.2f}")
 
         # 7) FINAL INTENSITY CALCULATION
         intensity = (
@@ -214,8 +214,8 @@ class HeatmapCalculator:
         intensity = min(max(intensity * 1.5, 0), 10)  # Scale up by 1.5x but cap at 10
         intensity = round(intensity, 2)
 
-        print(f"[LOG] >>> Final intensity for {planet_name}: {intensity:.2f}")
-        print("[LOG] ----------------------------------------\n")
+        # print(f"[LOG] >>> Final intensity for {planet_name}: {intensity:.2f}")
+        # print("[LOG] ----------------------------------------\n")
 
         # Return numeric intensity + a label if combust/cazimi
         return intensity, combustion_status
@@ -228,9 +228,9 @@ class HeatmapCalculator:
         """
         Refined gradient generation with balanced ruling effects and dynamic scaling.
         """
-        print(f"\n[LOG] --- Calculating gradient for {planet_name} ---")
-        print(f"[LOG] Incoming normalized_size: {normalized_size:.2f}")
-        print(f"[LOG] Incoming intensity: {intensity:.2f}")
+        # print(f"\n[LOG] --- Calculating gradient for {planet_name} ---")
+        # print(f"[LOG] Incoming normalized_size: {normalized_size:.2f}")
+        # print(f"[LOG] Incoming intensity: {intensity:.2f}")
         
         # Verify planet colors
         planet_colors = PLANETARY_COLORS.get(planet_name)
@@ -245,17 +245,17 @@ class HeatmapCalculator:
         ruling_multiplier = 1.0
         if planet_name == hour_ruler and planet_name == day_ruling_planet:
             ruling_multiplier = 2.5  # Rules both
-            print(f"[LOG] {planet_name} rules both hour & day -> multiplier = {ruling_multiplier}")
+            # print(f"[LOG] {planet_name} rules both hour & day -> multiplier = {ruling_multiplier}")
         elif planet_name == hour_ruler:
             ruling_multiplier = 1.8  # Hour ruler
-            print(f"[LOG] {planet_name} is hour ruler -> multiplier = {ruling_multiplier}")
+            # print(f"[LOG] {planet_name} is hour ruler -> multiplier = {ruling_multiplier}")
         elif planet_name == day_ruling_planet:
             ruling_multiplier = 1.3  # Day ruler
-            print(f"[LOG] {planet_name} is day ruler -> multiplier = {ruling_multiplier}")
+            # print(f"[LOG] {planet_name} is day ruler -> multiplier = {ruling_multiplier}")
         
         relative_intensity = intensity / 10
-        print(f"[LOG] Relative intensity (0-1): {relative_intensity:.3f}")
-        print(f"[LOG] Ruling multiplier: {ruling_multiplier}")
+        # print(f"[LOG] Relative intensity (0-1): {relative_intensity:.3f}")
+        # print(f"[LOG] Ruling multiplier: {ruling_multiplier}")
         
         # Logarithmic scaling for base size
         base_size = math.log(normalized_size + 1) * 200 * ruling_multiplier
@@ -266,13 +266,13 @@ class HeatmapCalculator:
         inner_radius = core_radius + gradient_length * 0.2
         outer_radius = core_radius + gradient_length * 0.4
         
-        print(f"\n[LOG] Size calculations:")
-        print(f"[LOG] Base size (with ruling multiplier) = {base_size:.2f}")
-        print(f"[LOG] Core radius = {core_radius:.2f}")
-        print(f"[LOG] Gradient length = {gradient_length:.2f}")
-        print(f"[LOG] Additional spread beyond core:")
-        print(f"[LOG] - Inner: +{inner_radius - core_radius:.2f}")
-        print(f"[LOG] - Outer: +{outer_radius - core_radius:.2f}")
+        # print(f"\n[LOG] Size calculations:")
+        # print(f"[LOG] Base size (with ruling multiplier) = {base_size:.2f}")
+        # print(f"[LOG] Core radius = {core_radius:.2f}")
+        # print(f"[LOG] Gradient length = {gradient_length:.2f}")
+        # print(f"[LOG] Additional spread beyond core:")
+        # print(f"[LOG] - Inner: +{inner_radius - core_radius:.2f}")
+        # print(f"[LOG] - Outer: +{outer_radius - core_radius:.2f}")
         
         # Adjust opacity for contrast
         core_opacity = min(1.0, 0.5 + relative_intensity * 0.4 + ruling_multiplier * 0.2)
@@ -298,8 +298,8 @@ class HeatmapCalculator:
             }
         }
         
-        print(f"[LOG] Final gradient data for {planet_name}: {gradient_data}")
-        print("[LOG] ----------------------------------------\n")
+        # print(f"[LOG] Final gradient data for {planet_name}: {gradient_data}")
+        # print("[LOG] ----------------------------------------\n")
         return gradient_data
 
 
@@ -325,7 +325,7 @@ class HeatmapCalculator:
                 "color": "#AAAAAA"
             }
         }
-        print(f"[LOG] Fallback gradient for {planet_name}: {fallback}")
+        # print(f"[LOG] Fallback gradient for {planet_name}: {fallback}")
         return fallback
     
 

@@ -93,7 +93,7 @@ class EphemerisCalculator:
             positions=planetary_positions, precomputed_results=combustion_cazimi
         )
         planetary_positions["Moon"].update(moon_data)
-        print(f"DEBUG: Updated Moon Data: {planetary_positions['Moon']}")
+        # print(f"DEBUG: Updated Moon Data: {planetary_positions['Moon']}")
 
         # Step 5: Calculate aspects between planets
         aspects = self.calculate_aspects()
@@ -333,15 +333,16 @@ class EphemerisCalculator:
 
             for planet_name, skyfield_id in EXTENDED_SKYFIELD_IDS.items():
                 try:
+                    
                     # Log the planet and identifier being processed
-                    print(f"DEBUG: Calculating distance for {planet_name} using ID '{skyfield_id}'")
+                    # print(f"DEBUG: Calculating distance for {planet_name} using ID '{skyfield_id}'")
 
                     planet_obj = ephemeris[skyfield_id]
                     # Calculate distance from Earth to the planet
                     distance = earth.at(observer_time).observe(planet_obj).distance().au
 
                     # Log the calculated distance
-                    print(f"DEBUG: Distance for {planet_name}: {distance:.6f} AU")
+                    # print(f"DEBUG: Distance for {planet_name}: {distance:.6f} AU")
 
                     # Store the result
                     distances[planet_name] = round(distance, 6)
@@ -359,7 +360,7 @@ class EphemerisCalculator:
                     print(f"ERROR: {error_message}")
                     distances[planet_name] = {"error": error_message}
 
-            print("DEBUG: Final distances:", distances)
+            # print("DEBUG: Final distances:", distances)
             return distances
 
         except Exception as e:
@@ -633,7 +634,7 @@ class EphemerisCalculator:
         
         # Print debug info
         sign_index = int(adjusted_degree // 30) % 12
-        print(f"DEBUG: degree={degree}, adjusted={adjusted_degree}, index={sign_index}, sign={ZODIAC_SIGNS[sign_index]}")
+        # print(f"DEBUG: degree={degree}, adjusted={adjusted_degree}, index={sign_index}, sign={ZODIAC_SIGNS[sign_index]}")
         
         return ZODIAC_SIGNS[sign_index]
         
@@ -658,8 +659,8 @@ class EphemerisCalculator:
                 self.now_utc.hour + self.now_utc.minute / 60.0 + self.now_utc.second / 3600.0,
             )
             cusps, ascmc = swe.houses(jd, self.latitude, self.longitude, b'R')
-            print(f"DEBUG: Raw House cusps: {cusps}")
-            print(f"DEBUG: Raw angles (ascmc): {ascmc}")
+            # print(f"DEBUG: Raw House cusps: {cusps}")
+            # print(f"DEBUG: Raw angles (ascmc): {ascmc}")
             
 
             # 3. Define house structure
@@ -673,8 +674,8 @@ class EphemerisCalculator:
                     "sign": self.get_zodiac_sign(current_cusp),
                     "planets": []
                 }
-                print(f"DEBUG: House {i+1}: absolute_degree={current_cusp}, "
-                    f"sign={self.get_zodiac_sign(current_cusp)}")
+                # print(f"DEBUG: House {i+1}: absolute_degree={current_cusp}, "
+                #     f"sign={self.get_zodiac_sign(current_cusp)}")
                 
                 
                 

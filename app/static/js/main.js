@@ -31,10 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // Apply the gradient using heatmap data
             console.log('Heatmap Data:', data.heatmap_data);
             applyPlanetEnergiesBackground(data.heatmap_data);
-            // const gradient = generateGradient(data.heatmap_data);
-            // console.log('Generated gradient:', gradient); // Check gradient
-            // applyGradientToNetworkContainer(gradient);
-            // console.log('Applied background:', container.style.background); // Safe access
         },
         (error) => {
             // Display error in the terminal

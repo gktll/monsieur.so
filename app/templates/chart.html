@@ -1,0 +1,73 @@
+<!--
+
+<div id="chartContainer" style="width: 100%; max-width: 800px; margin: 0 auto;"></div>
+<div class="report-section">
+  <div id="reportContainer"></div>
+</div>
+
+    <script type="module">
+        import { renderChart, displayReport } from '/static/js/chartGenerator.js';
+
+        // Initialize chart rendering with geolocation
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    renderChart('chartContainer', {
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude,
+                    });
+                },
+                (error) => {
+                    document.getElementById('chartContainer').innerHTML =
+                        `Error: ${error.message}`;
+                }
+            );
+        } else {
+            document.getElementById('chartContainer').innerHTML =
+                "Geolocation is not supported by this browser.";
+        }
+    </script>
+
+-->
+
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="chartContainer" style="width: 100%; max-width: 800px; margin: 0 auto;"></div>
+<div class="report-section">
+  <div id="reportContainer"></div>
+</div>
+
+<script type="module">
+    import { renderChart, displayReport, fetchEphemerisData } from '/static/js/chartGenerator.js';
+
+    // Initialize chart rendering with geolocation
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                const locationData = {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                };
+
+                try {
+                    const ephemerisData = await fetchEphemerisData(locationData);
+                    await renderChart('chartContainer', locationData);
+                    displayReport(ephemerisData);
+                } catch (error) {
+                    document.getElementById('chartContainer').innerHTML = `Error rendering chart: ${error.message}`;
+                }
+            },
+            (error) => {
+                document.getElementById('chartContainer').innerHTML = `Error: ${error.message}`;
+            }
+        );
+    } else {
+        document.getElementById('chartContainer').innerHTML = "Geolocation is not supported by this browser.";
+    }
+</script>
+
+{% endblock %}

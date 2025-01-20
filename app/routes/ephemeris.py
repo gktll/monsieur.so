@@ -1,4 +1,5 @@
 # app/routes/ephemeris.py
+
 from flask import Blueprint, jsonify, request
 from app.routes.utils.ephemeris_calculator import EphemerisCalculator
 
