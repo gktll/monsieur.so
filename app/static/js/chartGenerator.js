@@ -1,47 +1,3 @@
-
-// /**
-//  * Fetches ephemeris data and renders the chart SVG
-//  * @param {string} containerId - The ID of the container where the chart will be rendered
-//  * @param {Object} locationData - Geolocation data with latitude and longitude
-//  */
-// export async function renderChart(containerId, locationData) {
-//   const container = document.getElementById(containerId);
-
-//   try {
-//       // Fetch ephemeris data
-//       const ephemerisResponse = await fetch('/api/ephemeris', {
-//           method: 'POST',
-//           headers: { 'Content-Type': 'application/json' },
-//           body: JSON.stringify(locationData),
-//       });
-
-//       if (!ephemerisResponse.ok) {
-//           throw new Error(`Failed to fetch ephemeris data: ${ephemerisResponse.statusText}`);
-//       }
-
-//       const ephemerisData = await ephemerisResponse.json();
-
-//       // Fetch chart SVG using ephemeris data
-//       const chartResponse = await fetch('/api/chart-svg', {
-//           method: 'POST',
-//           headers: { 'Content-Type': 'application/json' },
-//           body: JSON.stringify(ephemerisData),
-//       });
-
-//       if (!chartResponse.ok) {
-//           throw new Error(`Failed to fetch chart SVG: ${chartResponse.statusText}`);
-//       }
-
-//       const svgContent = await chartResponse.text();
-//       container.innerHTML = svgContent; // Render the SVG content
-
-//   } catch (error) {
-//       container.innerHTML = `Error rendering chart: ${error.message}`;
-//   }
-// }
-
-
-
 /**
  * Fetches ephemeris data
  * @param {Object} locationData - Geolocation data with latitude and longitude
@@ -102,58 +58,110 @@ export async function renderChart(containerId, locationData) {
 }
 
 
+// Streamline Chart Data
+const reportTemplates = {
+    timeSection(info) {
+        return `
+            <section class="report-section">
+                <h3 class="text-lg font-semibold mb-3">Time Information</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    ${[
+                        ['Local Time', info.current_time],
+                        ['UTC Time', info.utc_time],
+                        ['Sunrise', info.sunrise],
+                        ['Sunset', info.sunset]
+                    ].map(([label, value]) => `
+                        <div><span class="font-medium">${label}:</span> ${value || 'N/A'}</div>
+                    `).join('')}
+                </div>
+            </section>
+        `;
+    },
 
-/**
-* Displays the report based on the ephemeris data
-* @param {Object} data - Ephemeris data
-*/
+    anglesSection(angles) {
+        return `
+            <section class="report-section mt-6">
+                <h3 class="text-lg font-semibold mb-3">Chart Angles</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    ${['ascendant', 'descendant', 'midheaven', 'ic']
+                        .map(angle => {
+                            const data = angles?.[angle];
+                            if (!data) return '';
+                            return `
+                                <div class="angle-info">
+                                    <span class="font-medium">${angle.charAt(0).toUpperCase() + angle.slice(1)}:</span>
+                                    ${data.degree}° ${data.sign}
+                                    <span class="text-gray-500">(${data.absolute_degree}° total)</span>
+                                </div>
+                            `;
+                        }).join('')}
+                </div>
+            </section>
+        `;
+    },
+
+    houseCard(number, house) {
+        const planetNames = house.planets?.length > 0
+            ? house.planets.map(planet => planet.name).join(', ')
+            : 'Empty house';
+        
+        return `
+            <div class="house-info p-2 border rounded hover:shadow-sm transition-shadow">
+                <div class="font-medium">House ${number}</div>
+                <div>${house.degree}° ${house.sign}
+                    <span class="text-gray-500">(${house.absolute_degree}° total)</span>
+                </div>
+                <div class="text-sm ${house.planets?.length ? 'text-blue-600' : 'text-gray-500'}">
+                    ${planetNames}
+                </div>
+            </div>
+        `;
+    },
+
+    housesSection(houses) {
+        return `
+            <section class="report-section mt-6">
+                <h3 class="text-lg font-semibold mb-3">Houses and Occupancy</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    ${Array.from({length: 12}, (_, i) => i + 1)
+                        .map(num => {
+                            const house = houses?.[num.toString()];
+                            return house ? this.houseCard(num, house) : '';
+                        }).join('')}
+                </div>
+            </section>
+        `;
+    }
+};
+
 export function displayReport(data) {
-  const reportContainer = document.getElementById('reportContainer');
-  if (!reportContainer) return;
+    const reportContainer = document.getElementById('reportContainer');
+    if (!reportContainer) return;
 
-  const additionalInfo = data?.ephemeris?.additional_info || {};
-  const chart = data?.ephemeris?.chart || {};
+    const additionalInfo = data?.ephemeris?.additional_info || {};
+    const chart = data?.ephemeris?.chart || {};
 
-  reportContainer.textContent = ''; // Clear previous content
+    const template = `
+        <div class="chart-report">
+            ${reportTemplates.timeSection(additionalInfo)}
+            ${reportTemplates.anglesSection(chart.angles)}
+            ${reportTemplates.housesSection(chart.houses)}
+        </div>
+    `;
 
-  // Magic Hour Information
-  // reportContainer.textContent += '\n=== MAGIC HOUR INFORMATION ===\n';
-  // reportContainer.textContent += `> Current Planetary Hour: ${additionalInfo.current_planetary_hour || 'Unknown'}\n`;
-  // reportContainer.textContent += `> Magic Hour Name: ${data?.neo4j_data?.hour?.label || 'N/A'}\n`;
-  // reportContainer.textContent += `> Magic Hour Ruler: ${additionalInfo.hour_ruler || 'Unknown'}\n`;
-  // reportContainer.textContent += `> Day Ruling Planet: ${additionalInfo.day_ruling_planet || 'Unknown'}\n`;
-
-  // Time Information
-  reportContainer.textContent += '\n=== TIME INFORMATION ===\n';
-  reportContainer.textContent += `> Local Time: ${additionalInfo.current_time || 'N/A'}\n`;
-  reportContainer.textContent += `> Sunrise: ${additionalInfo.sunrise || 'N/A'}, Sunset: ${additionalInfo.sunset || 'N/A'}\n`;
-  reportContainer.textContent += `> Current UTC Time: ${additionalInfo.utc_time || 'N/A'}\n`;
-
-  // Chart Angles
-  reportContainer.textContent += '\n=== CHART ANGLES ===\n';
-  const angles = chart.angles || {};
-  ['ascendant', 'descendant', 'midheaven', 'ic'].forEach(angle => {
-      if (angles[angle]) {
-          const angleData = angles[angle];
-          reportContainer.textContent += `> ${angle.charAt(0).toUpperCase() + angle.slice(1)}: ${angleData.degree}° ${angleData.sign} (${angleData.absolute_degree}° total)\n`;
-      }
-  });
-
-  // Houses and Occupancy
-  reportContainer.textContent += '\n=== HOUSES AND OCCUPANCY ===\n';
-  const houses = chart.houses || {};
-  for (let i = 1; i <= 12; i++) {
-      const house = houses[i.toString()];
-      if (house) {
-          const planetNames = house.planets && house.planets.length > 0
-              ? house.planets.map(planet => planet.name).join(', ')
-              : null;
-
-          const planetList = planetNames
-              ? ` - Occupied by: ${planetNames}`
-              : ' - Empty house';
-
-          reportContainer.textContent += `> House ${i}: ${house.degree}° ${house.sign} (${house.absolute_degree}° total)${planetList}\n`;
-      }
-  }
+    reportContainer.innerHTML = template;
 }
+
+// For modal usage:
+// export function getReportHTML(data) {
+//     const additionalInfo = data?.ephemeris?.additional_info || {};
+//     const chart = data?.ephemeris?.chart || {};
+
+//     return `
+//         <div class="chart-report">
+//             ${reportTemplates.timeSection(additionalInfo)}
+//             ${reportTemplates.anglesSection(chart.angles)}
+//             ${reportTemplates.housesSection(chart.houses)}
+//         </div>
+//     `;
+// }
