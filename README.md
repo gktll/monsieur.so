@@ -1,6 +1,4 @@
-# How to run
-
-- download and install requirements.txt
-- 
+# Monsieru.so
+A planetary influences tracker
 
 
